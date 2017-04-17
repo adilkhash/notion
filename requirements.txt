@@ -1,0 +1,6 @@
+Django==1.11
+psycopg2==2.7.1
+django-environ==0.4.2
+django-wysiwyg-redactor==0.5.1
+django-redis==4.7.0
+redis==2.10.5

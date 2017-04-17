@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <article>
+                    <h1>{{ object.title }}</h1>
+                    <div class="article-meta">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ object.created|date:"j N o" }}</span>, <a href="#">{{ object.category.title }}</a>
+                    </div>
+                    {{ object.text|safe }}
+                </article>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Также полезно почитать:</h2>
+                <ul>
+                    {% for related_article in related_articles %}
+                        <li><a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
