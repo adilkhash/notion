@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'redactor',
+    'bootstrap_pagination',
 
 ]
 MIDDLEWARE = [

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.utils import translation
 
@@ -8,15 +7,11 @@ from .models import Post, Category
 class HomePageView(ListView):
     template_name = 'blog/index.html'
     model = Post
+    paginate_by = 10
 
     def get_queryset(self):
         return self.model.objects.filter(lang=translation.get_language(),
-                                         status=Post.PUBLISHED)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # context['categories'] = Category.objects.all()
-        return context
+                                         status=Post.PUBLISHED).order_by('-id')
 
 
 class PostDetailView(DetailView):

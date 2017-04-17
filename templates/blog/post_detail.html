@@ -16,16 +16,18 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Также полезно почитать:</h2>
-                <ul>
-                    {% for related_article in related_articles %}
-                        <li><a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a></li>
-                    {% endfor %}
-                </ul>
+        {% if related_articles %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Также полезно почитать:</h2>
+                    <ul>
+                        {% for related_article in related_articles %}
+                            <li><a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 
 {% endblock %}
