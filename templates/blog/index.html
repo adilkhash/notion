@@ -34,7 +34,7 @@
                         <div class="article-meta">
                             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ post.created|date:"j N o" }}</span>, <a href="#">{{ post.category.title }}</a>
                         </div>
-                        {{ post.text|safe|truncatewords:"70" }}
+                        {{ post.text|safe|truncatewords:"110" }}
                     </article>
                     {% endfor %}
                 </div>
