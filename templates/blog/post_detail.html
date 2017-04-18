@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}{{ object.title }}{% endblock %}
 
@@ -9,7 +10,7 @@
                 <article>
                     <h1>{{ object.title }}</h1>
                     <div class="article-meta">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ object.created|date:"j N o" }}</span>, <a href="#">{{ object.category.title }}</a>
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ object.created|date:"j N o" }}</span>, <a href="{% url 'blog:category' slug=object.category.slug %}">{{ object.category.title }}</a>, <span>{{ object.page_views }} {% trans 'views' %}</span>
                     </div>
                     {{ object.text|safe }}
                 </article>
@@ -19,7 +20,7 @@
         {% if related_articles %}
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Также полезно почитать:</h2>
+                    <h2>{% trans 'Related posts' %}:</h2>
                     <ul>
                         {% for related_article in related_articles %}
                             <li><a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a></li>

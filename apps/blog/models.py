@@ -30,12 +30,29 @@ class Post(models.Model):
     lang = models.CharField(_('Language'), max_length=2, choices=settings.LANGUAGES)
     category = models.ForeignKey('Category', null=True)
     status = models.SmallIntegerField(_('Status'), choices=STATUSES)
+    page_views = models.PositiveIntegerField(_('Page views'), default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = _('post')
         verbose_name_plural = _('Posts')
+
+    def __str__(self):
+        return self.title
+
+
+class Page(models.Model):
+    title = models.CharField(max_length=30)
+    slug = models.SlugField(max_length=30)
+    text = models.TextField(_('Text'))
+    lang = models.CharField(_('Language'), max_length=2, choices=settings.LANGUAGES)
+    visible = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _('page')
+        verbose_name_plural = _('Pages')
 
     def __str__(self):
         return self.title

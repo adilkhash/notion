@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.utils import translation
 
-from .models import Post, Category
+from .models import Post, Category, Page
 
 
 class HomePageView(ListView):
@@ -25,6 +25,8 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         article = context['object']
+        article.page_views += 1
+        article.save()
         context['related_articles'] = Post.objects.\
             filter(status=Post.PUBLISHED,
                    lang=translation.get_language(),
@@ -51,3 +53,12 @@ class ArchiveListView(ListView):
     def get_queryset(self):
         return super().get_queryset().filter(lang=translation.get_language(),
                                              status=Post.PUBLISHED)
+
+
+class PageDetailView(DetailView):
+    template_name = 'blog/page.html'
+    model = Page
+
+    def get_queryset(self):
+        return super().get_queryset().filter(lang=translation.get_language(),
+                                             visible=True)

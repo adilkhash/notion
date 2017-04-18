@@ -1,7 +1,6 @@
 {% load i18n %}
 {% load staticfiles %}
 {% get_current_language as LANGUAGE_CODE %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Персональный блог Адиля Хаштамов — программист прагматик{% endblock %}</title>
+    <title>{% block title %}{% trans "Adil Khashtamov's personal blog — pragmatic programmer" %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
@@ -26,7 +25,7 @@
             <nav class="blog-nav">
                 <a class="blog-nav-item" href="{% url 'blog:posts' %}">{% trans 'Blog' %}</a>
                 <a class="blog-nav-item" href="{% url 'blog:archives' %}">{% trans 'Archives' %}</a>
-                <a class="blog-nav-item" href="#">{% trans 'Contacts' %}</a>
+                <a class="blog-nav-item" href="{% url 'blog:page' slug='contacts' %}">{% trans 'Contacts' %}</a>
                 {% if LANGUAGE_CODE == 'ru' %}
                     <a class="blog-nav-item" href="/en/">{% trans 'In English' %}</a>
                 {% else %}
@@ -38,6 +37,5 @@
 
     {% block content %}
     {% endblock %}
-
 </body>
 </html>

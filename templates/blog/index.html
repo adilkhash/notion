@@ -7,17 +7,16 @@
     <div class="container" style="margin-top:30px;">
         <div class="row">
             <div class="col-md-3">
-                <img src="{% static 'images/author.jpg' %}" alt="Адиль Хаштамов" title="Адиль Хаштамов">
+                <img src="{% static 'images/author.jpg' %}" alt="{% trans 'Adil Khashtamov' %}" title="{% trans 'Adil Khashtamov' %}">
             </div>
             <div class="col-md-7">
                 <div class="author-cloud">
                     <img src="{% static 'images/arrow.jpg' %}" class="arrow-msg">
                     <div class="hello-msg">
-                        <p>{% blocktrans %}Привет! Меня зовут Адиль. Всю свою сознательную жизнь я
-                            занимаюсь разработкой программного обеспечения.
-                            Этот блог моя записная книжка, где я стараюсь как можно чаще делать
-                            заметки на тему программирования, разработки и проектирования ПО, но
-                            бывает и отхожу от темы.{% endblocktrans %}
+                        <p>
+                            {% blocktrans %}
+Hi. My name is Adil. I am passionate about building software. This blog is a notebook of my thoughts and ideas regarding software engineering and life around it. Currently I am interested in engineering of modern web apps, machine learning and data analysis.
+{% endblocktrans %}
                         </p>
 
                         <div class="social-btns text-right">

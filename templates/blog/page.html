@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <article>
+                    <h1>{{ object.title }}</h1>
+                    <div class="article-meta">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ object.created|date:"j N o" }}</span>
+                    </div>
+                    {{ object.text|safe }}
+                </article>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

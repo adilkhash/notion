@@ -2,13 +2,22 @@ from django.contrib import admin
 from django import forms
 from redactor.widgets import RedactorEditor
 
-from .models import Category, Post
+from .models import Category, Post, Page
 
 
 class PostAdminForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'slug', 'text', 'lang', 'status', 'category']
+        widgets = {
+           'text': RedactorEditor(redactor_options={'plugins': ['source']}),
+        }
+
+
+class PageAdminForm(forms.ModelForm):
+    class Meta:
+        model = Page
+        fields = ['title', 'slug', 'text', 'lang', 'visible']
         widgets = {
            'text': RedactorEditor(redactor_options={'plugins': ['source']}),
         }
@@ -25,5 +34,11 @@ class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
 
 
+class PageAdmin(admin.ModelAdmin):
+    list_display = ['title', 'lang', 'slug', 'visible', 'created']
+    form = PageAdminForm
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Page, PageAdmin)
