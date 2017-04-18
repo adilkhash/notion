@@ -25,7 +25,7 @@
         <div class="container">
             <nav class="blog-nav">
                 <a class="blog-nav-item" href="{% url 'blog:posts' %}">{% trans 'Blog' %}</a>
-                <a class="blog-nav-item" href="#">{% trans 'Archive' %}</a>
+                <a class="blog-nav-item" href="{% url 'blog:archives' %}">{% trans 'Archives' %}</a>
                 <a class="blog-nav-item" href="#">{% trans 'Contacts' %}</a>
                 {% if LANGUAGE_CODE == 'ru' %}
                     <a class="blog-nav-item" href="/en/">{% trans 'In English' %}</a>

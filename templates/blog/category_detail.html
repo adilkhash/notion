@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ object.title }} {% trans 'category' %}{% endblock %}
 
-<h1>{{ object.title }}</h1>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ object.title }} {% trans 'category' %}</h1>
 
-<ul>
-    {% for post in posts %}
-        <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+                {% regroup posts by created.year as groups %}
 
-</body>
-</html>
+                {% for group in groups %}
+                    <h3>{{ group.grouper }}</h3>
+                    <ul>
+                        {% for post in group.list %}
+                            <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

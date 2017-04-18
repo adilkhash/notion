@@ -42,3 +42,12 @@ class CategoryDetailView(DetailView):
         context['posts'] = Post.objects.filter(lang=translation.get_language(),
                                                status=Post.PUBLISHED)
         return context
+
+
+class ArchiveListView(ListView):
+    model = Post
+    template_name = 'blog/archives.html'
+
+    def get_queryset(self):
+        return super().get_queryset().filter(lang=translation.get_language(),
+                                             status=Post.PUBLISHED)

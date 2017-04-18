@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Archive of posts' %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{% trans 'Archive of posts' %}</h1>
+
+                <h2>{% trans 'By category'%}</h2>
+                {% regroup object_list by category.title as groups %}
+
+                {% for group in groups %}
+                    <h3>{{ group.grouper }}</h3>
+                    <ul>
+                        {% for post in group.list %}
+                            <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+
+                <h2>{% trans 'By year'%}</h2>
+                {% regroup object_list by created.year as groups %}
+
+                {% for group in groups %}
+                    <h3>{{ group.grouper }}</h3>
+                    <ul>
+                        {% for post in group.list %}
+                            <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

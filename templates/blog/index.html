@@ -9,7 +9,7 @@
             <div class="col-md-3">
                 <img src="{% static 'images/author.jpg' %}" alt="Адиль Хаштамов" title="Адиль Хаштамов">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <div class="author-cloud">
                     <img src="{% static 'images/arrow.jpg' %}" class="arrow-msg">
                     <div class="hello-msg">
@@ -32,13 +32,13 @@
         </div>
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="articles">
                     {% for post in object_list %}
                     <article class="post-list">
                         <h1><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></h1>
                         <div class="article-meta">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ post.created|date:"j N o" }}</span>, <a href="#">{{ post.category.title }}</a>
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ post.created|date:"j N o" }}</span>, <a href="{% url 'blog:category' slug=post.category.slug %}">{{ post.category.title }}</a>
                         </div>
                         {{ post.text|safe|truncatewords:"110" }}
                     </article>
