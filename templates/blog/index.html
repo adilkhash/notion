@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load bootstrap_pagination %}
+{% load blog_tags %}
 
 {% block content %}
     <div class="container" style="margin-top:30px;">
@@ -39,7 +40,7 @@ Hi. My name is Adil. I am passionate about building software. This blog is a not
                         <div class="article-meta">
                             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ post.created|date:"j N o" }}</span>, <a href="{% url 'blog:category' slug=post.category.slug %}">{{ post.category.title }}</a>
                         </div>
-                        {{ post.text|safe|truncatewords:"110" }}
+                        {{ post.text|text_preview|safe }}
                     </article>
                     {% endfor %}
                 </div>
