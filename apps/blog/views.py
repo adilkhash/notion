@@ -52,7 +52,8 @@ class ArchiveListView(ListView):
 
     def get_queryset(self):
         return super().get_queryset().filter(lang=translation.get_language(),
-                                             status=Post.PUBLISHED)
+                                             status=Post.PUBLISHED).order_by('category').\
+            select_related('category')
 
 
 class PageDetailView(DetailView):
