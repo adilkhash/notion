@@ -42,7 +42,7 @@ class CategoryDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.filter(lang=translation.get_language(),
-                                               status=Post.PUBLISHED)
+                                               status=Post.PUBLISHED).order_by('-created')
         return context
 
 

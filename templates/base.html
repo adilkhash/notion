@@ -31,6 +31,9 @@
                 {% else %}
                     <a class="blog-nav-item" href="/ru/">{% trans 'In Russian' %}</a>
                 {% endif %}
+                {% if user.is_superuser %}
+                    <a class="blog-nav-item" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+                {% endif %}
             </nav>
         </div>
     </div>
