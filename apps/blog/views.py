@@ -55,6 +55,13 @@ class ArchiveListView(ListView):
                                              status=Post.PUBLISHED).order_by('category').\
             select_related('category')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list_by_year'] = self.get_queryset().\
+            filter(lang=translation.get_language(),
+                   status=Post.PUBLISHED).order_by('-created')
+        return context
+
 
 class PageDetailView(DetailView):
     template_name = 'blog/page.html'

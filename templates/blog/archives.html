@@ -21,7 +21,7 @@
                 {% endfor %}
 
                 <h2>{% trans 'By year'%}</h2>
-                {% regroup object_list by created.year as groups %}
+                {% regroup object_list_by_year by created.year as groups %}
 
                 {% for group in groups %}
                     <h3>{{ group.grouper }}</h3>
