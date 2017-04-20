@@ -1,7 +1,28 @@
 from django.views.generic import ListView, DetailView
 from django.utils import translation
-
+from django.utils.translation import gettext as _
+from django.urls import reverse, reverse_lazy
+from django.contrib.syndication.views import Feed
 from .models import Post, Category, Page
+
+
+class LastestPostFeed(Feed):
+    title = _("Adil Khashtamov's personal blog")
+    description = _('pragmatic programmer')
+    link = reverse_lazy('blog:posts')
+
+    def items(self):
+        return Post.objects.filter(lang=translation.get_language(),
+                                   status=Post.PUBLISHED).order_by('-created')[:5]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.text[:item.text.find('<!--more-->')]
+
+    def item_link(self, item):
+        return reverse('blog:post', kwargs={'slug': item.slug})
 
 
 class HomePageView(ListView):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 02:39+0600\n"
+"POT-Creation-Date: 2017-04-20 23:25+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,11 +70,19 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: .\notion\settings.py:108
-msgid "Russian"
+#: .\apps\blog\views.py:10
+msgid "Adil Khashtamov's personal blog"
+msgstr ""
+
+#: .\apps\blog\views.py:11
+msgid "pragmatic programmer"
 msgstr ""
 
 #: .\notion\settings.py:109
+msgid "Russian"
+msgstr ""
+
+#: .\notion\settings.py:110
 msgid "English"
 msgstr ""
 
@@ -82,24 +90,32 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:26
+#: .\templates\base.html:27
 msgid "Blog"
 msgstr ""
 
-#: .\templates\base.html:27
+#: .\templates\base.html:28
 msgid "Archives"
 msgstr ""
 
-#: .\templates\base.html:28
+#: .\templates\base.html:29
 msgid "Contacts"
 msgstr ""
 
-#: .\templates\base.html:30
+#: .\templates\base.html:31
 msgid "In English"
 msgstr ""
 
-#: .\templates\base.html:32
+#: .\templates\base.html:33
 msgid "In Russian"
+msgstr ""
+
+#: .\templates\base.html:36
+msgid "Admin"
+msgstr ""
+
+#: .\templates\base.html:50
+msgid "Powered by Django 1.11 & Python 3.5"
 msgstr ""
 
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
@@ -114,11 +130,11 @@ msgstr ""
 msgid "By year"
 msgstr ""
 
-#: .\templates\blog\index.html:10
+#: .\templates\blog\index.html:11
 msgid "Adil Khashtamov"
 msgstr ""
 
-#: .\templates\blog\index.html:17
+#: .\templates\blog\index.html:18
 msgid ""
 "\n"
 "Hi. My name is Adil. I am passionate about building software. This blog is a "

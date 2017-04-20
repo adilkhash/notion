@@ -2,7 +2,7 @@ from django.conf.urls import url
 
 from .views import (
     HomePageView, PostDetailView, CategoryDetailView, ArchiveListView,
-    PageDetailView
+    PageDetailView, LastestPostFeed
 )
 
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^p/(?P<slug>[-\w]+)/$', PageDetailView.as_view(), name='page'),
     url(r'^category/(?P<slug>[-\w]+)/$', CategoryDetailView.as_view(), name='category'),
     url(r'^archives/$', ArchiveListView.as_view(), name='archives'),
+    url(r'^feed/$', LastestPostFeed(), name='feed'),
     url(r'^(?P<slug>[-\w]+)/$', PostDetailView.as_view(), name='post'),
 ]
 

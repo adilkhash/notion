@@ -7,8 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 02:39+0600\n"
-"PO-Revision-Date: 2017-04-19 02:43+0600\n"
+"POT-Creation-Date: 2017-04-20 23:25+0600\n"
+"PO-Revision-Date: 2017-04-20 23:26+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,8 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.8\n"
 
 #: .\apps\blog\models.py:7
@@ -73,11 +73,19 @@ msgstr "траница"
 msgid "Pages"
 msgstr "Страницы"
 
-#: .\notion\settings.py:108
+#: .\apps\blog\views.py:10
+msgid "Adil Khashtamov's personal blog"
+msgstr "Персональный блог Адиля Хаштамова"
+
+#: .\apps\blog\views.py:11
+msgid "pragmatic programmer"
+msgstr "программист-прагматик"
+
+#: .\notion\settings.py:109
 msgid "Russian"
 msgstr "Русский"
 
-#: .\notion\settings.py:109
+#: .\notion\settings.py:110
 msgid "English"
 msgstr "Английский"
 
@@ -85,25 +93,33 @@ msgstr "Английский"
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr "Персональный блог Адиля Хаштамова — программист-прагматик"
 
-#: .\templates\base.html:26
+#: .\templates\base.html:27
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\base.html:27
+#: .\templates\base.html:28
 msgid "Archives"
 msgstr "Архивы"
 
-#: .\templates\base.html:28
+#: .\templates\base.html:29
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\templates\base.html:30
+#: .\templates\base.html:31
 msgid "In English"
 msgstr "На английской"
 
-#: .\templates\base.html:32
+#: .\templates\base.html:33
 msgid "In Russian"
 msgstr "На русском"
+
+#: .\templates\base.html:36
+msgid "Admin"
+msgstr "Админка"
+
+#: .\templates\base.html:50
+msgid "Powered by Django 1.11 & Python 3.5"
+msgstr "Работает на Django 1.11 & Python 3.5"
 
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
 msgid "Archive of posts"
@@ -117,11 +133,11 @@ msgstr "По категории"
 msgid "By year"
 msgstr "По годам"
 
-#: .\templates\blog\index.html:10
+#: .\templates\blog\index.html:11
 msgid "Adil Khashtamov"
 msgstr "Адиль Хаштамов"
 
-#: .\templates\blog\index.html:17
+#: .\templates\blog\index.html:18
 msgid ""
 "\n"
 "Hi. My name is Adil. I am passionate about building software. This blog is a "
