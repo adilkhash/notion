@@ -32,7 +32,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'lang', 'slug', 'status', 'created']
+    list_display = ['title', 'page_views', 'lang', 'slug', 'status', 'created']
     search_fields = ['title']
     ordering = ['-created']
     form = PostAdminForm
