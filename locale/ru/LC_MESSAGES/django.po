@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-20 23:25+0600\n"
-"PO-Revision-Date: 2017-04-20 23:26+0600\n"
+"POT-Creation-Date: 2017-04-22 02:29+0600\n"
+"PO-Revision-Date: 2017-04-22 02:29+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -41,11 +41,11 @@ msgstr "Черновик"
 msgid "Published"
 msgstr "Опубликован"
 
-#: .\apps\blog\models.py:29 .\apps\blog\models.py:48
+#: .\apps\blog\models.py:29 .\apps\blog\models.py:51
 msgid "Text"
 msgstr "Текст"
 
-#: .\apps\blog\models.py:30 .\apps\blog\models.py:49
+#: .\apps\blog\models.py:30 .\apps\blog\models.py:52
 msgid "Language"
 msgstr "Язык"
 
@@ -65,11 +65,11 @@ msgstr "запись"
 msgid "Posts"
 msgstr "Записи"
 
-#: .\apps\blog\models.py:54
+#: .\apps\blog\models.py:57
 msgid "page"
 msgstr "траница"
 
-#: .\apps\blog\models.py:55
+#: .\apps\blog\models.py:58
 msgid "Pages"
 msgstr "Страницы"
 
@@ -81,43 +81,43 @@ msgstr "Персональный блог Адиля Хаштамова"
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\notion\settings.py:109
+#: .\notion\settings.py:112
 msgid "Russian"
 msgstr "Русский"
 
-#: .\notion\settings.py:110
+#: .\notion\settings.py:113
 msgid "English"
 msgstr "Английский"
 
 #: .\templates\base.html:11
+msgid ""
+"Software engineer personal blog. Usually write about building web apps, "
+"machine learning and data analysis"
+msgstr ""
+"Персональный блог программиста-прагматика. Пишу о разработке веб-приложений, "
+"машинном обучении и анализе данных"
+
+#: .\templates\base.html:13
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr "Персональный блог Адиля Хаштамова — программист-прагматик"
 
-#: .\templates\base.html:27
+#: .\templates\base.html:72
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\base.html:28
+#: .\templates\base.html:73
 msgid "Archives"
 msgstr "Архивы"
 
-#: .\templates\base.html:29
+#: .\templates\base.html:74
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\templates\base.html:31
-msgid "In English"
-msgstr "На английской"
-
-#: .\templates\base.html:33
-msgid "In Russian"
-msgstr "На русском"
-
-#: .\templates\base.html:36
+#: .\templates\base.html:81
 msgid "Admin"
 msgstr "Админка"
 
-#: .\templates\base.html:50
+#: .\templates\base.html:95
 msgid "Powered by Django 1.11 & Python 3.5"
 msgstr "Работает на Django 1.11 & Python 3.5"
 
@@ -152,10 +152,16 @@ msgstr ""
 "проектирования ПО. Сейчас особенно заинтересован в современных веб "
 "приложениях, машинном обучении и анализе данных.\n"
 
-#: .\templates\blog\post_detail.html:13
+#: .\templates\blog\post_detail.html:15
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:23
+#: .\templates\blog\post_detail.html:25
 msgid "Related posts"
 msgstr "Интересные записи"
+
+#~ msgid "In English"
+#~ msgstr "На английской"
+
+#~ msgid "In Russian"
+#~ msgstr "На русском"

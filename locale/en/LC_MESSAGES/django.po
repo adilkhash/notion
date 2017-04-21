@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-20 23:25+0600\n"
+"POT-Creation-Date: 2017-04-22 02:29+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,11 +38,11 @@ msgstr ""
 msgid "Published"
 msgstr ""
 
-#: .\apps\blog\models.py:29 .\apps\blog\models.py:48
+#: .\apps\blog\models.py:29 .\apps\blog\models.py:51
 msgid "Text"
 msgstr ""
 
-#: .\apps\blog\models.py:30 .\apps\blog\models.py:49
+#: .\apps\blog\models.py:30 .\apps\blog\models.py:52
 msgid "Language"
 msgstr ""
 
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Posts"
 msgstr ""
 
-#: .\apps\blog\models.py:54
+#: .\apps\blog\models.py:57
 msgid "page"
 msgstr ""
 
-#: .\apps\blog\models.py:55
+#: .\apps\blog\models.py:58
 msgid "Pages"
 msgstr ""
 
@@ -78,43 +78,41 @@ msgstr ""
 msgid "pragmatic programmer"
 msgstr ""
 
-#: .\notion\settings.py:109
+#: .\notion\settings.py:112
 msgid "Russian"
 msgstr ""
 
-#: .\notion\settings.py:110
+#: .\notion\settings.py:113
 msgid "English"
 msgstr ""
 
 #: .\templates\base.html:11
+msgid ""
+"Software engineer personal blog. Usually write about building web apps, "
+"machine learning and data analysis"
+msgstr ""
+
+#: .\templates\base.html:13
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:27
+#: .\templates\base.html:72
 msgid "Blog"
 msgstr ""
 
-#: .\templates\base.html:28
+#: .\templates\base.html:73
 msgid "Archives"
 msgstr ""
 
-#: .\templates\base.html:29
+#: .\templates\base.html:74
 msgid "Contacts"
 msgstr ""
 
-#: .\templates\base.html:31
-msgid "In English"
-msgstr ""
-
-#: .\templates\base.html:33
-msgid "In Russian"
-msgstr ""
-
-#: .\templates\base.html:36
+#: .\templates\base.html:81
 msgid "Admin"
 msgstr ""
 
-#: .\templates\base.html:50
+#: .\templates\base.html:95
 msgid "Powered by Django 1.11 & Python 3.5"
 msgstr ""
 
@@ -143,10 +141,10 @@ msgid ""
 "machine learning and data analysis.\n"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:13
+#: .\templates\blog\post_detail.html:15
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:23
+#: .\templates\blog\post_detail.html:25
 msgid "Related posts"
 msgstr ""

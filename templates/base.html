@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% spaceless %}{% block meta_description %}{% trans 'Software engineer personal blog. Usually write about building web apps, machine learning and data analysis' %}{% endblock %}{% endspaceless %}" />
     <meta name="google-site-verification" content="2oW122oyzuORLWrpVhZ29-2w0dTvpjiEL922qCuSa5M" />
     <title>{% block title %}{% trans "Adil Khashtamov's personal blog — pragmatic programmer" %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
@@ -91,7 +92,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="footer" style="padding-bottom: 20px;padding-top:20px;">
-                    <p>{% trans 'Powered by Django 1.11 & Python 3.5' %}</p>
+                    <p><span style="font-size: .8em;color:#9b9b9b;">{% trans 'Powered by Django 1.11 & Python 3.5' %}</span></p>
                 </div>
             </div>
         </div>
