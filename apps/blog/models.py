@@ -41,6 +41,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return '/{}/{}/'.format(self.lang, self.slug)
+
 
 class Page(models.Model):
     title = models.CharField(max_length=30)
@@ -56,3 +59,6 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return '/{}/p/{}/'.format(self.lang, self.slug)

@@ -1,2 +1,3 @@
 User-agent: *
 Host: https://khashtamov.com
+Sitemap: https://khashtamov.com/sitemap.xml
