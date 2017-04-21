@@ -5,3 +5,4 @@ django-wysiwyg-redactor==0.5.1
 django-redis==4.7.0
 redis==2.10.5
 django-bootstrap-pagination==1.6.2
+whitenoise==3.3.0

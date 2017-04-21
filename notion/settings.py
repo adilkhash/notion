@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -114,3 +115,50 @@ LANGUAGES = (
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+
+MAX_LOG_FILE_SIZE = 1024 * 1024 * 50  # 50 megabytes
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'formatters': {
+        'verbose': {
+            'format': '[%(asctime)s]: %(levelname)s: %(message)s'
+        },
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'console': {
+            'level': 'DEBUG',
+            'formatter': 'verbose',
+            'class': 'logging.StreamHandler'
+        },
+        'file_handler': {
+            'filename': os.path.join(BASE_DIR, 'logs', 'notion.log'),
+            'class': 'logging.handlers.RotatingFileHandler',
+            'encoding': 'utf-8',
+            'formatter': 'verbose',
+            'maxBytes': MAX_LOG_FILE_SIZE,
+            'backupCount': 20,
+        },
+        'null': {
+            'class': 'logging.NullHandler',
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file_handler'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
