@@ -38,7 +38,11 @@ Hi. My name is Adil. I am passionate about building software. This blog is a not
                     <article class="post-list">
                         <h1><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></h1>
                         <div class="article-meta">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ post.created|date:"j N o" }}</span>, <a href="{% url 'blog:category' slug=post.category.slug %}">{{ post.category.title }}</a>
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                            <span>{{ post.created|date:"j N o" }}</span>, <a href="{% url 'blog:category' slug=post.category.slug %}">{{ post.category.title }}</a>
+                            {% if user.is_superuser %}
+                                <span><a href="{{ post.get_admin_url }}">{% trans 'Edit' %}</a></span>
+                            {% endif %}
                         </div>
                         {{ post.text|text_preview|safe }}
                     </article>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-22 02:29+0600\n"
+"POT-Creation-Date: 2017-04-24 21:05+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,56 +17,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\apps\blog\models.py:7
+#: .\apps\blog\models.py:9
 msgid "Title"
 msgstr ""
 
-#: .\apps\blog\models.py:12 .\templates\blog\category_detail.html:3
+#: .\apps\blog\models.py:14 .\templates\blog\category_detail.html:3
 #: .\templates\blog\category_detail.html:9
 msgid "category"
 msgstr ""
 
-#: .\apps\blog\models.py:13
+#: .\apps\blog\models.py:15
 msgid "categories"
 msgstr ""
 
-#: .\apps\blog\models.py:23
+#: .\apps\blog\models.py:25
 msgid "Draft"
 msgstr ""
 
-#: .\apps\blog\models.py:24
+#: .\apps\blog\models.py:26
 msgid "Published"
 msgstr ""
 
-#: .\apps\blog\models.py:29 .\apps\blog\models.py:51
+#: .\apps\blog\models.py:31 .\apps\blog\models.py:58
 msgid "Text"
 msgstr ""
 
-#: .\apps\blog\models.py:30 .\apps\blog\models.py:52
+#: .\apps\blog\models.py:32 .\apps\blog\models.py:59
 msgid "Language"
 msgstr ""
 
-#: .\apps\blog\models.py:32
+#: .\apps\blog\models.py:34
 msgid "Status"
 msgstr ""
 
-#: .\apps\blog\models.py:33
+#: .\apps\blog\models.py:35
 msgid "Page views"
 msgstr ""
 
-#: .\apps\blog\models.py:38
+#: .\apps\blog\models.py:40
 msgid "post"
 msgstr ""
 
-#: .\apps\blog\models.py:39
+#: .\apps\blog\models.py:41
 msgid "Posts"
 msgstr ""
 
-#: .\apps\blog\models.py:57
+#: .\apps\blog\models.py:64
 msgid "page"
 msgstr ""
 
-#: .\apps\blog\models.py:58
+#: .\apps\blog\models.py:65
 msgid "Pages"
 msgstr ""
 
@@ -139,6 +139,10 @@ msgid ""
 "notebook of my thoughts and ideas regarding software engineering and life "
 "around it. Currently I am interested in engineering of modern web apps, "
 "machine learning and data analysis.\n"
+msgstr ""
+
+#: .\templates\blog\index.html:44
+msgid "Edit"
 msgstr ""
 
 #: .\templates\blog\post_detail.html:15
