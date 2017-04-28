@@ -1,9 +1,15 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from django.utils import translation
 from django.utils.translation import gettext as _
 from django.urls import reverse, reverse_lazy
 from django.contrib.syndication.views import Feed
-from .models import Post, Category, Page
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponseForbidden
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+
+from .models import Post, Category, Page, EmailSubscription
 
 
 class LastestPostFeed(Feed):
@@ -92,3 +98,39 @@ class PageDetailView(DetailView):
     def get_queryset(self):
         return super().get_queryset().filter(lang=translation.get_language(),
                                              visible=True)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SubscriptionView(View):
+    def get(self, request):
+        activation_code = request.GET.get('activation_code')
+        email = request.GET.get('email')
+        if activation_code and email:
+            try:
+                sub = EmailSubscription.objects.get(email=email, activation_code=activation_code)
+            except EmailSubscription.DoesNotExist:
+                return HttpResponseForbidden()
+            else:
+                sub.activate()
+                return HttpResponseRedirect(reverse('blog:index'))
+        else:
+            return HttpResponseForbidden()
+
+    def post(self, request):
+        email = request.POST.get('email')
+        if email:
+            try:
+                validate_email(email)
+            except ValidationError:
+                return JsonResponse({'status': 'error', 'msg': _('Invalid email')})
+            else:
+                try:
+                    sub = EmailSubscription.objects.create(email=email,
+                                                           lang=translation.get_language())
+                except:  # duplicate email
+                    return JsonResponse({'status': 'ok'})
+                else:
+                    sub.send_activation_code()
+                    return JsonResponse({'status': 'ok'})
+        else:
+            return JsonResponse({'status': 'error', 'msg': _('Email required')})

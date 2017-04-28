@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-24 21:05+0600\n"
-"PO-Revision-Date: 2017-04-24 21:05+0600\n"
+"POT-Creation-Date: 2017-04-28 23:53+0600\n"
+"PO-Revision-Date: 2017-04-28 23:55+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -20,66 +20,102 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Generator: Poedit 1.8.8\n"
 
-#: .\apps\blog\models.py:9
+#: .\apps\blog\models.py:11
 msgid "Title"
 msgstr "Заголовок"
 
-#: .\apps\blog\models.py:14 .\templates\blog\category_detail.html:3
+#: .\apps\blog\models.py:16 .\templates\blog\category_detail.html:3
 #: .\templates\blog\category_detail.html:9
 msgid "category"
 msgstr "категория"
 
-#: .\apps\blog\models.py:15
+#: .\apps\blog\models.py:17
 msgid "categories"
 msgstr "категории"
 
-#: .\apps\blog\models.py:25
+#: .\apps\blog\models.py:27
 msgid "Draft"
 msgstr "Черновик"
 
-#: .\apps\blog\models.py:26
+#: .\apps\blog\models.py:28
 msgid "Published"
 msgstr "Опубликован"
 
-#: .\apps\blog\models.py:31 .\apps\blog\models.py:58
+#: .\apps\blog\models.py:33 .\apps\blog\models.py:60
 msgid "Text"
 msgstr "Текст"
 
-#: .\apps\blog\models.py:32 .\apps\blog\models.py:59
+#: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
 msgid "Language"
 msgstr "Язык"
 
-#: .\apps\blog\models.py:34
+#: .\apps\blog\models.py:36
 msgid "Status"
 msgstr "Статус"
 
-#: .\apps\blog\models.py:35
+#: .\apps\blog\models.py:37
 msgid "Page views"
 msgstr "Просмотры"
 
-#: .\apps\blog\models.py:40
+#: .\apps\blog\models.py:42
 msgid "post"
 msgstr "запись"
 
-#: .\apps\blog\models.py:41
+#: .\apps\blog\models.py:43
 msgid "Posts"
 msgstr "Записи"
 
-#: .\apps\blog\models.py:64
+#: .\apps\blog\models.py:66
 msgid "page"
 msgstr "траница"
 
-#: .\apps\blog\models.py:65
+#: .\apps\blog\models.py:67
 msgid "Pages"
 msgstr "Страницы"
 
-#: .\apps\blog\views.py:10
+#: .\apps\blog\models.py:77
+msgid "Email"
+msgstr "Эл.адрес"
+
+#: .\apps\blog\models.py:79
+msgid "Activated"
+msgstr "Активирован"
+
+#: .\apps\blog\models.py:80
+msgid "Activation code"
+msgstr "Код активации"
+
+#: .\apps\blog\models.py:81
+msgid "Created"
+msgstr "Создан"
+
+#: .\apps\blog\models.py:82
+msgid "Updated"
+msgstr "Обновлён"
+
+#: .\apps\blog\models.py:85
+msgid "subscription"
+msgstr "подписка"
+
+#: .\apps\blog\models.py:86
+msgid "Subscriptions"
+msgstr "Подписки"
+
+#: .\apps\blog\views.py:16
 msgid "Adil Khashtamov's personal blog"
 msgstr "Персональный блог Адиля Хаштамова"
 
-#: .\apps\blog\views.py:11
+#: .\apps\blog\views.py:17
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
+
+#: .\apps\blog\views.py:124
+msgid "Invalid email"
+msgstr "Неверный эл.адрес"
+
+#: .\apps\blog\views.py:135
+msgid "Email required"
+msgstr "Необходимо указать эл.адрес"
 
 #: .\notion\settings.py:112
 msgid "Russian"
@@ -101,23 +137,23 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr "Персональный блог Адиля Хаштамова — программист-прагматик"
 
-#: .\templates\base.html:72
+#: .\templates\base.html:75
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\base.html:73
+#: .\templates\base.html:76
 msgid "Archives"
 msgstr "Архивы"
 
-#: .\templates\base.html:74
+#: .\templates\base.html:77
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\templates\base.html:81
+#: .\templates\base.html:84
 msgid "Admin"
 msgstr "Админка"
 
-#: .\templates\base.html:95
+#: .\templates\base.html:98
 msgid "Powered by Django 1.11 & Python 3.5"
 msgstr "Работает на Django 1.11 & Python 3.5"
 
@@ -156,11 +192,31 @@ msgstr ""
 msgid "Edit"
 msgstr "Редактировать"
 
-#: .\templates\blog\post_detail.html:15
+#: .\templates\blog\post_detail.html:19
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:25
+#: .\templates\blog\post_detail.html:54
+msgid ""
+"If you like my articles, please subscribe to stay up to date with new "
+"material"
+msgstr ""
+"Если вам нравится материал на сайте — подпишитесь, чтобы не пропустить "
+"обновления"
+
+#: .\templates\blog\post_detail.html:58
+msgid "Put your email here"
+msgstr "Введите электронный адрес"
+
+#: .\templates\blog\post_detail.html:63
+msgid "Thank you! You have been successfuly subscribed."
+msgstr "Спасибо! Вы успешно подписались."
+
+#: .\templates\blog\post_detail.html:71
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: .\templates\blog\post_detail.html:84
 msgid "Related posts"
 msgstr "Интересные записи"
 

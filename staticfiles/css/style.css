@@ -86,3 +86,10 @@ div.articles {
         width: 970px;
     }
 }
+
+div.subscription {
+    background-color: #f5f5f1;
+    border: 1px #b9baba solid;
+    border-radius: 2px;
+    padding: 10px;
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-24 21:05+0600\n"
+"POT-Creation-Date: 2017-04-28 23:53+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,65 +17,101 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\apps\blog\models.py:9
+#: .\apps\blog\models.py:11
 msgid "Title"
 msgstr ""
 
-#: .\apps\blog\models.py:14 .\templates\blog\category_detail.html:3
+#: .\apps\blog\models.py:16 .\templates\blog\category_detail.html:3
 #: .\templates\blog\category_detail.html:9
 msgid "category"
 msgstr ""
 
-#: .\apps\blog\models.py:15
+#: .\apps\blog\models.py:17
 msgid "categories"
 msgstr ""
 
-#: .\apps\blog\models.py:25
+#: .\apps\blog\models.py:27
 msgid "Draft"
 msgstr ""
 
-#: .\apps\blog\models.py:26
+#: .\apps\blog\models.py:28
 msgid "Published"
 msgstr ""
 
-#: .\apps\blog\models.py:31 .\apps\blog\models.py:58
+#: .\apps\blog\models.py:33 .\apps\blog\models.py:60
 msgid "Text"
 msgstr ""
 
-#: .\apps\blog\models.py:32 .\apps\blog\models.py:59
+#: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
 msgid "Language"
 msgstr ""
 
-#: .\apps\blog\models.py:34
+#: .\apps\blog\models.py:36
 msgid "Status"
 msgstr ""
 
-#: .\apps\blog\models.py:35
+#: .\apps\blog\models.py:37
 msgid "Page views"
 msgstr ""
 
-#: .\apps\blog\models.py:40
+#: .\apps\blog\models.py:42
 msgid "post"
 msgstr ""
 
-#: .\apps\blog\models.py:41
+#: .\apps\blog\models.py:43
 msgid "Posts"
 msgstr ""
 
-#: .\apps\blog\models.py:64
+#: .\apps\blog\models.py:66
 msgid "page"
 msgstr ""
 
-#: .\apps\blog\models.py:65
+#: .\apps\blog\models.py:67
 msgid "Pages"
 msgstr ""
 
-#: .\apps\blog\views.py:10
+#: .\apps\blog\models.py:77
+msgid "Email"
+msgstr ""
+
+#: .\apps\blog\models.py:79
+msgid "Activated"
+msgstr ""
+
+#: .\apps\blog\models.py:80
+msgid "Activation code"
+msgstr ""
+
+#: .\apps\blog\models.py:81
+msgid "Created"
+msgstr ""
+
+#: .\apps\blog\models.py:82
+msgid "Updated"
+msgstr ""
+
+#: .\apps\blog\models.py:85
+msgid "subscription"
+msgstr ""
+
+#: .\apps\blog\models.py:86
+msgid "Subscriptions"
+msgstr ""
+
+#: .\apps\blog\views.py:16
 msgid "Adil Khashtamov's personal blog"
 msgstr ""
 
-#: .\apps\blog\views.py:11
+#: .\apps\blog\views.py:17
 msgid "pragmatic programmer"
+msgstr ""
+
+#: .\apps\blog\views.py:124
+msgid "Invalid email"
+msgstr ""
+
+#: .\apps\blog\views.py:135
+msgid "Email required"
 msgstr ""
 
 #: .\notion\settings.py:112
@@ -96,23 +132,23 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:72
+#: .\templates\base.html:75
 msgid "Blog"
 msgstr ""
 
-#: .\templates\base.html:73
+#: .\templates\base.html:76
 msgid "Archives"
 msgstr ""
 
-#: .\templates\base.html:74
+#: .\templates\base.html:77
 msgid "Contacts"
 msgstr ""
 
-#: .\templates\base.html:81
+#: .\templates\base.html:84
 msgid "Admin"
 msgstr ""
 
-#: .\templates\base.html:95
+#: .\templates\base.html:98
 msgid "Powered by Django 1.11 & Python 3.5"
 msgstr ""
 
@@ -145,10 +181,28 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:15
+#: .\templates\blog\post_detail.html:19
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:25
+#: .\templates\blog\post_detail.html:54
+msgid ""
+"If you like my articles, please subscribe to stay up to date with new "
+"material"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:58
+msgid "Put your email here"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:63
+msgid "Thank you! You have been successfuly subscribed."
+msgstr ""
+
+#: .\templates\blog\post_detail.html:71
+msgid "Subscribe"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:84
 msgid "Related posts"
 msgstr ""

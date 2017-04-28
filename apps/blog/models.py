@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -69,3 +71,26 @@ class Page(models.Model):
 
     def get_absolute_url(self):
         return '/{}/p/{}/'.format(self.lang, self.slug)
+
+
+class EmailSubscription(models.Model):
+    email = models.EmailField(_('Email'), unique=True)
+    lang = models.CharField(_('Language'), max_length=2)
+    activated = models.BooleanField(_('Activated'), default=False)
+    activation_code = models.UUIDField(_('Activation code'), default=uuid.uuid4, editable=False)
+    created = models.DateTimeField(_('Created'), auto_now_add=True)
+    updated = models.DateTimeField(_('Updated'), auto_now=True)
+
+    class Meta:
+        verbose_name = _('subscription')
+        verbose_name_plural = _('Subscriptions')
+
+    def __str__(self):
+        return self.email
+
+    def activate(self):
+        self.activated = True
+        self.save()
+
+    def send_activation_code(self):
+        pass

@@ -5,6 +5,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap
 
 from apps.blog.models import Post, Page
+from apps.blog.views import SubscriptionView
 
 blog_dict = {
     'queryset': Post.objects.filter(status=Post.PUBLISHED),
@@ -24,6 +25,7 @@ urlpatterns = [
         name='django.contrib.sitemaps.views.sitemap'),
     url(r'^redactor/', include('redactor.urls')),
     url(r'^cpadmin/', admin.site.urls),
+    url(r'^subscribe/$', SubscriptionView.as_view(), name='subscription'),
 ]
 
 urlpatterns += i18n_patterns(
