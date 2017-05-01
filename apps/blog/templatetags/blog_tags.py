@@ -8,3 +8,8 @@ def text_preview(text):
         return text[:more]
     else:
         return text
+
+
+@register.filter
+def erase_breaks(text):
+    return text.replace('\n', '').replace('\r\n', '').replace('\r', '')
