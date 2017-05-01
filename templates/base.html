@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
     <link rel='dns-prefetch' href='//unpkg.com' />
-    <link rel="alternate" href="https://khashtamov.com/ru/" hreflang="ru" />
-    <link rel="alternate" href="https://khashtamov.com/en/" hreflang="en" />
-    <link rel="alternate" href="https://khashtamov.com/" hreflang="x-default" />
+{#    <link rel="alternate" href="https://khashtamov.com/ru/" hreflang="ru" />#}
+{#    <link rel="alternate" href="https://khashtamov.com/en/" hreflang="en" />#}
+{#    <link rel="alternate" href="https://khashtamov.com/" hreflang="x-default" />#}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/monokai-sublime.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
     <script src="//unpkg.com/axios/dist/axios.min.js"></script>
@@ -101,7 +101,6 @@
         </div>
     </div>
 
-    <script src="//unpkg.com/vue@2.3.0/dist/vue.js"></script>
-    <script src="{% static 'js/app.js' %}"></script>
+{% block _bottom %}{% endblock %}
 </body>
 </html>
