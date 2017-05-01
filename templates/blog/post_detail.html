@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
+{% load staticfiles %}
 {% block title %}{{ object.title }}{% endblock %}
 
 {% block meta_description %}{{ object.text|striptags|truncatechars:200 }}{% endblock %}
+
+{% block _bottom %}
+    <script src="//unpkg.com/vue@2.3.0/dist/vue.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -94,7 +99,4 @@
 
 {% endblock %}
 
-{% block _bottom %}
-    <script src="//unpkg.com/vue@2.3.0/dist/vue.js"></script>
-    <script src="{% static 'js/app.js' %}"></script>
-{% endblock %}
+
