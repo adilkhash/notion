@@ -28,8 +28,8 @@ class Post(models.Model):
         (PUBLISHED, _('Published'))
     )
 
-    title = models.CharField(max_length=254)
-    slug = models.SlugField(max_length=100)
+    title = models.CharField(_('Title'), max_length=254)
+    slug = models.SlugField(_('Slug'), max_length=100)
     text = models.TextField(_('Text'))
     lang = models.CharField(_('Language'), max_length=2, choices=settings.LANGUAGES)
     category = models.ForeignKey('Category', null=True)
@@ -94,3 +94,18 @@ class EmailSubscription(models.Model):
 
     def send_activation_code(self):
         pass
+
+
+class AlternateURL(models.Model):
+    post = models.ForeignKey('Post', verbose_name=_('Original post'))
+    lang = models.CharField(_('Language'), max_length=2, choices=settings.LANGUAGES)
+    alternate_post = models.ForeignKey('Post', related_name='alternate_post',
+                                       verbose_name=_('Alternate post'))
+    created = models.DateTimeField(_('Created'), auto_now_add=True)
+
+    class Meta:
+        verbose_name = _('alternate URL')
+        verbose_name_plural = _('Alternate URLs')
+
+    def __str__(self):
+        return self.post.slug

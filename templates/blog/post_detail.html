@@ -10,6 +10,14 @@
     <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}
 
+{% block _head %}
+    {% if alternate_posts %}
+        {% for post in alternate_posts %}
+            <link rel="alternate" href="https://khashtamov.com{{ post.alternate_post.get_absolute_url }}" hreflang="{{ post.lang }}" />
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <div class="row">

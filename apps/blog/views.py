@@ -9,7 +9,7 @@ from django.http import JsonResponse, HttpResponseRedirect, HttpResponseForbidde
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 
-from .models import Post, Category, Page, EmailSubscription
+from .models import Post, Category, Page, EmailSubscription, AlternateURL
 
 
 class LastestPostFeed(Feed):
@@ -59,6 +59,9 @@ class PostDetailView(DetailView):
                    lang=translation.get_language(),
                    category=article.category).\
             exclude(id=article.id)
+        context['alternate_posts'] = AlternateURL.objects.filter(
+            post=self.object
+        )
         return context
 
 

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django import forms
 from redactor.widgets import RedactorEditor
 
-from .models import Category, Post, Page, EmailSubscription
+from .models import Category, Post, Page, EmailSubscription, AlternateURL
 
 
 class PostAdminForm(forms.ModelForm):
@@ -47,7 +47,12 @@ class EmailSubscriptionAdmin(admin.ModelAdmin):
     list_display = ['email', 'lang', 'created']
 
 
+class AlternateURLAdmin(admin.ModelAdmin):
+    list_display = ['post', 'lang', 'alternate_post', 'created']
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Page, PageAdmin)
 admin.site.register(EmailSubscription, EmailSubscriptionAdmin)
+admin.site.register(AlternateURL, AlternateURLAdmin)
