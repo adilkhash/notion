@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 23:53+0600\n"
+"POT-Creation-Date: 2017-05-01 23:00+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,11 +106,11 @@ msgstr ""
 msgid "pragmatic programmer"
 msgstr ""
 
-#: .\apps\blog\views.py:124
+#: .\apps\blog\views.py:125
 msgid "Invalid email"
 msgstr ""
 
-#: .\apps\blog\views.py:135
+#: .\apps\blog\views.py:136
 msgid "Email required"
 msgstr ""
 
@@ -132,23 +132,23 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:75
+#: .\templates\base.html:76
 msgid "Blog"
 msgstr ""
 
-#: .\templates\base.html:76
+#: .\templates\base.html:77
 msgid "Archives"
 msgstr ""
 
-#: .\templates\base.html:77
+#: .\templates\base.html:78
 msgid "Contacts"
 msgstr ""
 
-#: .\templates\base.html:84
+#: .\templates\base.html:85
 msgid "Admin"
 msgstr ""
 
-#: .\templates\base.html:98
+#: .\templates\base.html:99
 msgid "Powered by Django 1.11 & Python 3.5"
 msgstr ""
 
@@ -164,11 +164,11 @@ msgstr ""
 msgid "By year"
 msgstr ""
 
-#: .\templates\blog\index.html:11
+#: .\templates\blog\index.html:16
 msgid "Adil Khashtamov"
 msgstr ""
 
-#: .\templates\blog\index.html:18
+#: .\templates\blog\index.html:23
 msgid ""
 "\n"
 "Hi. My name is Adil. I am passionate about building software. This blog is a "
@@ -177,32 +177,36 @@ msgid ""
 "machine learning and data analysis.\n"
 msgstr ""
 
-#: .\templates\blog\index.html:44
+#: .\templates\blog\index.html:49 .\templates\blog\post_detail.html:26
 msgid "Edit"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:19
+#: .\templates\blog\index.html:52
+msgid "read more"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:24
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:54
+#: .\templates\blog\post_detail.html:62
 msgid ""
 "If you like my articles, please subscribe to stay up to date with new "
 "material"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:58
+#: .\templates\blog\post_detail.html:66
 msgid "Put your email here"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:63
+#: .\templates\blog\post_detail.html:71
 msgid "Thank you! You have been successfuly subscribed."
 msgstr ""
 
-#: .\templates\blog\post_detail.html:71
+#: .\templates\blog\post_detail.html:79
 msgid "Subscribe"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:84
+#: .\templates\blog\post_detail.html:92
 msgid "Related posts"
 msgstr ""

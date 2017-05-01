@@ -49,7 +49,7 @@ Hi. My name is Adil. I am passionate about building software. This blog is a not
                                 <span><a href="{{ post.get_admin_url }}">{% trans 'Edit' %}</a></span>
                             {% endif %}
                         </div>
-                        {{ post.text|text_preview|safe }}
+                        {{ post.text|text_preview|safe }}<a href="{% url 'blog:post' slug=post.slug %}">{% trans 'read more' %}</a>
                     </article>
                     {% endfor %}
                 </div>

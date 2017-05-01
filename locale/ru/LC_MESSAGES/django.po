@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 23:53+0600\n"
-"PO-Revision-Date: 2017-04-28 23:55+0600\n"
+"POT-Creation-Date: 2017-05-01 23:00+0600\n"
+"PO-Revision-Date: 2017-05-01 23:00+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -109,11 +109,11 @@ msgstr "Персональный блог Адиля Хаштамова"
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\apps\blog\views.py:124
+#: .\apps\blog\views.py:125
 msgid "Invalid email"
 msgstr "Неверный эл.адрес"
 
-#: .\apps\blog\views.py:135
+#: .\apps\blog\views.py:136
 msgid "Email required"
 msgstr "Необходимо указать эл.адрес"
 
@@ -137,23 +137,23 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr "Персональный блог Адиля Хаштамова — программист-прагматик"
 
-#: .\templates\base.html:75
+#: .\templates\base.html:76
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\base.html:76
+#: .\templates\base.html:77
 msgid "Archives"
 msgstr "Архивы"
 
-#: .\templates\base.html:77
+#: .\templates\base.html:78
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\templates\base.html:84
+#: .\templates\base.html:85
 msgid "Admin"
 msgstr "Админка"
 
-#: .\templates\base.html:98
+#: .\templates\base.html:99
 msgid "Powered by Django 1.11 & Python 3.5"
 msgstr "Работает на Django 1.11 & Python 3.5"
 
@@ -169,11 +169,11 @@ msgstr "По категории"
 msgid "By year"
 msgstr "По годам"
 
-#: .\templates\blog\index.html:11
+#: .\templates\blog\index.html:16
 msgid "Adil Khashtamov"
 msgstr "Адиль Хаштамов"
 
-#: .\templates\blog\index.html:18
+#: .\templates\blog\index.html:23
 msgid ""
 "\n"
 "Hi. My name is Adil. I am passionate about building software. This blog is a "
@@ -188,15 +188,19 @@ msgstr ""
 "проектирования ПО. Сейчас особенно заинтересован в современных веб "
 "приложениях, машинном обучении и анализе данных.\n"
 
-#: .\templates\blog\index.html:44
+#: .\templates\blog\index.html:49 .\templates\blog\post_detail.html:26
 msgid "Edit"
 msgstr "Редактировать"
 
-#: .\templates\blog\post_detail.html:19
+#: .\templates\blog\index.html:52
+msgid "read more"
+msgstr "читать ещё"
+
+#: .\templates\blog\post_detail.html:24
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:54
+#: .\templates\blog\post_detail.html:62
 msgid ""
 "If you like my articles, please subscribe to stay up to date with new "
 "material"
@@ -204,19 +208,19 @@ msgstr ""
 "Если вам нравится материал на сайте — подпишитесь, чтобы не пропустить "
 "обновления"
 
-#: .\templates\blog\post_detail.html:58
+#: .\templates\blog\post_detail.html:66
 msgid "Put your email here"
 msgstr "Введите электронный адрес"
 
-#: .\templates\blog\post_detail.html:63
+#: .\templates\blog\post_detail.html:71
 msgid "Thank you! You have been successfuly subscribed."
 msgstr "Спасибо! Вы успешно подписались."
 
-#: .\templates\blog\post_detail.html:71
+#: .\templates\blog\post_detail.html:79
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: .\templates\blog\post_detail.html:84
+#: .\templates\blog\post_detail.html:92
 msgid "Related posts"
 msgstr "Интересные записи"
 
