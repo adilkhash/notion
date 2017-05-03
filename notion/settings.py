@@ -163,3 +163,6 @@ LOGGING = {
         },
     }
 }
+
+REDACTOR_UPLOAD = 'uploads/'
+REDACTOR_OPTIONS = {'lang': 'ru'}
