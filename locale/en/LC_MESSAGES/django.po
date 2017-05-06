@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-01 23:00+0600\n"
+"POT-Creation-Date: 2017-05-06 22:29+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\apps\blog\models.py:11
+#: .\apps\blog\models.py:11 .\apps\blog\models.py:31
 msgid "Title"
 msgstr ""
 
@@ -38,11 +38,16 @@ msgstr ""
 msgid "Published"
 msgstr ""
 
+#: .\apps\blog\models.py:32
+msgid "Slug"
+msgstr ""
+
 #: .\apps\blog\models.py:33 .\apps\blog\models.py:60
 msgid "Text"
 msgstr ""
 
 #: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
+#: .\apps\blog\models.py:101
 msgid "Language"
 msgstr ""
 
@@ -82,7 +87,7 @@ msgstr ""
 msgid "Activation code"
 msgstr ""
 
-#: .\apps\blog\models.py:81
+#: .\apps\blog\models.py:81 .\apps\blog\models.py:104
 msgid "Created"
 msgstr ""
 
@@ -98,6 +103,22 @@ msgstr ""
 msgid "Subscriptions"
 msgstr ""
 
+#: .\apps\blog\models.py:100
+msgid "Original post"
+msgstr ""
+
+#: .\apps\blog\models.py:103
+msgid "Alternate post"
+msgstr ""
+
+#: .\apps\blog\models.py:107
+msgid "alternate URL"
+msgstr ""
+
+#: .\apps\blog\models.py:108
+msgid "Alternate URLs"
+msgstr ""
+
 #: .\apps\blog\views.py:16
 msgid "Adil Khashtamov's personal blog"
 msgstr ""
@@ -106,11 +127,11 @@ msgstr ""
 msgid "pragmatic programmer"
 msgstr ""
 
-#: .\apps\blog\views.py:125
+#: .\apps\blog\views.py:128
 msgid "Invalid email"
 msgstr ""
 
-#: .\apps\blog\views.py:136
+#: .\apps\blog\views.py:139
 msgid "Email required"
 msgstr ""
 
@@ -149,7 +170,7 @@ msgid "Admin"
 msgstr ""
 
 #: .\templates\base.html:99
-msgid "Powered by Django 1.11 & Python 3.5"
+msgid "Powered by"
 msgstr ""
 
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
@@ -177,7 +198,7 @@ msgid ""
 "machine learning and data analysis.\n"
 msgstr ""
 
-#: .\templates\blog\index.html:49 .\templates\blog\post_detail.html:26
+#: .\templates\blog\index.html:49 .\templates\blog\post_detail.html:34
 msgid "Edit"
 msgstr ""
 
@@ -185,28 +206,28 @@ msgstr ""
 msgid "read more"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:24
+#: .\templates\blog\post_detail.html:32
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:62
+#: .\templates\blog\post_detail.html:70
 msgid ""
 "If you like my articles, please subscribe to stay up to date with new "
 "material"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:66
+#: .\templates\blog\post_detail.html:74
 msgid "Put your email here"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:71
+#: .\templates\blog\post_detail.html:79
 msgid "Thank you! You have been successfuly subscribed."
 msgstr ""
 
-#: .\templates\blog\post_detail.html:79
+#: .\templates\blog\post_detail.html:87
 msgid "Subscribe"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:92
+#: .\templates\blog\post_detail.html:116
 msgid "Related posts"
 msgstr ""

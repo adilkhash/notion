@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-01 23:00+0600\n"
-"PO-Revision-Date: 2017-05-01 23:00+0600\n"
+"POT-Creation-Date: 2017-05-06 22:29+0600\n"
+"PO-Revision-Date: 2017-05-06 22:30+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Generator: Poedit 1.8.8\n"
 
-#: .\apps\blog\models.py:11
+#: .\apps\blog\models.py:11 .\apps\blog\models.py:31
 msgid "Title"
 msgstr "Заголовок"
 
@@ -41,11 +41,16 @@ msgstr "Черновик"
 msgid "Published"
 msgstr "Опубликован"
 
+#: .\apps\blog\models.py:32
+msgid "Slug"
+msgstr ""
+
 #: .\apps\blog\models.py:33 .\apps\blog\models.py:60
 msgid "Text"
 msgstr "Текст"
 
 #: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
+#: .\apps\blog\models.py:101
 msgid "Language"
 msgstr "Язык"
 
@@ -85,7 +90,7 @@ msgstr "Активирован"
 msgid "Activation code"
 msgstr "Код активации"
 
-#: .\apps\blog\models.py:81
+#: .\apps\blog\models.py:81 .\apps\blog\models.py:104
 msgid "Created"
 msgstr "Создан"
 
@@ -101,6 +106,22 @@ msgstr "подписка"
 msgid "Subscriptions"
 msgstr "Подписки"
 
+#: .\apps\blog\models.py:100
+msgid "Original post"
+msgstr "Оригинальный пост"
+
+#: .\apps\blog\models.py:103
+msgid "Alternate post"
+msgstr "Альтернативные посты"
+
+#: .\apps\blog\models.py:107
+msgid "alternate URL"
+msgstr "альтернативный URL"
+
+#: .\apps\blog\models.py:108
+msgid "Alternate URLs"
+msgstr "Альтернативные URL"
+
 #: .\apps\blog\views.py:16
 msgid "Adil Khashtamov's personal blog"
 msgstr "Персональный блог Адиля Хаштамова"
@@ -109,11 +130,11 @@ msgstr "Персональный блог Адиля Хаштамова"
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\apps\blog\views.py:125
+#: .\apps\blog\views.py:128
 msgid "Invalid email"
 msgstr "Неверный эл.адрес"
 
-#: .\apps\blog\views.py:136
+#: .\apps\blog\views.py:139
 msgid "Email required"
 msgstr "Необходимо указать эл.адрес"
 
@@ -154,8 +175,8 @@ msgid "Admin"
 msgstr "Админка"
 
 #: .\templates\base.html:99
-msgid "Powered by Django 1.11 & Python 3.5"
-msgstr "Работает на Django 1.11 & Python 3.5"
+msgid "Powered by"
+msgstr "Работает на"
 
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
 msgid "Archive of posts"
@@ -188,7 +209,7 @@ msgstr ""
 "проектирования ПО. Сейчас особенно заинтересован в современных веб "
 "приложениях, машинном обучении и анализе данных.\n"
 
-#: .\templates\blog\index.html:49 .\templates\blog\post_detail.html:26
+#: .\templates\blog\index.html:49 .\templates\blog\post_detail.html:34
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -196,11 +217,11 @@ msgstr "Редактировать"
 msgid "read more"
 msgstr "читать ещё"
 
-#: .\templates\blog\post_detail.html:24
+#: .\templates\blog\post_detail.html:32
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:62
+#: .\templates\blog\post_detail.html:70
 msgid ""
 "If you like my articles, please subscribe to stay up to date with new "
 "material"
@@ -208,21 +229,24 @@ msgstr ""
 "Если вам нравится материал на сайте — подпишитесь, чтобы не пропустить "
 "обновления"
 
-#: .\templates\blog\post_detail.html:66
+#: .\templates\blog\post_detail.html:74
 msgid "Put your email here"
 msgstr "Введите электронный адрес"
 
-#: .\templates\blog\post_detail.html:71
+#: .\templates\blog\post_detail.html:79
 msgid "Thank you! You have been successfuly subscribed."
 msgstr "Спасибо! Вы успешно подписались."
 
-#: .\templates\blog\post_detail.html:79
+#: .\templates\blog\post_detail.html:87
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: .\templates\blog\post_detail.html:92
+#: .\templates\blog\post_detail.html:116
 msgid "Related posts"
 msgstr "Интересные записи"
+
+#~ msgid "Powered by Django 1.11 & Python 3.5"
+#~ msgstr "Работает на Django 1.11 & Python 3.5"
 
 #~ msgid "In English"
 #~ msgstr "На английской"
