@@ -69,9 +69,11 @@ img.arrow-msg {
 }
 
 
-div.social-btns  p{
+div.social-btns  a{
     display: inline-block;
     margin-right: 5px;
+    text-decoration: none;
+    color:#000;
 }
 
 article.post-list {
