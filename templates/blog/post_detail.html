@@ -22,6 +22,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
+                <article>
+                    <h1>{{ object.title }}</h1>
+
+                    <div class="article-meta">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        <span>{{ object.created|date:"j N o" }}</span>, <a
+                            href="{% url 'blog:category' slug=object.category.slug %}">{{ object.category.title }}</a>,
+                        <span>{{ object.page_views }} {% trans 'views' %}</span>
+                        {% if user.is_superuser %}
+                                <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
+                        {% endif %}
+                    </div>
+                    {{ object.text|safe }}
+                </article>
                 {% if not DEBUG %}
                     <!-- Yandex.RTB R-A-208346-2 -->
                     <div id="yandex_rtb_R-A-208346-2"></div>
@@ -45,22 +60,6 @@
                         })(this, this.document, "yandexContextAsyncCallbacks");
                     </script>
                 {% endif %}
-
-                <article>
-                    <h1>{{ object.title }}</h1>
-
-                    <div class="article-meta">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <span>{{ object.created|date:"j N o" }}</span>, <a
-                            href="{% url 'blog:category' slug=object.category.slug %}">{{ object.category.title }}</a>,
-                        <span>{{ object.page_views }} {% trans 'views' %}</span>
-                        {% if user.is_superuser %}
-                                <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
-                        {% endif %}
-                    </div>
-                    {{ object.text|safe }}
-                </article>
-
             </div>
         </div>
 
