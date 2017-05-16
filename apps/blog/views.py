@@ -83,7 +83,7 @@ class ArchiveListView(ListView):
 
     def get_queryset(self):
         return super().get_queryset().filter(lang=translation.get_language(),
-                                             status=Post.PUBLISHED).order_by('category').\
+                                             status=Post.PUBLISHED).order_by('category', '-created').\
             select_related('category')
 
     def get_context_data(self, **kwargs):
