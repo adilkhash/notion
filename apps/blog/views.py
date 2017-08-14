@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.db.models import F
 
 from .models import Post, Category, Page, EmailSubscription, AlternateURL
 
@@ -37,8 +38,11 @@ class HomePageView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return self.model.objects.filter(lang=translation.get_language(),
-                                         status=Post.PUBLISHED).order_by('-id')
+        if self.request.user.is_superuser:
+            return self.model.objects.filter(lang=translation.get_language()).order_by('-id')
+        else:
+            return self.model.objects.filter(lang=translation.get_language(),
+                                             status=Post.PUBLISHED).order_by('-id')
 
 
 class PostDetailView(DetailView):
@@ -46,14 +50,19 @@ class PostDetailView(DetailView):
     model = Post
 
     def get_queryset(self):
-        return super().get_queryset().filter(lang=translation.get_language(),
-                                             status=Post.PUBLISHED)
+        if self.request.user.is_superuser:
+            return super().get_queryset().filter(lang=translation.get_language())
+        else:
+            return super().get_queryset().filter(lang=translation.get_language(),
+                                                 status=Post.PUBLISHED)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         article = context['object']
-        article.page_views += 1
+        article.page_views = F('page_views') + 1
         article.save()
+        context['object'] = self.model.objects.get(id=article.id)
+
         context['related_articles'] = Post.objects.\
             filter(status=Post.PUBLISHED,
                    lang=translation.get_language(),

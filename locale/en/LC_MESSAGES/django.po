@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-06 22:29+0600\n"
+"POT-Creation-Date: 2017-08-14 09:27+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,8 @@ msgstr ""
 msgid "categories"
 msgstr ""
 
-#: .\apps\blog\models.py:27
+#: .\apps\blog\models.py:27 .\templates\blog\index.html:56
+#: .\templates\blog\post_detail.html:37
 msgid "Draft"
 msgstr ""
 
@@ -119,19 +120,19 @@ msgstr ""
 msgid "Alternate URLs"
 msgstr ""
 
-#: .\apps\blog\views.py:16
+#: .\apps\blog\views.py:17
 msgid "Adil Khashtamov's personal blog"
 msgstr ""
 
-#: .\apps\blog\views.py:17
+#: .\apps\blog\views.py:18
 msgid "pragmatic programmer"
 msgstr ""
 
-#: .\apps\blog\views.py:128
+#: .\apps\blog\views.py:137
 msgid "Invalid email"
 msgstr ""
 
-#: .\apps\blog\views.py:139
+#: .\apps\blog\views.py:148
 msgid "Email required"
 msgstr ""
 
@@ -153,23 +154,23 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:76
+#: .\templates\base.html:77
 msgid "Blog"
 msgstr ""
 
-#: .\templates\base.html:77
+#: .\templates\base.html:78
 msgid "Archives"
 msgstr ""
 
-#: .\templates\base.html:78
+#: .\templates\base.html:79
 msgid "Contacts"
 msgstr ""
 
-#: .\templates\base.html:85
+#: .\templates\base.html:86
 msgid "Admin"
 msgstr ""
 
-#: .\templates\base.html:99
+#: .\templates\base.html:100
 msgid "Powered by"
 msgstr ""
 
@@ -198,36 +199,36 @@ msgid ""
 "machine learning and data analysis.\n"
 msgstr ""
 
-#: .\templates\blog\index.html:49 .\templates\blog\post_detail.html:34
+#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:35
 msgid "Edit"
 msgstr ""
 
-#: .\templates\blog\index.html:52
+#: .\templates\blog\index.html:60
 msgid "read more"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:32
+#: .\templates\blog\post_detail.html:33
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:70
+#: .\templates\blog\post_detail.html:74
 msgid ""
 "If you like my articles, please subscribe to stay up to date with new "
 "material"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:74
+#: .\templates\blog\post_detail.html:78
 msgid "Put your email here"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:79
+#: .\templates\blog\post_detail.html:83
 msgid "Thank you! You have been successfuly subscribed."
 msgstr ""
 
-#: .\templates\blog\post_detail.html:87
+#: .\templates\blog\post_detail.html:91
 msgid "Subscribe"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:116
+#: .\templates\blog\post_detail.html:120
 msgid "Related posts"
 msgstr ""

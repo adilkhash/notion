@@ -32,7 +32,10 @@
                             href="{% url 'blog:category' slug=object.category.slug %}">{{ object.category.title }}</a>,
                         <span>{{ object.page_views }} {% trans 'views' %}</span>
                         {% if user.is_superuser %}
-                                <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
+                            <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
+                            {% if post.status == post.DRAFT %}
+                                    <span style="color: red;">{% trans 'Draft' %}</span>
+                            {% endif %}
                         {% endif %}
                     </div>
                     {{ object.text|safe }}
