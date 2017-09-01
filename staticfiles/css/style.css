@@ -95,3 +95,10 @@ div.subscription {
     border-radius: 2px;
     padding: 10px;
 }
+
+div.tchannel-info {
+    background-color: #f6f6f6;
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 09:27+0600\n"
+"POT-Creation-Date: 2017-09-01 22:41+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "categories"
 msgstr ""
 
 #: .\apps\blog\models.py:27 .\templates\blog\index.html:56
-#: .\templates\blog\post_detail.html:37
+#: .\templates\blog\post_detail.html:38
 msgid "Draft"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgid ""
 "machine learning and data analysis.\n"
 msgstr ""
 
-#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:35
+#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:36
 msgid "Edit"
 msgstr ""
 
@@ -207,28 +207,46 @@ msgstr ""
 msgid "read more"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:33
+#: .\templates\blog\post_detail.html:34
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:74
+#: .\templates\blog\post_detail.html:73
+msgid "Telegram channel"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:79
+msgid ""
+"Recently I opened my own Telegram channel related to software development "
+"called <strong>DevBrain</strong> where I share my thoughts and external "
+"resources (articles, videos, presentations, book recommendations) regarding "
+"software craftsmanship."
+msgstr ""
+
+#: .\templates\blog\post_detail.html:83
+msgid ""
+"There are more than 1000 members already, so please join us — <a href="
+"\"https://t.me/devbrain\" target=\"_blank\" rel=\"nofollow\">DevBrain</a>"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:96
 msgid ""
 "If you like my articles, please subscribe to stay up to date with new "
 "material"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:78
+#: .\templates\blog\post_detail.html:100
 msgid "Put your email here"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:83
+#: .\templates\blog\post_detail.html:105
 msgid "Thank you! You have been successfuly subscribed."
 msgstr ""
 
-#: .\templates\blog\post_detail.html:91
+#: .\templates\blog\post_detail.html:113
 msgid "Subscribe"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:120
+#: .\templates\blog\post_detail.html:143
 msgid "Related posts"
 msgstr ""
