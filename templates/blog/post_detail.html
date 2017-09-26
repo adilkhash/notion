@@ -7,8 +7,8 @@
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block _bottom %}
-    <script src="//unpkg.com/vue@2.3.0/dist/vue.js"></script>
-    <script src="{% static 'js/app.js' %}"></script>
+{#    <script src="//unpkg.com/vue@2.3.0/dist/vue.js"></script>#}
+{#    <script src="{% static 'js/app.js' %}"></script>#}
 {% endblock %}
 
 {% block _head %}
@@ -88,36 +88,36 @@
         </div>
         {% else %}
 
-        <div class="row" style="margin-top: 10px;" id="app">
-            <div class="col-md-12">
-                <div class="subscription">
-
-                    <div class="text-center" style="margin-top: 30px;margin-bottom: 30px;">
-                        <p>{% trans 'If you like my articles, please subscribe to stay up to date with new material' %}</p>
-
-                        <form action="" v-on:submit.prevent>
-                            <div class="form-group">
-                                <input v-model="email" type="text" placeholder="{% trans 'Put your email here' %}"
-                                       style="width:250px;height: 34px;padding-left:7px;">
-                            </div>
-
-                            <div class="alert alert-success" role="alert" v-show="subscribed">
-                                {% trans 'Thank you! You have been successfuly subscribed.' %}
-                            </div>
-
-                            <div class="alert alert-danger" role="alert" v-show="invalidSubscription">
-                                <p v-text="validationError"></p>
-                            </div>
-
-                            <button class="btn btn-danger" @click="subscribeBtn" style="height: 34px;">
-                                {% trans 'Subscribe' %}
-                            </button>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+{#        <div class="row" style="margin-top: 10px;" id="app">#}
+{#            <div class="col-md-12">#}
+{#                <div class="subscription">#}
+{##}
+{#                    <div class="text-center" style="margin-top: 30px;margin-bottom: 30px;">#}
+{#                        <p>{% trans 'If you like my articles, please subscribe to stay up to date with new material' %}</p>#}
+{##}
+{#                        <form action="" v-on:submit.prevent>#}
+{#                            <div class="form-group">#}
+{#                                <input v-model="email" type="text" placeholder="{% trans 'Put your email here' %}"#}
+{#                                       style="width:250px;height: 34px;padding-left:7px;">#}
+{#                            </div>#}
+{##}
+{#                            <div class="alert alert-success" role="alert" v-show="subscribed">#}
+{#                                {% trans 'Thank you! You have been successfuly subscribed.' %}#}
+{#                            </div>#}
+{##}
+{#                            <div class="alert alert-danger" role="alert" v-show="invalidSubscription">#}
+{#                                <p v-text="validationError"></p>#}
+{#                            </div>#}
+{##}
+{#                            <button class="btn btn-danger" @click="subscribeBtn" style="height: 34px;">#}
+{#                                {% trans 'Subscribe' %}#}
+{#                            </button>#}
+{#                        </form>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
         {% endif %}
 
         <div id="disqus_thread" style="margin-top:15px;"></div>
