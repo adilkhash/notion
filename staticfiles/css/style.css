@@ -1,7 +1,8 @@
 body {
-    font-family: "PT Serif", Georgia, "Times New Roman", serif;
+    font-family: "PT Serif", serif;
     background-color: #fff;
     color: #000;
+    line-height: 2em;
 }
 
 p {
