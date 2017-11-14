@@ -1,4 +1,4 @@
-Django==1.11.5
+Django==1.11.7
 psycopg2==2.7.1
 django-environ==0.4.2
 django-wysiwyg-redactor==0.5.1
