@@ -32,7 +32,7 @@ class Post(models.Model):
     slug = models.SlugField(_('Slug'), max_length=100)
     text = models.TextField(_('Text'))
     lang = models.CharField(_('Language'), max_length=2, choices=settings.LANGUAGES)
-    category = models.ForeignKey('Category', null=True)
+    category = models.ForeignKey('Category', null=True, on_delete=models.CASCADE)
     status = models.SmallIntegerField(_('Status'), choices=STATUSES)
     page_views = models.PositiveIntegerField(_('Page views'), default=0)
     created = models.DateTimeField(auto_now_add=True)
@@ -97,10 +97,10 @@ class EmailSubscription(models.Model):
 
 
 class AlternateURL(models.Model):
-    post = models.ForeignKey('Post', verbose_name=_('Original post'))
+    post = models.ForeignKey('Post', verbose_name=_('Original post'), on_delete=models.CASCADE)
     lang = models.CharField(_('Language'), max_length=2, choices=settings.LANGUAGES)
     alternate_post = models.ForeignKey('Post', related_name='alternate_post',
-                                       verbose_name=_('Alternate post'))
+                                       verbose_name=_('Alternate post'), on_delete=models.CASCADE)
     created = models.DateTimeField(_('Created'), auto_now_add=True)
 
     class Meta:

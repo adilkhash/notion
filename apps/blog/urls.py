@@ -5,6 +5,7 @@ from .views import (
     PageDetailView, LastestPostFeed
 )
 
+app_name = 'blog'
 urlpatterns = [
     url(r'^$', HomePageView.as_view(), name='posts'),
     url(r'^p/(?P<slug>[-\w]+)/$', PageDetailView.as_view(), name='page'),
