@@ -27,6 +27,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
     <script src="//unpkg.com/axios@0.16.1/dist/axios.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/qs/6.4.0/qs.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
 {% if not DEBUG %}
@@ -76,20 +79,45 @@
 <body>
     <div class="blog-masthead">
         <div class="container">
-            <nav class="blog-nav">
-                <a class="blog-nav-item" href="{% url 'blog:posts' %}">{% trans 'Blog' %}</a>
-                <a class="blog-nav-item" href="{% url 'blog:archives' %}">{% trans 'Archives' %}</a>
-                <a class="blog-nav-item" href="{% url 'blog:page' slug='contacts' %}">{% trans 'Contacts' %}</a>
-                {% if LANGUAGE_CODE == 'ru' %}
-                    <a class="blog-nav-item" href="/en/">In English</a>
-                {% else %}
-                    <a class="blog-nav-item" href="/ru/">На русском</a>
-                {% endif %}
-                {% if user.is_superuser %}
-                    <a class="blog-nav-item" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
-                {% endif %}
-            </nav>
+            <div role="navigation">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="collapse-menu">
+                <ul class="menu__navigation">
+                    <li><a class="blog-nav-item" href="{% url 'blog:posts' %}">{% trans 'Blog' %}</a></li>
+                    <li><a class="blog-nav-item" href="{% url 'blog:archives' %}">{% trans 'Archives' %}</a></li>
+                    <li><a class="blog-nav-item" href="{% url 'blog:page' slug='contacts' %}">{% trans 'Contacts' %}</a></li>
+                    <li>
+                        {% if LANGUAGE_CODE == 'ru' %}
+                            <a class="blog-nav-item" href="/en/">In English</a>
+                        {% else %}
+                            <a class="blog-nav-item" href="/ru/">На русском</a>
+                        {% endif %}
+                    </li>
+                    {% if user.is_superuser %}
+                        <li><a class="blog-nav-item" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a></li>
+                    {% endif %}
+                <li>
+                    <form action="{% url 'blog:search' %}" method="get" class="form-inline">
+                            <button type="submit" class="search-btn">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                            <input style="width: 178px;" class="form-control mb-2 mr-sm-2" type="text" name="query"
+                                   {% if query %} value="{{ query }}" {% else %}placeholder="{% trans 'search term' %}"{% endif %}>
+                        </form>
+                </li>
+                </ul>
+            </div>
         </div>
+    </div>
     </div>
 
     {% block content %}

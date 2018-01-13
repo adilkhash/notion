@@ -9,6 +9,8 @@ from django.http import JsonResponse, HttpResponseRedirect, HttpResponseForbidde
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.db.models import F
+from django.contrib.postgres.search import SearchQuery, SearchVector
+from django.shortcuts import render
 
 from .models import Post, Category, Page, EmailSubscription, AlternateURL
 
@@ -146,3 +148,19 @@ class SubscriptionView(View):
                     return JsonResponse({'status': 'ok'})
         else:
             return JsonResponse({'status': 'error', 'msg': _('Email required')})
+
+
+class SearchView(View):
+    def get(self, request):
+        lang_mapping = {
+            'en': 'english',
+            'ru': 'russian'
+        }
+        query = request.GET.get('query')
+        lang = translation.get_language()
+        lang_config = lang_mapping.get(lang, 'russian')
+        search_query = SearchQuery(query)
+        vector = SearchVector('text', config=lang_config)
+        results = Post.objects.annotate(search=vector).filter(lang=lang, search=search_query)
+
+        return render(request, 'blog/search.html', {'results': results, 'query': query})

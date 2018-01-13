@@ -19,11 +19,12 @@ p {
 .blog-nav-item {
   position: relative;
   display: inline-block;
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
   font-weight: 500;
   color: #cdddeb;
+  font-size: 1.15em;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
@@ -102,4 +103,43 @@ div.tchannel-info {
     padding: 15px;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+
+button.search-btn {
+    border: none;
+    background: transparent;
+    position: absolute;
+    margin-left: 150px;
+    padding-top: 4px;
+    /*top: 23%;*/
+    /*right: 30px;*/
+    /*padding: 0;*/
+    height: 16px;
+    width: 16px;
+    font-size: 16px;
+    outline: none;
+}
+
+ul.menu__navigation {
+    padding: 0;
+}
+
+ul.menu__navigation li {
+    list-style: none;
+    font-size: 1.05em;
+}
+
+ul.menu__navigation li a {
+    color: #f5f5f1;
+}
+@media (min-width: 768px) {
+    ul.menu__navigation li {
+        display: inline-block;
+        padding-right: 10px;
+    }
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #fff;
 }

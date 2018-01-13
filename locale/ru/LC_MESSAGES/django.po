@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-01 22:41+0600\n"
-"PO-Revision-Date: 2017-09-01 22:48+0600\n"
+"POT-Creation-Date: 2018-01-13 21:04+0600\n"
+"PO-Revision-Date: 2018-01-13 21:05+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -123,19 +123,19 @@ msgstr "альтернативный URL"
 msgid "Alternate URLs"
 msgstr "Альтернативные URL"
 
-#: .\apps\blog\views.py:17
+#: .\apps\blog\views.py:19
 msgid "Adil Khashtamov's personal blog"
 msgstr "Персональный блог Адиля Хаштамова"
 
-#: .\apps\blog\views.py:18
+#: .\apps\blog\views.py:20
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\apps\blog\views.py:137
+#: .\apps\blog\views.py:139
 msgid "Invalid email"
 msgstr "Неверный эл.адрес"
 
-#: .\apps\blog\views.py:148
+#: .\apps\blog\views.py:150
 msgid "Email required"
 msgstr "Необходимо указать эл.адрес"
 
@@ -159,23 +159,27 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr "Персональный блог Адиля Хаштамова — программист-прагматик"
 
-#: .\templates\base.html:77
+#: .\templates\base.html:97
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\base.html:78
+#: .\templates\base.html:98
 msgid "Archives"
 msgstr "Архивы"
 
-#: .\templates\base.html:79
+#: .\templates\base.html:99
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\templates\base.html:86
+#: .\templates\base.html:108
 msgid "Admin"
 msgstr "Админка"
 
-#: .\templates\base.html:100
+#: .\templates\base.html:116
+msgid "search term"
+msgstr "поиск"
+
+#: .\templates\base.html:133
 msgid "Powered by"
 msgstr "Работает на"
 
@@ -218,7 +222,7 @@ msgstr "Редактировать"
 msgid "read more"
 msgstr "читать ещё"
 
-#: .\templates\blog\post_detail.html:34
+#: .\templates\blog\post_detail.html:34 .\templates\blog\search.html:26
 msgid "views"
 msgstr "просмотров"
 
@@ -247,29 +251,38 @@ msgstr ""
 "На канале уже более 1000 участников, поэтому присоединяйтесь и Вы — <a href="
 "\"https://t.me/devbrain\" target=\"_blank\" rel=\"nofollow\">DevBrain</a>"
 
-#: .\templates\blog\post_detail.html:96
-msgid ""
-"If you like my articles, please subscribe to stay up to date with new "
-"material"
-msgstr ""
-"Если вам нравится материал на сайте — подпишитесь, чтобы не пропустить "
-"обновления"
-
-#: .\templates\blog\post_detail.html:100
-msgid "Put your email here"
-msgstr "Введите электронный адрес"
-
-#: .\templates\blog\post_detail.html:105
-msgid "Thank you! You have been successfuly subscribed."
-msgstr "Спасибо! Вы успешно подписались."
-
-#: .\templates\blog\post_detail.html:113
-msgid "Subscribe"
-msgstr "Подписаться"
-
 #: .\templates\blog\post_detail.html:143
 msgid "Related posts"
 msgstr "Интересные записи"
+
+#: .\templates\blog\search.html:8
+#, python-format
+msgid "Results for «%(query)s»"
+msgstr "Результаты поиска по запросу «%(query)s»"
+
+#: .\templates\blog\search.html:16
+msgid "No articles found"
+msgstr "Ничего не найдено"
+
+#: .\templates\blog\search.html:18
+msgid "Articles found"
+msgstr "Найдено статей"
+
+#~ msgid ""
+#~ "If you like my articles, please subscribe to stay up to date with new "
+#~ "material"
+#~ msgstr ""
+#~ "Если вам нравится материал на сайте — подпишитесь, чтобы не пропустить "
+#~ "обновления"
+
+#~ msgid "Put your email here"
+#~ msgstr "Введите электронный адрес"
+
+#~ msgid "Thank you! You have been successfuly subscribed."
+#~ msgstr "Спасибо! Вы успешно подписались."
+
+#~ msgid "Subscribe"
+#~ msgstr "Подписаться"
 
 #~ msgid "Powered by Django 1.11 & Python 3.5"
 #~ msgstr "Работает на Django 1.11 & Python 3.5"
