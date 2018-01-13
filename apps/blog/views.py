@@ -159,8 +159,8 @@ class SearchView(View):
         query = request.GET.get('query')
         lang = translation.get_language()
         lang_config = lang_mapping.get(lang, 'russian')
-        search_query = SearchQuery(query)
+        search_query = SearchQuery(query, config=lang_config)
         vector = SearchVector('text', config=lang_config)
-        results = Post.objects.annotate(search=vector).filter(lang=lang, search=search_query)
+        results = Post.objects.annotate(search=vector).filter(lang=lang, search=search_query).order_by('-created')
 
         return render(request, 'blog/search.html', {'results': results, 'query': query})
