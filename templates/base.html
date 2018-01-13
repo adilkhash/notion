@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?27092017">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?13012017">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
     <link rel='dns-prefetch' href='//unpkg.com' />
@@ -90,7 +90,7 @@
                 </button>
             </div>
 
-            <div class="collapse navbar-collapse" id="collapse-menu">
+            <div class="collapse navbar-collapse" id="collapse-menu" style="padding:0;">
                 <ul class="menu__navigation">
                     <li><a class="blog-nav-item" href="{% url 'blog:posts' %}">{% trans 'Blog' %}</a></li>
                     <li><a class="blog-nav-item" href="{% url 'blog:archives' %}">{% trans 'Archives' %}</a></li>
