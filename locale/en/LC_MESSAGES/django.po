@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-13 21:04+0600\n"
+"POT-Creation-Date: 2018-02-08 09:30+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,27 +154,27 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:97
+#: .\templates\base.html:95
 msgid "Blog"
 msgstr ""
 
-#: .\templates\base.html:98
+#: .\templates\base.html:96
 msgid "Archives"
 msgstr ""
 
-#: .\templates\base.html:99
+#: .\templates\base.html:97
 msgid "Contacts"
 msgstr ""
 
-#: .\templates\base.html:108
+#: .\templates\base.html:106
 msgid "Admin"
 msgstr ""
 
-#: .\templates\base.html:116
+#: .\templates\base.html:114
 msgid "search term"
 msgstr ""
 
-#: .\templates\base.html:133
+#: .\templates\base.html:131
 msgid "Powered by"
 msgstr ""
 
@@ -215,11 +215,11 @@ msgstr ""
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:73
+#: .\templates\blog\post_detail.html:81
 msgid "Telegram channel"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:79
+#: .\templates\blog\post_detail.html:87
 msgid ""
 "Recently I opened my own Telegram channel related to software development "
 "called <strong>DevBrain</strong> where I share my thoughts and external "
@@ -227,13 +227,14 @@ msgid ""
 "software craftsmanship."
 msgstr ""
 
-#: .\templates\blog\post_detail.html:83
+#: .\templates\blog\post_detail.html:91
 msgid ""
-"There are more than 1000 members already, so please join us — <a href="
-"\"https://t.me/devbrain\" target=\"_blank\" rel=\"nofollow\">DevBrain</a>"
+"There are more than 2000 members already, so please join us — <a href="
+"\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
+"\">DevBrain</a>"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:143
+#: .\templates\blog\post_detail.html:151
 msgid "Related posts"
 msgstr ""
 
