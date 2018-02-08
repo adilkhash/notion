@@ -107,7 +107,7 @@
                     {% endif %}
                 <li>
                     <form action="{% url 'blog:search' %}" method="get" class="form-inline">
-                            <button type="submit" class="search-btn">
+                            <button type="submit" class="search-btn" {% if not DEBUG %}onlick="yaCounter32700075.reachGoal('searchBtnClick'); return true;"{% endif %}>
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                             </button>
                             <input style="width: 178px;" class="form-control mb-2 mr-sm-2" type="text" name="query"
