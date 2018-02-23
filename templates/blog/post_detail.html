@@ -69,33 +69,44 @@
     
         {% if LANGUAGE_CODE == 'ru' %}
             <div class="row" style="margin-top:20px;">
-                <div class="col-md-12">
-                    <a href="https://goo.gl/KHzeuT" target="_blank" rel="nofollow noindex">
-                        <img width="100%" src="{% static 'images/ml-poster2.jpg' %}" alt="Курс по машинному обучению на Python" title="Курс по машинному обучению на Python">
-                    </a>
+                <div class="col-md-4">
+                    <img src="{% static 'images/ml-agenda.jpg' %}" alt="Машинное обучение" title="Машинное обучение">
+                </div>
+                <div class="col-md-8">
+                    <div class="author-cloud" style="border: 1px #b9baba solid;">
+                        <div class="tchannel-info" style="background-color: #fbffd2;">
+                            <p>
+                                16 апреля 2018 года стартует курс <strong>"Практический Machine Learning"</strong> от ребят из SkillFactory, где вас ждёт мощнейшее
+                                погружение в анализ данных с помощью Python. Занятия будут проводить опытные специалисты в этой области из компании Mail.Ru Group.
+                                Курс научит вас строить модели машинного обучения, анализировать текст и эффективно работать с данными, используя инструменты языка Python.
+                                Набор в группу уже открыт! Спешите <a href="https://goo.gl/KHzeuT" target="_blank" rel="nofollow noindex">записаться</a> и получить солидную скидку.
+
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}
 
         {% if LANGUAGE_CODE == 'ru' %}
-        <div class="row" style="margin-top: 20px;">
-            <div class="col-md-3">
-                <img src="{% static 'images/devbrain.png' %}" alt="{% trans 'Telegram channel' %}" title="{% trans 'Telegram channel' %}">
-            </div>
-            <div class="col-md-9">
-                <div class="author-cloud" style="border: 1px #b9baba solid;">
-                    <div class="tchannel-info">
-                        <p>
-                            {% blocktrans %}Recently I opened my own Telegram channel related to software development called <strong>DevBrain</strong> where I share my thoughts and external resources (articles, videos, presentations, book recommendations) regarding software craftsmanship.{% endblocktrans %}
-                        </p>
-
-                        <p>
-                            {% blocktrans %}There are more than 2000 members already, so please join us — <a href="https://goo.gl/sPfT4S" target="_blank" rel="nofollow noindex">DevBrain</a>{% endblocktrans %}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+{#        <div class="row" style="margin-top: 20px;">#}
+{#            <div class="col-md-3">#}
+{#                <img src="{% static 'images/devbrain.png' %}" alt="{% trans 'Telegram channel' %}" title="{% trans 'Telegram channel' %}">#}
+{#            </div>#}
+{#            <div class="col-md-9">#}
+{#                <div class="author-cloud" style="border: 1px #b9baba solid;">#}
+{#                    <div class="tchannel-info">#}
+{#                        <p>#}
+{#                            {% blocktrans %}Recently I opened my own Telegram channel related to software development called <strong>DevBrain</strong> where I share my thoughts and external resources (articles, videos, presentations, book recommendations) regarding software craftsmanship.{% endblocktrans %}#}
+{#                        </p>#}
+{##}
+{#                        <p>#}
+{#                            {% blocktrans %}There are more than 2000 members already, so please join us — <a href="https://goo.gl/sPfT4S" target="_blank" rel="nofollow noindex">DevBrain</a>{% endblocktrans %}#}
+{#                        </p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
         {% else %}
 
 {#        <div class="row" style="margin-top: 10px;" id="app">#}
