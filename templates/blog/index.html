@@ -63,42 +63,7 @@ Hi. My name is Adil. I am passionate about building software. This blog is a not
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="sidebar-widget" style="margin-top:40px;">
-                    <h4 class="sidebar-title">{% trans 'Search' %}</h4>
-
-                    <form action="{% url 'blog:search' %}" method="get" class="form-inline">
-                        <input style="width: 100%;border-radius:1px;" class="form-control" type="text" name="query"
-                                {% if query %} value="{{ query }}"
-                               {% else %}placeholder="{% trans 'search term' %}"{% endif %}>
-
-                        <button class="btn btn-primary btn-block"
-                                style="margin-top:10px;border-radius:1px;">{% trans 'Find' %}</button>
-                    </form>
-                </div>
-
-                <div class="sidebar-widget">
-                    <h4 class="sidebar-title">{% trans 'Recent posts' %}</h4>
-
-                    <ul style="padding:0; list-style: none;">
-                        {% for post in recent_posts %}
-                            <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="sidebar-widget">
-                    <h4 class="sidebar-title">{% trans 'Most popular' %}</h4>
-                    <ul style="padding:0; list-style: none;">
-                        {% for post in popular_posts %}
-                            <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-
-            </div>
-
+            {% include 'blog/_sidebar.html' %}
         </div>
 
         <div class="row">
