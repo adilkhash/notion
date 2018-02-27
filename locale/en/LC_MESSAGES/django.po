@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 09:30+0600\n"
+"POT-Creation-Date: 2018-02-27 21:53+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "categories"
 msgstr ""
 
 #: .\apps\blog\models.py:27 .\templates\blog\index.html:56
-#: .\templates\blog\post_detail.html:38
+#: .\templates\blog\post_detail.html:37
 msgid "Draft"
 msgstr ""
 
@@ -128,11 +128,11 @@ msgstr ""
 msgid "pragmatic programmer"
 msgstr ""
 
-#: .\apps\blog\views.py:139
+#: .\apps\blog\views.py:151
 msgid "Invalid email"
 msgstr ""
 
-#: .\apps\blog\views.py:150
+#: .\apps\blog\views.py:162
 msgid "Email required"
 msgstr ""
 
@@ -170,11 +170,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: .\templates\base.html:114
-msgid "search term"
-msgstr ""
-
-#: .\templates\base.html:131
+#: .\templates\base.html:122
 msgid "Powered by"
 msgstr ""
 
@@ -203,7 +199,7 @@ msgid ""
 "machine learning and data analysis.\n"
 msgstr ""
 
-#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:36
+#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:35
 msgid "Edit"
 msgstr ""
 
@@ -211,30 +207,31 @@ msgstr ""
 msgid "read more"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:34 .\templates\blog\search.html:26
+#: .\templates\blog\index.html:68 .\templates\blog\post_detail.html:69
+msgid "Search"
+msgstr ""
+
+#: .\templates\blog\index.html:73 .\templates\blog\post_detail.html:74
+msgid "search term"
+msgstr ""
+
+#: .\templates\blog\index.html:76 .\templates\blog\post_detail.html:77
+msgid "Find"
+msgstr ""
+
+#: .\templates\blog\index.html:81 .\templates\blog\post_detail.html:82
+msgid "Recent posts"
+msgstr ""
+
+#: .\templates\blog\index.html:91 .\templates\blog\post_detail.html:92
+msgid "Most popular"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:33 .\templates\blog\search.html:26
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:81
-msgid "Telegram channel"
-msgstr ""
-
-#: .\templates\blog\post_detail.html:87
-msgid ""
-"Recently I opened my own Telegram channel related to software development "
-"called <strong>DevBrain</strong> where I share my thoughts and external "
-"resources (articles, videos, presentations, book recommendations) regarding "
-"software craftsmanship."
-msgstr ""
-
-#: .\templates\blog\post_detail.html:91
-msgid ""
-"There are more than 2000 members already, so please join us — <a href="
-"\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
-"\">DevBrain</a>"
-msgstr ""
-
-#: .\templates\blog\post_detail.html:151
+#: .\templates\blog\post_detail.html:199
 msgid "Related posts"
 msgstr ""
 

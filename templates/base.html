@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?13012017">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?27022018">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
     <link rel='dns-prefetch' href='//unpkg.com' />
@@ -78,7 +78,7 @@
 
 <body>
     <div class="blog-masthead">
-        <div class="container">
+        <div class="container container-wrap">
             <div role="navigation">
 
             <div class="navbar-header">
@@ -105,15 +105,6 @@
                     {% if user.is_superuser %}
                         <li><a class="blog-nav-item" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a></li>
                     {% endif %}
-                <li>
-                    <form action="{% url 'blog:search' %}" method="get" class="form-inline">
-                            <button type="submit" class="search-btn" {% if not DEBUG %}onlick="yaCounter32700075.reachGoal('searchBtnClick'); return true;"{% endif %}>
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            </button>
-                            <input style="width: 178px;" class="form-control mb-2 mr-sm-2" type="text" name="query"
-                                   {% if query %} value="{{ query }}" {% else %}placeholder="{% trans 'search term' %}"{% endif %}>
-                        </form>
-                </li>
                 </ul>
             </div>
         </div>
@@ -124,7 +115,7 @@
     {% endblock %}
 
     <!--footer-->
-    <div class="container">
+    <div class="container container-wrap">
         <div class="row">
             <div class="col-md-12">
                 <div class="footer" style="padding-bottom: 20px;padding-top:20px;">

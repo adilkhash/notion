@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 09:30+0600\n"
-"PO-Revision-Date: 2018-02-08 09:32+0600\n"
+"POT-Creation-Date: 2018-02-27 21:53+0600\n"
+"PO-Revision-Date: 2018-02-27 21:54+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -34,7 +34,7 @@ msgid "categories"
 msgstr "категории"
 
 #: .\apps\blog\models.py:27 .\templates\blog\index.html:56
-#: .\templates\blog\post_detail.html:38
+#: .\templates\blog\post_detail.html:37
 msgid "Draft"
 msgstr "Черновик"
 
@@ -131,11 +131,11 @@ msgstr "Персональный блог Адиля Хаштамова"
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\apps\blog\views.py:139
+#: .\apps\blog\views.py:151
 msgid "Invalid email"
 msgstr "Неверный эл.адрес"
 
-#: .\apps\blog\views.py:150
+#: .\apps\blog\views.py:162
 msgid "Email required"
 msgstr "Необходимо указать эл.адрес"
 
@@ -175,11 +175,7 @@ msgstr "Контакты"
 msgid "Admin"
 msgstr "Админка"
 
-#: .\templates\base.html:114
-msgid "search term"
-msgstr "поиск"
-
-#: .\templates\base.html:131
+#: .\templates\base.html:122
 msgid "Powered by"
 msgstr "Работает на"
 
@@ -214,7 +210,7 @@ msgstr ""
 "проектирования ПО. Сейчас особенно заинтересован в современных веб "
 "приложениях, машинном обучении и анализе данных.\n"
 
-#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:36
+#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:35
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -222,38 +218,31 @@ msgstr "Редактировать"
 msgid "read more"
 msgstr "читать ещё"
 
-#: .\templates\blog\post_detail.html:34 .\templates\blog\search.html:26
+#: .\templates\blog\index.html:68 .\templates\blog\post_detail.html:69
+msgid "Search"
+msgstr "Поиск"
+
+#: .\templates\blog\index.html:73 .\templates\blog\post_detail.html:74
+msgid "search term"
+msgstr "поиск"
+
+#: .\templates\blog\index.html:76 .\templates\blog\post_detail.html:77
+msgid "Find"
+msgstr "Найти"
+
+#: .\templates\blog\index.html:81 .\templates\blog\post_detail.html:82
+msgid "Recent posts"
+msgstr "Свежие записи"
+
+#: .\templates\blog\index.html:91 .\templates\blog\post_detail.html:92
+msgid "Most popular"
+msgstr "Самые популярные"
+
+#: .\templates\blog\post_detail.html:33 .\templates\blog\search.html:26
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:81
-msgid "Telegram channel"
-msgstr "Telegram канал"
-
-#: .\templates\blog\post_detail.html:87
-msgid ""
-"Recently I opened my own Telegram channel related to software development "
-"called <strong>DevBrain</strong> where I share my thoughts and external "
-"resources (articles, videos, presentations, book recommendations) regarding "
-"software craftsmanship."
-msgstr ""
-"Не так давно я открыл канал в Telegram на тему разработки программного "
-"обеспечения, называется он <strong>DevBrain</strong>. На канале я делюсь "
-"своими мыслями , а также ресурсами (статьями, видео, презентациями, книжными "
-"рекомендациями и т.д.) о кодинге, методологиях разработки и многом другом с "
-"чем нам, разработчикам, приходится сталкиваться каждый день в работе."
-
-#: .\templates\blog\post_detail.html:91
-msgid ""
-"There are more than 2000 members already, so please join us — <a href="
-"\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
-"\">DevBrain</a>"
-msgstr ""
-"На канале уже более 2000  участников, поэтому присоединяйтесь и Вы — <a href="
-"\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
-"\">DevBrain</a>"
-
-#: .\templates\blog\post_detail.html:151
+#: .\templates\blog\post_detail.html:199
 msgid "Related posts"
 msgstr "Интересные записи"
 
@@ -269,6 +258,31 @@ msgstr "Ничего не найдено"
 #: .\templates\blog\search.html:18
 msgid "Articles found"
 msgstr "Найдено статей"
+
+#~ msgid "Telegram channel"
+#~ msgstr "Telegram канал"
+
+#~ msgid ""
+#~ "Recently I opened my own Telegram channel related to software development "
+#~ "called <strong>DevBrain</strong> where I share my thoughts and external "
+#~ "resources (articles, videos, presentations, book recommendations) "
+#~ "regarding software craftsmanship."
+#~ msgstr ""
+#~ "Не так давно я открыл канал в Telegram на тему разработки программного "
+#~ "обеспечения, называется он <strong>DevBrain</strong>. На канале я делюсь "
+#~ "своими мыслями , а также ресурсами (статьями, видео, презентациями, "
+#~ "книжными рекомендациями и т.д.) о кодинге, методологиях разработки и "
+#~ "многом другом с чем нам, разработчикам, приходится сталкиваться каждый "
+#~ "день в работе."
+
+#~ msgid ""
+#~ "There are more than 2000 members already, so please join us — <a href="
+#~ "\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
+#~ "\">DevBrain</a>"
+#~ msgstr ""
+#~ "На канале уже более 2000  участников, поэтому присоединяйтесь и Вы — <a "
+#~ "href=\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
+#~ "\">DevBrain</a>"
 
 #~ msgid ""
 #~ "If you like my articles, please subscribe to stay up to date with new "

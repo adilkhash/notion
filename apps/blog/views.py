@@ -46,6 +46,14 @@ class HomePageView(ListView):
             return self.model.objects.filter(lang=translation.get_language(),
                                              status=Post.PUBLISHED).order_by('-id')
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['popular_posts'] = self.model.objects.filter(lang=translation.get_language(),
+                                                             status=Post.PUBLISHED).order_by('-page_views')[:10]
+        context['recent_posts'] = self.model.objects.filter(lang=translation.get_language(),
+                                                            status=Post.PUBLISHED).order_by('-id')[:10]
+        return context
+
 
 class PostDetailView(DetailView):
     template_name = 'blog/post_detail.html'
@@ -73,6 +81,10 @@ class PostDetailView(DetailView):
         context['alternate_posts'] = AlternateURL.objects.filter(
             post=self.object
         )
+        context['popular_posts'] = self.model.objects.filter(lang=translation.get_language(),
+                                                             status=Post.PUBLISHED).order_by('-page_views')[:10]
+        context['recent_posts'] = self.model.objects.filter(lang=translation.get_language(),
+                                                            status=Post.PUBLISHED).order_by('-id')[:10]
         return context
 
 
