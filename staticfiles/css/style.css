@@ -158,6 +158,8 @@ h4.sidebar-title {
     padding-bottom: 7px;
 }
 
-.container-wrap {
-    width: 1300px;
+@media (min-width: 1200px) {
+    .container-wrap {
+        width: 1200px;
+    }
 }
