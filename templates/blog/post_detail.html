@@ -40,56 +40,47 @@
                     </div>
                     {{ object.text|safe }}
                 </article>
-{#                {% if not DEBUG %}#}
-{#                    <!-- Yandex.RTB R-A-208346-2 -->#}
-{#                    <div id="yandex_rtb_R-A-208346-2"></div>#}
-{#                    <script type="text/javascript">#}
-{#                        (function (w, d, n, s, t) {#}
-{#                            w[n] = w[n] || [];#}
-{#                            w[n].push(function () {#}
-{#                                Ya.Context.AdvManager.render({#}
-{#                                    blockId: "R-A-208346-2",#}
-{#                                    renderTo: "yandex_rtb_R-A-208346-2",#}
-{#                                    horizontalAlign: false,#}
-{#                                    async: true#}
-{#                                });#}
-{#                            });#}
-{#                            t = d.getElementsByTagName("script")[0];#}
-{#                            s = d.createElement("script");#}
-{#                            s.type = "text/javascript";#}
-{#                            s.src = "//an.yandex.ru/system/context.js";#}
-{#                            s.async = true;#}
-{#                            t.parentNode.insertBefore(s, t);#}
-{#                        })(this, this.document, "yandexContextAsyncCallbacks");#}
-{#                    </script>#}
-{#                {% endif %}#}
+                <div id="disqus_thread" style="margin-top:15px;"></div>
+
+                {% if related_articles %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>{% trans 'Related posts' %}:</h2>
+                            <ul>
+                                {% for related_article in related_articles %}
+                                    <li><a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
             {% include 'blog/_sidebar.html' %}
         </div>
 
 
-        {% if LANGUAGE_CODE == 'ru' %}
-            <div class="row" style="margin-top:20px;">
-                <div class="col-md-4">
-                    <img src="{% static 'images/ml-agenda.jpg' %}" alt="Машинное обучение" title="Машинное обучение">
-                </div>
-                <div class="col-md-8">
-                    <div class="author-cloud" style="border: 1px #b9baba solid;">
-                        <div class="tchannel-info" style="background-color: #fbffd2;">
-                            <p>
-                                16 апреля 2018 года стартует курс <strong>"Практический Machine Learning"</strong> от ребят из SkillFactory, где вас ждёт мощнейшее
-                                погружение в анализ данных с помощью Python. Занятия будут проводить опытные специалисты в этой области из компании Mail.Ru Group.
-                                Курс научит вас строить модели машинного обучения, анализировать текст и эффективно работать с данными, используя инструменты языка Python.
-                                Набор в группу уже открыт! Спешите <a href="https://goo.gl/KHzeuT" target="_blank" rel="nofollow noindex">записаться</a> и получить солидную скидку.
+{#        {% if LANGUAGE_CODE == 'ru' %}#}
+{#            <div class="row" style="margin-top:20px;">#}
+{#                <div class="col-md-4">#}
+{#                    <img src="{% static 'images/ml-agenda.jpg' %}" alt="Машинное обучение" title="Машинное обучение">#}
+{#                </div>#}
+{#                <div class="col-md-8">#}
+{#                    <div class="author-cloud" style="border: 1px #b9baba solid;">#}
+{#                        <div class="tchannel-info" style="background-color: #fbffd2;">#}
+{#                            <p>#}
+{#                                16 апреля 2018 года стартует курс <strong>"Практический Machine Learning"</strong> от ребят из SkillFactory, где вас ждёт мощнейшее#}
+{#                                погружение в анализ данных с помощью Python. Занятия будут проводить опытные специалисты в этой области из компании Mail.Ru Group.#}
+{#                                Курс научит вас строить модели машинного обучения, анализировать текст и эффективно работать с данными, используя инструменты языка Python.#}
+{#                                Набор в группу уже открыт! Спешите <a href="https://goo.gl/KHzeuT" target="_blank" rel="nofollow noindex">записаться</a> и получить солидную скидку.#}
+{##}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endif %}#}
 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if LANGUAGE_CODE == 'ru' %}
+{#        {% if LANGUAGE_CODE == 'ru' %}#}
 {#        <div class="row" style="margin-top: 20px;">#}
 {#            <div class="col-md-3">#}
 {#                <img src="{% static 'images/devbrain.png' %}" alt="{% trans 'Telegram channel' %}" title="{% trans 'Telegram channel' %}">#}
@@ -108,7 +99,7 @@
 {#                </div>#}
 {#            </div>#}
 {#        </div>#}
-        {% else %}
+{#        {% else %}#}
 
 {#        <div class="row" style="margin-top: 10px;" id="app">#}
 {#            <div class="col-md-12">#}
@@ -140,11 +131,10 @@
 {#                </div>#}
 {#            </div>#}
 {#        </div>#}
-        {% endif %}
+{#        {% endif %}#}
 
-        <div id="disqus_thread" style="margin-top:15px;"></div>
+
     <script>
-
     var disqus_config = function () {
     this.page.url = 'https://khashtamov.com{{ object.get_absolute_url }}';
     this.page.identifier = '{{ object.get_absolute_url }}-{{ object.id }}';
@@ -158,19 +148,6 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-
-        {% if related_articles %}
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>{% trans 'Related posts' %}:</h2>
-                    <ul>
-                        {% for related_article in related_articles %}
-                            <li><a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        {% endif %}
     </div>
 
 {% endblock %}
