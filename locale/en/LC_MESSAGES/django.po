@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-27 21:53+0600\n"
+"POT-Creation-Date: 2018-03-01 10:02+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,6 +174,30 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
+#: .\templates\blog\_sidebar.html:5
+msgid "Ad"
+msgstr ""
+
+#: .\templates\blog\_sidebar.html:31
+msgid "Search"
+msgstr ""
+
+#: .\templates\blog\_sidebar.html:36
+msgid "search term"
+msgstr ""
+
+#: .\templates\blog\_sidebar.html:39
+msgid "Find"
+msgstr ""
+
+#: .\templates\blog\_sidebar.html:44
+msgid "Recent posts"
+msgstr ""
+
+#: .\templates\blog\_sidebar.html:54
+msgid "Most popular"
+msgstr ""
+
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
 msgid "Archive of posts"
 msgstr ""
@@ -207,31 +231,11 @@ msgstr ""
 msgid "read more"
 msgstr ""
 
-#: .\templates\blog\index.html:68 .\templates\blog\post_detail.html:69
-msgid "Search"
-msgstr ""
-
-#: .\templates\blog\index.html:73 .\templates\blog\post_detail.html:74
-msgid "search term"
-msgstr ""
-
-#: .\templates\blog\index.html:76 .\templates\blog\post_detail.html:77
-msgid "Find"
-msgstr ""
-
-#: .\templates\blog\index.html:81 .\templates\blog\post_detail.html:82
-msgid "Recent posts"
-msgstr ""
-
-#: .\templates\blog\index.html:91 .\templates\blog\post_detail.html:92
-msgid "Most popular"
-msgstr ""
-
 #: .\templates\blog\post_detail.html:33 .\templates\blog\search.html:26
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:199
+#: .\templates\blog\post_detail.html:165
 msgid "Related posts"
 msgstr ""
 

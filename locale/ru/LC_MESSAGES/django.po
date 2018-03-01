@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-27 21:53+0600\n"
-"PO-Revision-Date: 2018-02-27 21:54+0600\n"
+"POT-Creation-Date: 2018-03-01 10:02+0600\n"
+"PO-Revision-Date: 2018-03-01 10:02+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -179,6 +179,30 @@ msgstr "Админка"
 msgid "Powered by"
 msgstr "Работает на"
 
+#: .\templates\blog\_sidebar.html:5
+msgid "Ad"
+msgstr "Реклама"
+
+#: .\templates\blog\_sidebar.html:31
+msgid "Search"
+msgstr "Поиск"
+
+#: .\templates\blog\_sidebar.html:36
+msgid "search term"
+msgstr "поиск"
+
+#: .\templates\blog\_sidebar.html:39
+msgid "Find"
+msgstr "Найти"
+
+#: .\templates\blog\_sidebar.html:44
+msgid "Recent posts"
+msgstr "Свежие записи"
+
+#: .\templates\blog\_sidebar.html:54
+msgid "Most popular"
+msgstr "Самые популярные"
+
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
 msgid "Archive of posts"
 msgstr "Архив записей"
@@ -218,31 +242,11 @@ msgstr "Редактировать"
 msgid "read more"
 msgstr "читать ещё"
 
-#: .\templates\blog\index.html:68 .\templates\blog\post_detail.html:69
-msgid "Search"
-msgstr "Поиск"
-
-#: .\templates\blog\index.html:73 .\templates\blog\post_detail.html:74
-msgid "search term"
-msgstr "поиск"
-
-#: .\templates\blog\index.html:76 .\templates\blog\post_detail.html:77
-msgid "Find"
-msgstr "Найти"
-
-#: .\templates\blog\index.html:81 .\templates\blog\post_detail.html:82
-msgid "Recent posts"
-msgstr "Свежие записи"
-
-#: .\templates\blog\index.html:91 .\templates\blog\post_detail.html:92
-msgid "Most popular"
-msgstr "Самые популярные"
-
 #: .\templates\blog\post_detail.html:33 .\templates\blog\search.html:26
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:199
+#: .\templates\blog\post_detail.html:165
 msgid "Related posts"
 msgstr "Интересные записи"
 
