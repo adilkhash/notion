@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-01 10:02+0600\n"
-"PO-Revision-Date: 2018-03-01 10:02+0600\n"
+"POT-Creation-Date: 2018-03-13 22:05+0600\n"
+"PO-Revision-Date: 2018-03-13 22:06+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -179,27 +179,27 @@ msgstr "Админка"
 msgid "Powered by"
 msgstr "Работает на"
 
-#: .\templates\blog\_sidebar.html:5
-msgid "Ad"
-msgstr "Реклама"
-
-#: .\templates\blog\_sidebar.html:31
+#: .\templates\blog\_sidebar.html:8
 msgid "Search"
 msgstr "Поиск"
 
-#: .\templates\blog\_sidebar.html:36
+#: .\templates\blog\_sidebar.html:12
 msgid "search term"
 msgstr "поиск"
 
-#: .\templates\blog\_sidebar.html:39
+#: .\templates\blog\_sidebar.html:15
 msgid "Find"
 msgstr "Найти"
 
-#: .\templates\blog\_sidebar.html:44
+#: .\templates\blog\_sidebar.html:21
+msgid "Telegram"
+msgstr "Telegram"
+
+#: .\templates\blog\_sidebar.html:72
 msgid "Recent posts"
 msgstr "Свежие записи"
 
-#: .\templates\blog\_sidebar.html:54
+#: .\templates\blog\_sidebar.html:106
 msgid "Most popular"
 msgstr "Самые популярные"
 
@@ -246,7 +246,36 @@ msgstr "читать ещё"
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:165
+#: .\templates\blog\post_detail.html:47 .\templates\blog\post_detail.html:48
+msgid "Telegram channel"
+msgstr "Telegram канал"
+
+#: .\templates\blog\post_detail.html:54
+msgid ""
+"Recently I opened my own Telegram channel related to software\n"
+"                                            development called "
+"<strong>DevBrain</strong> where I share my thoughts and\n"
+"                                            external resources (articles, "
+"videos, presentations, book recommendations)\n"
+"                                            regarding software craftsmanship."
+msgstr ""
+"Не так давно я открыл канал в Telegram на тему разработки программного "
+"обеспечения, называется он <strong>DevBrain</strong>. На канале я делюсь "
+"своими мыслями , а также ресурсами (статьями, видео, презентациями, книжными "
+"рекомендациями и т.д.) о кодинге, методологиях разработки и многом другом с "
+"чем нам, разработчикам, приходится сталкиваться каждый день в работе."
+
+#: .\templates\blog\post_detail.html:61
+msgid ""
+"There are more than 2000 members already, so please join us —\n"
+"                                            <a href=\"https://goo.gl/sPfT4S"
+"\" target=\"_blank\" rel=\"nofollow noindex\">DevBrain</a>"
+msgstr ""
+"На канале уже более 2000  участников, поэтому присоединяйтесь и Вы — <a href="
+"\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
+"\">DevBrain</a>"
+
+#: .\templates\blog\post_detail.html:74
 msgid "Related posts"
 msgstr "Интересные записи"
 
@@ -263,30 +292,8 @@ msgstr "Ничего не найдено"
 msgid "Articles found"
 msgstr "Найдено статей"
 
-#~ msgid "Telegram channel"
-#~ msgstr "Telegram канал"
-
-#~ msgid ""
-#~ "Recently I opened my own Telegram channel related to software development "
-#~ "called <strong>DevBrain</strong> where I share my thoughts and external "
-#~ "resources (articles, videos, presentations, book recommendations) "
-#~ "regarding software craftsmanship."
-#~ msgstr ""
-#~ "Не так давно я открыл канал в Telegram на тему разработки программного "
-#~ "обеспечения, называется он <strong>DevBrain</strong>. На канале я делюсь "
-#~ "своими мыслями , а также ресурсами (статьями, видео, презентациями, "
-#~ "книжными рекомендациями и т.д.) о кодинге, методологиях разработки и "
-#~ "многом другом с чем нам, разработчикам, приходится сталкиваться каждый "
-#~ "день в работе."
-
-#~ msgid ""
-#~ "There are more than 2000 members already, so please join us — <a href="
-#~ "\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
-#~ "\">DevBrain</a>"
-#~ msgstr ""
-#~ "На канале уже более 2000  участников, поэтому присоединяйтесь и Вы — <a "
-#~ "href=\"https://goo.gl/sPfT4S\" target=\"_blank\" rel=\"nofollow noindex"
-#~ "\">DevBrain</a>"
+#~ msgid "Ad"
+#~ msgstr "Реклама"
 
 #~ msgid ""
 #~ "If you like my articles, please subscribe to stay up to date with new "

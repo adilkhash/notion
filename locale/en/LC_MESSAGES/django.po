@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-01 10:02+0600\n"
+"POT-Creation-Date: 2018-03-13 22:05+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,27 +174,27 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:5
-msgid "Ad"
-msgstr ""
-
-#: .\templates\blog\_sidebar.html:31
+#: .\templates\blog\_sidebar.html:8
 msgid "Search"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:36
+#: .\templates\blog\_sidebar.html:12
 msgid "search term"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:39
+#: .\templates\blog\_sidebar.html:15
 msgid "Find"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:44
+#: .\templates\blog\_sidebar.html:21
+msgid "Telegram"
+msgstr ""
+
+#: .\templates\blog\_sidebar.html:72
 msgid "Recent posts"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:54
+#: .\templates\blog\_sidebar.html:106
 msgid "Most popular"
 msgstr ""
 
@@ -235,7 +235,28 @@ msgstr ""
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:165
+#: .\templates\blog\post_detail.html:47 .\templates\blog\post_detail.html:48
+msgid "Telegram channel"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:54
+msgid ""
+"Recently I opened my own Telegram channel related to software\n"
+"                                            development called "
+"<strong>DevBrain</strong> where I share my thoughts and\n"
+"                                            external resources (articles, "
+"videos, presentations, book recommendations)\n"
+"                                            regarding software craftsmanship."
+msgstr ""
+
+#: .\templates\blog\post_detail.html:61
+msgid ""
+"There are more than 2000 members already, so please join us —\n"
+"                                            <a href=\"https://goo.gl/sPfT4S"
+"\" target=\"_blank\" rel=\"nofollow noindex\">DevBrain</a>"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:74
 msgid "Related posts"
 msgstr ""
 
