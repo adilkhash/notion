@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     # project apps
     'apps.blog',
 
-
     # 3rd party apps
     'redactor',
     'bootstrap_pagination',
