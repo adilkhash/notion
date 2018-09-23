@@ -16,59 +16,59 @@
         </form>
     </div>
 
-    {% if LANGUAGE_CODE == 'ru' %}
-        <div class="sidebar-widget">
-            <h4 class="sidebar-title">Мой {% trans 'Telegram' %} канал</h4>
-            <img src="{% static 'images/devbrain.jpg' %}" style="float:left;padding-right:15px;" alt="Telegram канал @devbrain" />
-            <p>
-                Будьте всегда в курсе свежих материалов из мира разработки ПО.
-            </p>
-            <p>
-                <a href="tg://devbrain" rel="nofollow" target="_blank">Подписаться на канал</a>
-            </p>
-        </div>
-    {% else %}
-        <div class="sidebar-widget">
-        {% if not DEBUG %}
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- khashtamov sidebar -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:336px;height:280px"
-                 data-ad-client="ca-pub-3273608550190378"
-                 data-ad-slot="5668516817"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        {% endif %}
-        </div>
-    {% endif %}
+{#    {% if LANGUAGE_CODE == 'ru' %}#}
+{#        <div class="sidebar-widget">#}
+{#            <h4 class="sidebar-title">Мой {% trans 'Telegram' %} канал</h4>#}
+{#            <img src="{% static 'images/devbrain.jpg' %}" style="float:left;padding-right:15px;" alt="Telegram канал @devbrain" />#}
+{#            <p>#}
+{#                Будьте всегда в курсе свежих материалов из мира разработки ПО.#}
+{#            </p>#}
+{#            <p>#}
+{#                <a href="tg://devbrain" rel="nofollow" target="_blank">Подписаться на канал</a>#}
+{#            </p>#}
+{#        </div>#}
+{#    {% else %}#}
+{#        <div class="sidebar-widget">#}
+{#        {% if not DEBUG %}#}
+{#            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>#}
+{#            <!-- khashtamov sidebar -->#}
+{#            <ins class="adsbygoogle"#}
+{#                 style="display:inline-block;width:336px;height:280px"#}
+{#                 data-ad-client="ca-pub-3273608550190378"#}
+{#                 data-ad-slot="5668516817"></ins>#}
+{#            <script>#}
+{#                (adsbygoogle = window.adsbygoogle || []).push({});#}
+{#            </script>#}
+{#        {% endif %}#}
+{#        </div>#}
+{#    {% endif %}#}
 
-{% if LANGUAGE_CODE == 'ru' %}
-    <div class="sidebar-widget">
-        {% if not DEBUG %}
-        <!-- Yandex.RTB R-A-208346-4 -->
-        <div id="yandex_rtb_R-A-208346-4"></div>
-        <script type="text/javascript">
-            (function(w, d, n, s, t) {
-                w[n] = w[n] || [];
-                w[n].push(function() {
-                    Ya.Context.AdvManager.render({
-                        blockId: "R-A-208346-4",
-                        renderTo: "yandex_rtb_R-A-208346-4",
-                        async: true
-                    });
-                });
-                t = d.getElementsByTagName("script")[0];
-                s = d.createElement("script");
-                s.type = "text/javascript";
-                s.src = "//an.yandex.ru/system/context.js";
-                s.async = true;
-                t.parentNode.insertBefore(s, t);
-            })(this, this.document, "yandexContextAsyncCallbacks");
-        </script>
-        {% endif %}
-    </div>
-{% endif %}
+{#{% if LANGUAGE_CODE == 'ru' %}#}
+{#    <div class="sidebar-widget">#}
+{#        {% if not DEBUG %}#}
+{#        <!-- Yandex.RTB R-A-208346-4 -->#}
+{#        <div id="yandex_rtb_R-A-208346-4"></div>#}
+{#        <script type="text/javascript">#}
+{#            (function(w, d, n, s, t) {#}
+{#                w[n] = w[n] || [];#}
+{#                w[n].push(function() {#}
+{#                    Ya.Context.AdvManager.render({#}
+{#                        blockId: "R-A-208346-4",#}
+{#                        renderTo: "yandex_rtb_R-A-208346-4",#}
+{#                        async: true#}
+{#                    });#}
+{#                });#}
+{#                t = d.getElementsByTagName("script")[0];#}
+{#                s = d.createElement("script");#}
+{#                s.type = "text/javascript";#}
+{#                s.src = "//an.yandex.ru/system/context.js";#}
+{#                s.async = true;#}
+{#                t.parentNode.insertBefore(s, t);#}
+{#            })(this, this.document, "yandexContextAsyncCallbacks");#}
+{#        </script>#}
+{#        {% endif %}#}
+{#    </div>#}
+{#{% endif %}#}
 
     <div class="sidebar-widget">
         <h4 class="sidebar-title">{% trans 'Recent posts' %}</h4>

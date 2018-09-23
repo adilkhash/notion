@@ -15,5 +15,3 @@ urlpatterns = [
     url(r'^search/$', SearchView.as_view(), name='search'),
     url(r'^(?P<slug>[-\w]+)/$', PostDetailView.as_view(), name='post'),
 ]
-
-

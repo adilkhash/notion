@@ -6,11 +6,6 @@
 {% block meta_description %}{{ object.text|striptags|truncatechars:200|erase_breaks }}{% endblock %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block _bottom %}
-{#    <script src="//unpkg.com/vue@2.3.0/dist/vue.js"></script>#}
-{#    <script src="{% static 'js/app.js' %}"></script>#}
-{% endblock %}
-
 {% block _head %}
     {% if alternate_posts %}
         {% for post in alternate_posts %}
@@ -43,11 +38,6 @@
 
                 {% if LANGUAGE_CODE == 'ru' %}
                     <div class="row" style="margin-top: 20px;">
-{#                        <div class="col-md-12">#}
-{#                            <a href="http://bit.ly/2LqMohZ" target="_blank" rel="nofollow noindex">#}
-{#                                <img src="{% static 'images/Python900x120.png' %}" alt="">#}
-{#                            </a>#}
-{#                        </div>#}
                         <div class="col-md-4">
                             <img src="{% static 'images/devbrain.png' %}" alt="{% trans 'Telegram channel' %}"
                                  title="{% trans 'Telegram channel' %}">
@@ -88,63 +78,6 @@
             </div>
             {% include 'blog/_sidebar.html' %}
         </div>
-
-
-{#        {% if LANGUAGE_CODE == 'ru' %}#}
-{#            <div class="row" style="margin-top:20px;">#}
-{#                <div class="col-md-4">#}
-{#                    <img src="{% static 'images/ml-agenda.jpg' %}" alt="Машинное обучение" title="Машинное обучение">#}
-{#                </div>#}
-{#                <div class="col-md-8">#}
-{#                    <div class="author-cloud" style="border: 1px #b9baba solid;">#}
-{#                        <div class="tchannel-info" style="background-color: #fbffd2;">#}
-{#                            <p>#}
-{#                                16 апреля 2018 года стартует курс <strong>"Практический Machine Learning"</strong> от ребят из SkillFactory, где вас ждёт мощнейшее#}
-{#                                погружение в анализ данных с помощью Python. Занятия будут проводить опытные специалисты в этой области из компании Mail.Ru Group.#}
-{#                                Курс научит вас строить модели машинного обучения, анализировать текст и эффективно работать с данными, используя инструменты языка Python.#}
-{#                                Набор в группу уже открыт! Спешите <a href="https://goo.gl/KHzeuT" target="_blank" rel="nofollow noindex">записаться</a> и получить солидную скидку.#}
-{##}
-{#                            </p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        {% endif %}#}
-
-
-
-{#        <div class="row" style="margin-top: 10px;" id="app">#}
-{#            <div class="col-md-12">#}
-{#                <div class="subscription">#}
-{##}
-{#                    <div class="text-center" style="margin-top: 30px;margin-bottom: 30px;">#}
-{#                        <p>{% trans 'If you like my articles, please subscribe to stay up to date with new material' %}</p>#}
-{##}
-{#                        <form action="" v-on:submit.prevent>#}
-{#                            <div class="form-group">#}
-{#                                <input v-model="email" type="text" placeholder="{% trans 'Put your email here' %}"#}
-{#                                       style="width:250px;height: 34px;padding-left:7px;">#}
-{#                            </div>#}
-{##}
-{#                            <div class="alert alert-success" role="alert" v-show="subscribed">#}
-{#                                {% trans 'Thank you! You have been successfuly subscribed.' %}#}
-{#                            </div>#}
-{##}
-{#                            <div class="alert alert-danger" role="alert" v-show="invalidSubscription">#}
-{#                                <p v-text="validationError"></p>#}
-{#                            </div>#}
-{##}
-{#                            <button class="btn btn-danger" @click="subscribeBtn" style="height: 34px;">#}
-{#                                {% trans 'Subscribe' %}#}
-{#                            </button>#}
-{#                        </form>#}
-{##}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#        {% endif %}#}
-
 
     <script>
     var disqus_config = function () {
