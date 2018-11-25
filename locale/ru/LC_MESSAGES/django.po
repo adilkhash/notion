@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-19 08:31+0600\n"
-"PO-Revision-Date: 2018-04-19 08:32+0600\n"
+"PO-Revision-Date: 2018-11-25 21:34+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -240,7 +240,7 @@ msgstr "Редактировать"
 
 #: .\templates\blog\index.html:60
 msgid "read more"
-msgstr "читать ещё"
+msgstr "читать дальше"
 
 #: .\templates\blog\post_detail.html:33 .\templates\blog\search.html:26
 msgid "views"
