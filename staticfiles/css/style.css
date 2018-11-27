@@ -163,3 +163,9 @@ h4.sidebar-title {
         width: 1200px;
     }
 }
+
+.tlgr-info {
+    padding: 10px;
+    border: 1px #b9baba solid;
+    background-color: #f9ffc6;
+}

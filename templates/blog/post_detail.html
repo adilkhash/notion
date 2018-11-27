@@ -18,6 +18,7 @@
     <div class="container container-wrap">
         <div class="row">
             <div class="col-md-8">
+
                 <article>
                     <h1>{{ object.title }}</h1>
 
@@ -33,34 +34,17 @@
                             {% endif %}
                         {% endif %}
                     </div>
+
+                    {% if LANGUAGE_CODE == 'ru' %}
+                    <div class="tlgr-info">
+                        Подписывайтесь на мой телеграм-канал <i class="fab fa-telegram"></i>&nbsp;<a href="http://t.me/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">DevBrain</a>, чтобы не пропустить интересное из мира
+                        разработки.
+                    </div>
+                    {% endif %}
+
                     {{ object.text|safe }}
                 </article>
 
-                {% if LANGUAGE_CODE == 'ru' %}
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-4">
-                            <img src="{% static 'images/devbrain.png' %}" alt="{% trans 'Telegram channel' %}"
-                                 title="{% trans 'Telegram channel' %}">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="author-cloud" style="border: 1px #b9baba solid;">
-                                <div class="tchannel-info">
-                                    <p>
-                                        {% blocktrans %}Recently I opened my own Telegram channel related to software
-                                            development called <strong>DevBrain</strong> where I share my thoughts and
-                                            external resources (articles, videos, presentations, book recommendations)
-                                            regarding software craftsmanship.{% endblocktrans %}
-                                    </p>
-
-                                    <p>
-                                        {% blocktrans %}There are more than 2000 members already, so please join us —
-                                            <a href="tg://devbrain" target="_blank" rel="nofollow noindex">DevBrain</a>{% endblocktrans %}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
                 <div id="disqus_thread" style="margin-top:15px;"></div>
 
                 {% if related_articles %}
