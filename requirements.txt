@@ -6,3 +6,5 @@ django-redis==4.7.0
 redis==2.10.5
 https://github.com/adilkhash/django-bootstrap-pagination/archive/master.zip
 whitenoise==3.3.0
+django-redis==4.7.0
+requests==2.20.1

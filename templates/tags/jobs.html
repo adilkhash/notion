@@ -1,0 +1,19 @@
+{% load cache %}
+
+{% cache 86400 latest_job_list %}
+    {% if jobs %}
+        <div class="sidebar-widget">
+            <h4 class="sidebar-title">Удалённая работа</h4>
+            <ul style="padding:0; list-style: none;">
+                {% for job in jobs %}
+                    <li>
+                        <a {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('jobItemClick'); return true;"{% endif %} class="job" target="_blank" href="{{ job.url }}">{{ job.title }}</a><br/>
+                        <span class="job-company">{{ job.company }}</span><hr/>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <button class="btn btn-primary btn-block">Ещё вакансии</button>
+        </div>
+    {% endif %}
+{% endcache %}

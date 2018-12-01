@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load staticfiles %}
 {% get_current_language as LANGUAGE_CODE %}
+{% load blog_tags %}
 
 <div class="col-md-4">
 
@@ -24,5 +25,7 @@
             {% endfor %}
         </ul>
     </div>
+
+    {% display_jobs 3 %}
 
 </div>

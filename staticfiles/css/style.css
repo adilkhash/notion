@@ -169,3 +169,22 @@ h4.sidebar-title {
     border: 1px #b9baba solid;
     background-color: #f9ffc6;
 }
+
+a.job {
+    color: #499402;
+}
+
+span.job-company {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+}
