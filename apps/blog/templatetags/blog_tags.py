@@ -21,5 +21,5 @@ def erase_breaks(text):
 
 @register.simple_tag
 def display_jobs(limit=5):
-    jobs = get_latest_jobs(limit)
+    jobs = get_latest_jobs(limit, text='python')
     return mark_safe(render_to_string('tags/jobs.html', {'jobs': jobs}))
