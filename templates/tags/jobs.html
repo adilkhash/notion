@@ -1,6 +1,6 @@
 {% load cache %}
 
-{% cache 86400 latest_job_list %}
+{% cache 43200 latest_job_list %}
     {% if jobs %}
         <div class="sidebar-widget">
             <h4 class="sidebar-title">Удалённая работа</h4>
@@ -13,7 +13,7 @@
                 {% endfor %}
             </ul>
 
-            <button class="btn btn-primary btn-block">Ещё вакансии</button>
+            <a href="https://remotelist.ru" target="_blank"><button class="btn btn-primary btn-block">Ещё вакансии</button></a>
         </div>
     {% endif %}
 {% endcache %}
