@@ -35,6 +35,21 @@
                         {% endif %}
                     </div>
 
+                    {% if not DEBUG %}
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:block; text-align:center;"
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
+                             data-ad-client="ca-pub-3273608550190378"
+                             data-ad-slot="9434009847"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    {% endif %}
+                    {{ object.text|safe }}
+
+
                     {% if LANGUAGE_CODE == 'ru' %}
                     <div class="tlgr-info">
                         Подписывайтесь на мой телеграм-канал <i class="fab fa-telegram"></i>&nbsp;<a href="http://t.me/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">DevBrain</a>, чтобы не пропустить интересное из мира
@@ -42,7 +57,6 @@
                     </div>
                     {% endif %}
 
-                    {{ object.text|safe }}
                 </article>
 
                 <div id="disqus_thread" style="margin-top:15px;"></div>
