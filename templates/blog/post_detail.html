@@ -23,6 +23,13 @@
                 <article>
                     <h1>{{ object.title }}</h1>
 
+                    {% if LANGUAGE_CODE == 'ru' %}
+                    <div class="tlgr-info">
+                        Также я веду телеграм-канал <a href="https://teleg.run/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">@devbrain</a>. Подписывайтесь, чтобы не пропустить всё самое интересное 😎
+                    </div>
+                    {% endif %}
+
+
                     <div class="article-meta">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         <span>{{ object.created|date:"j N o" }}</span>, <a
@@ -35,14 +42,17 @@
                             {% endif %}
                         {% endif %}
                     </div>
-                    {{ object.text|inject_adsense_after_n_paragraph:3|safe }}
-                
+                    {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
+
                     {% if LANGUAGE_CODE == 'ru' %}
-                    <div class="tlgr-info">
-                        Подписывайтесь на мой телеграм-канал <i class="fab fa-telegram"></i>&nbsp;<a href="http://t.me/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">DevBrain</a>, чтобы не пропустить интересное из мира
-                        разработки.
+                    <div class="tlgr-info" style="background-color: #fff1be;">
+                        <img src="{% static 'images/like.png' %}" alt="" style="float: left; width: 50px;height: 50px;">
+                        <p style="margin-left: 58px;">
+                            Если вам понравилась статья и вы хотите выразить благодарность, то сделать это можно в разделе <a href="{% url 'blog:page' slug='donate' %}">Помощи проекту</a>
+                        </p>
                     </div>
                     {% endif %}
+
 
                 </article>
 
