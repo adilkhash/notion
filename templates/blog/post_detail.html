@@ -42,7 +42,9 @@
                             {% endif %}
                         {% endif %}
                     </div>
-                    {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
+
+{#                    {{ object.text|inject_adsense_after_n_paragraph:5|safe }}#}
+                    {{ object.text|safe }}
 
                     {% if LANGUAGE_CODE == 'ru' %}
                     <div class="tlgr-info" style="background-color: #fff1be;">
