@@ -43,8 +43,11 @@
                         {% endif %}
                     </div>
 
-{#                    {{ object.text|inject_adsense_after_n_paragraph:5|safe }}#}
-                    {{ object.text|safe }}
+                    {% if object.slug != 'data-engineer' %}
+                        {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
+                    {% else %}
+                        {{ object.text|safe }}
+                    {% endif %}
 
                     {% if LANGUAGE_CODE == 'ru' %}
                     <div class="tlgr-info" style="background-color: #fff1be;">
