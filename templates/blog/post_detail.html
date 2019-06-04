@@ -23,13 +23,6 @@
                 <article>
                     <h1>{{ object.title }}</h1>
 
-                    {% if LANGUAGE_CODE == 'ru' %}
-                    <div class="tlgr-info">
-                        Также я веду телеграм-канал <a href="https://teleg.run/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">@devbrain</a>. Подписывайтесь, чтобы не пропустить всё самое интересное 😎
-                    </div>
-                    {% endif %}
-
-
                     <div class="article-meta">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         <span>{{ object.created|date:"j N o" }}</span>, <a
@@ -50,6 +43,13 @@
                     {% endif %}
 
                 </article>
+
+                {% if LANGUAGE_CODE == 'ru' %}
+                    <div class="tlgr-info">
+                        Также я веду телеграм-канал <a href="https://t.me/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">@devbrain</a>. Подписывайтесь, чтобы не пропустить всё самое интересное 😎
+                    </div>
+                {% endif %}
+
 
                 <div id="disqus_thread" style="margin-top:15px;"></div>
 
