@@ -18,11 +18,15 @@ page_dict = {
 }
 
 urlpatterns = [
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': {
-        'blog': GenericSitemap(blog_dict, priority=1),
-        'page': GenericSitemap(page_dict, priority=0.5)
-    }},
-        name='django.contrib.sitemaps.views.sitemap'),
+    url(
+        r'^sitemap\.xml$',
+        sitemap, {
+            'sitemaps': {
+                'blog': GenericSitemap(blog_dict, priority=1),
+                'page': GenericSitemap(page_dict, priority=0.5)
+            }
+        }, name='django.contrib.sitemaps.views.sitemap'
+    ),
     url(r'^redactor/', include('redactor.urls')),
     url(r'^cpadmin/', admin.site.urls),
     url(r'^subscribe/$', SubscriptionView.as_view(), name='subscription'),
