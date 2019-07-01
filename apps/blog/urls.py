@@ -1,8 +1,13 @@
 from django.conf.urls import url
 
-from .views import (
-    HomePageView, PostDetailView, CategoryDetailView, ArchiveListView,
-    PageDetailView, LastestPostFeed, SearchView
+from apps.blog.views import (
+    HomePageView,
+    PostDetailView,
+    CategoryDetailView,
+    ArchiveListView,
+    PageDetailView,
+    LastestPostFeed,
+    SearchView,
 )
 
 app_name = 'blog'
