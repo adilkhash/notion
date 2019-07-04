@@ -12,11 +12,12 @@ from apps.courses.models import Order
 def create_luigi_invoice(request):
     form = InvoiceForm(request.POST)
     if form.is_valid():
+        email = form.cleaned_data['email']
         kassa = QiwiKassa(settings.QIWI_KASSA_SECRET_KEY)
         invoice = kassa.create_bill(
             amount=decimal.Decimal('690.00'),
             currency='RUB',
-            comment='For the Luigi course'
+            comment=f'invoice for {email}'
         )
         invoice = Invoice.objects.create(
             bill_id=invoice.bill_id,
@@ -27,7 +28,7 @@ def create_luigi_invoice(request):
             status=invoice.status.value
         )
         Order.objects.create(
-            email=form.cleaned_data['email'],
+            email=email,
             invoice=invoice
         )
         return HttpResponseRedirect(invoice.payment_url)
