@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^cpadmin/', admin.site.urls),
     url(r'^subscribe/$', SubscriptionView.as_view(), name='subscription'),
     url(r'^qiwi/', include(('qiwi_kassa.urls', 'qiwi_payments'), namespace='qiwi')),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
 
 urlpatterns += i18n_patterns(

@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
     <link rel='dns-prefetch' href='//unpkg.com' />
-    <link href="/static/images/icon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="{% static 'images/icon.png' %}" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 
 {% block _head %}
 {% endblock %}
@@ -30,6 +31,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 
 {% if not DEBUG %}
     <script>

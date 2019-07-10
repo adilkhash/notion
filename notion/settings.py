@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'redactor',
     'bootstrap_pagination',
     'qiwi_kassa',
-
+    'star_ratings',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -180,3 +180,7 @@ CACHES = {
         'KEY_PREFIX': 'notion'
     }
 }
+
+STAR_RATINGS_STAR_HEIGHT = 15
+STAR_RATINGS_STAR_WIDTH = 15
+STAR_RATINGS_ANONYMOUS = True

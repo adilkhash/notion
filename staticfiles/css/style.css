@@ -54,6 +54,10 @@ div.article-meta {
     margin-bottom: 10px;
 }
 
+.star-ratings-rating-stars-container {
+    vertical-align: bottom;
+}
+
 .article-meta span {
     color: #9b9b9b;
 }

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load ratings %}
 {% load i18n %}
 {% load staticfiles %}
 {% block title %}{{ object.title }}{% endblock %}
@@ -34,6 +35,8 @@
                                     <span style="color: red;">{% trans 'Draft' %}</span>
                             {% endif %}
                         {% endif %}
+                        {% ratings object %}
+
                     </div>
 
                     {% if object.slug != 'data-engineer' %}
