@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load ratings %}
 {% load i18n %}
 {% load static %}
 {% block title %}{{ object.title }}{% endblock %}
@@ -35,7 +34,6 @@
                                     <span style="color: red;">{% trans 'Draft' %}</span>
                             {% endif %}
                         {% endif %}
-                        {% ratings object %}
 
                     </div>
 
