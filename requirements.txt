@@ -2,7 +2,6 @@ Django==3.0.3
 psycopg2==2.7.1
 django-environ==0.4.2
 https://github.com/adilkhash/django-wysiwyg-redactor/archive/master.zip
-django-redis==4.7.0
 redis==2.10.5
 https://github.com/adilkhash/django-bootstrap-pagination/archive/master.zip
 whitenoise==3.3.0
