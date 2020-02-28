@@ -22,8 +22,8 @@ urlpatterns = [
         r'^sitemap\.xml$',
         sitemap, {
             'sitemaps': {
-                'blog': GenericSitemap(blog_dict, priority=1),
-                'page': GenericSitemap(page_dict, priority=0.5)
+                'blog': GenericSitemap(blog_dict, priority=1, protocol='https'),
+                'page': GenericSitemap(page_dict, priority=0.5, protocol='https')
             }
         }, name='django.contrib.sitemaps.views.sitemap'
     ),
