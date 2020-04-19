@@ -28,7 +28,6 @@ urlpatterns = [
         }, name='django.contrib.sitemaps.views.sitemap'
     ),
     url(r'^redactor/', include('redactor.urls')),
-    url(r'^courses/', include('apps.courses.urls'), name='courses'),
     url(r'^cpadmin/', admin.site.urls),
     url(r'^subscribe/$', SubscriptionView.as_view(), name='subscription'),
     url(r'^qiwi/', include(('qiwi_kassa.urls', 'qiwi_payments'), namespace='qiwi')),

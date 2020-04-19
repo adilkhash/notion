@@ -30,7 +30,6 @@ INSTALLED_APPS = [
 
     # project apps
     'apps.blog',
-    'apps.courses',
 
     # 3rd party apps
     'redactor',
