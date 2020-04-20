@@ -11,8 +11,8 @@ class PostAdminForm(forms.ModelForm):
         fields = ['title', 'slug', 'text', 'lang', 'status', 'category']
         widgets = {
            'text': RedactorEditor(redactor_options={
-               'plugins': ['source'],
-               'removeComments': False
+               'plugins': ['table'],
+
            }),
         }
 

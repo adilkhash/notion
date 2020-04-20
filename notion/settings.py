@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     # 3rd party apps
     'redactor',
     'bootstrap_pagination',
-    'qiwi_kassa',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -164,9 +163,12 @@ LOGGING = {
     }
 }
 
-REDACTOR_UPLOAD = 'uploads/'
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '..', 'uploads')
+
+REDACTOR_UPLOAD = 'redactor/'
 REDACTOR_OPTIONS = {'lang': 'ru'}
 
+MEDIA_URL = '/uploads/'
 
 CACHES = {
     'default': {
