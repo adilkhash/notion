@@ -2,7 +2,7 @@ from django.contrib import admin
 from django import forms
 from redactor.widgets import RedactorEditor
 
-from .models import Category, Post, Page, EmailSubscription, AlternateURL
+from apps.blog.models import Category, Post, Page, EmailSubscription, AlternateURL
 
 
 class PostAdminForm(forms.ModelForm):
