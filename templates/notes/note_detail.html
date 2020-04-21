@@ -18,7 +18,7 @@
                         <span>{{ object.created|date:"j N o" }}</span>,
                         {% if user.is_superuser %}
                             <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
-                            {% if post.status == post.DRAFT %}
+                            {% if object.status == object.DRAFT %}
                                     <span style="color: red;">{% trans 'Draft' %}</span>
                             {% endif %}
                         {% endif %}
