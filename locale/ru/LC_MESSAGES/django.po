@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 09:46+0600\n"
-"PO-Revision-Date: 2020-04-21 09:48+0600\n"
+"POT-Creation-Date: 2020-04-21 12:02+0600\n"
+"PO-Revision-Date: 2020-04-21 12:02+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -20,8 +20,8 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Generator: Poedit 2.3\n"
 
-#: .\apps\blog\models.py:11 .\apps\blog\models.py:31 .\apps\notes\models.py:7
-#: .\apps\notes\models.py:27
+#: .\apps\blog\models.py:11 .\apps\blog\models.py:31 .\apps\notes\models.py:9
+#: .\apps\notes\models.py:26
 msgid "Title"
 msgstr "Заголовок"
 
@@ -34,8 +34,9 @@ msgstr "категория"
 msgid "categories"
 msgstr "категории"
 
-#: .\apps\blog\models.py:27 .\apps\notes\models.py:22
+#: .\apps\blog\models.py:27 .\apps\notes\models.py:23
 #: .\templates\blog\index.html:56 .\templates\blog\post_detail.html:32
+#: .\templates\notes\note_detail.html:22
 msgid "Draft"
 msgstr "Черновик"
 
@@ -43,20 +44,20 @@ msgstr "Черновик"
 msgid "Published"
 msgstr "Опубликован"
 
-#: .\apps\blog\models.py:32 .\apps\notes\models.py:8 .\apps\notes\models.py:26
+#: .\apps\blog\models.py:32 .\apps\notes\models.py:10 .\apps\notes\models.py:25
 msgid "Slug"
 msgstr "Ссылка"
 
-#: .\apps\blog\models.py:33 .\apps\blog\models.py:60 .\apps\notes\models.py:28
+#: .\apps\blog\models.py:33 .\apps\blog\models.py:60 .\apps\notes\models.py:27
 msgid "Text"
 msgstr "Текст"
 
 #: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
-#: .\apps\blog\models.py:101 .\apps\notes\models.py:30
+#: .\apps\blog\models.py:101 .\apps\notes\models.py:29
 msgid "Language"
 msgstr "Язык"
 
-#: .\apps\blog\models.py:36 .\apps\notes\models.py:31
+#: .\apps\blog\models.py:36 .\apps\notes\models.py:30
 msgid "Status"
 msgstr "Статус"
 
@@ -124,35 +125,35 @@ msgstr "альтернативный URL"
 msgid "Alternate URLs"
 msgstr "Альтернативные URL"
 
-#: .\apps\blog\views.py:19
+#: .\apps\blog\views.py:20
 msgid "Adil Khashtamov's personal blog"
 msgstr "Персональный блог Адиля Хаштамова"
 
-#: .\apps\blog\views.py:20
+#: .\apps\blog\views.py:21
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\apps\blog\views.py:171
+#: .\apps\blog\views.py:182
 msgid "Invalid email"
 msgstr "Неверный эл.адрес"
 
-#: .\apps\blog\views.py:183
+#: .\apps\blog\views.py:194
 msgid "Email required"
 msgstr "Необходимо указать эл.адрес"
 
-#: .\apps\notes\models.py:11
+#: .\apps\notes\models.py:13
 msgid "theme"
 msgstr "тема"
 
-#: .\apps\notes\models.py:12
+#: .\apps\notes\models.py:14
 msgid "Themes"
 msgstr "Темы"
 
-#: .\apps\notes\models.py:35
+#: .\apps\notes\models.py:34
 msgid "note"
 msgstr "заметка"
 
-#: .\apps\notes\models.py:36 .\templates\base.html:95
+#: .\apps\notes\models.py:35 .\templates\base.html:95
 msgid "Notes"
 msgstr "Заметки"
 
@@ -208,11 +209,15 @@ msgstr "поиск"
 msgid "Find"
 msgstr "Найти"
 
-#: .\templates\blog\_sidebar.html:21
+#: .\templates\blog\_sidebar.html:22
+msgid "Recent notes"
+msgstr "Последние заметки"
+
+#: .\templates\blog\_sidebar.html:31
 msgid "Recent posts"
 msgstr "Свежие записи"
 
-#: .\templates\blog\_sidebar.html:33
+#: .\templates\blog\_sidebar.html:43
 msgid "Ad"
 msgstr "Реклама"
 
@@ -248,6 +253,7 @@ msgstr ""
 "приложениях, машинном обучении и анализе данных.\n"
 
 #: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:30
+#: .\templates\notes\note_detail.html:20
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -276,7 +282,7 @@ msgstr "Ничего не найдено"
 msgid "Articles found"
 msgstr "Найдено статей"
 
-#: .\templates\notes\notes.html:11
+#: .\templates\notes\notes.html:5 .\templates\notes\notes.html:11
 msgid "Useful notes"
 msgstr "Полезные заметки"
 

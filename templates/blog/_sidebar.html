@@ -17,6 +17,16 @@
         </form>
     </div>
 
+    {% if lastest_notes %}
+    <div class="sidebar-widget">
+        <h4 class="sidebar-title">{% trans 'Recent notes' %}</h4>
+        <ul style="padding:0; list-style: none;">
+            {% for note in lastest_notes %}
+                <li><a href="{% url 'notes:note-detail' slug=note.slug theme_name=note.theme.slug %}">{{ note.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
     <div class="sidebar-widget">
         <h4 class="sidebar-title">{% trans 'Recent posts' %}</h4>
         <ul style="padding:0; list-style: none;">

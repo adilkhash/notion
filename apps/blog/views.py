@@ -13,6 +13,7 @@ from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.shortcuts import render
 
 from apps.blog.models import Post, Category, Page, EmailSubscription, AlternateURL
+from apps.notes.models import Note
 
 
 class LastestPostFeed(Feed):
@@ -58,6 +59,11 @@ class HomePageView(ListView):
         context['recent_posts'] = self.model.objects.filter(
             lang=translation.get_language(), status=Post.PUBLISHED
         ).order_by('-id')[:10]
+        context['lastest_notes'] = (
+            Note.objects.filter(status=Note.PUBLISHED)
+            .select_related('theme')
+            .order_by('-created')[:5]
+        )
         return context
 
 
@@ -82,6 +88,11 @@ class PostDetailView(DetailView):
         article.save()
         context['object'] = self.model.objects.get(id=article.id)
 
+        context['lastest_notes'] = (
+            Note.objects.filter(status=Note.PUBLISHED)
+            .select_related('theme')
+            .order_by('-created')[:5]
+        )
         context['related_articles'] = Post.objects.filter(
             status=Post.PUBLISHED,
             lang=translation.get_language(),
