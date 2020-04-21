@@ -14,7 +14,7 @@ class NotesListView(ListView):
             super()
             .get_queryset()
             .filter(lang=translation.get_language(), status=Note.PUBLISHED)
-            .order_by('theme')
+            .order_by('theme', '-created')
             .select_related('theme')
         )
 
