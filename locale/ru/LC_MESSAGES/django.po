@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-19 08:31+0600\n"
-"PO-Revision-Date: 2018-11-25 21:34+0600\n"
+"POT-Creation-Date: 2020-04-21 09:46+0600\n"
+"PO-Revision-Date: 2020-04-21 09:48+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -18,9 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.3\n"
 
-#: .\apps\blog\models.py:11 .\apps\blog\models.py:31
+#: .\apps\blog\models.py:11 .\apps\blog\models.py:31 .\apps\notes\models.py:7
+#: .\apps\notes\models.py:27
 msgid "Title"
 msgstr "Заголовок"
 
@@ -33,29 +34,29 @@ msgstr "категория"
 msgid "categories"
 msgstr "категории"
 
-#: .\apps\blog\models.py:27 .\templates\blog\index.html:56
-#: .\templates\blog\post_detail.html:37
+#: .\apps\blog\models.py:27 .\apps\notes\models.py:22
+#: .\templates\blog\index.html:56 .\templates\blog\post_detail.html:32
 msgid "Draft"
 msgstr "Черновик"
 
-#: .\apps\blog\models.py:28
+#: .\apps\blog\models.py:28 .\apps\notes\models.py:23
 msgid "Published"
 msgstr "Опубликован"
 
-#: .\apps\blog\models.py:32
+#: .\apps\blog\models.py:32 .\apps\notes\models.py:8 .\apps\notes\models.py:26
 msgid "Slug"
-msgstr ""
+msgstr "Ссылка"
 
-#: .\apps\blog\models.py:33 .\apps\blog\models.py:60
+#: .\apps\blog\models.py:33 .\apps\blog\models.py:60 .\apps\notes\models.py:28
 msgid "Text"
 msgstr "Текст"
 
 #: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
-#: .\apps\blog\models.py:101
+#: .\apps\blog\models.py:101 .\apps\notes\models.py:30
 msgid "Language"
 msgstr "Язык"
 
-#: .\apps\blog\models.py:36
+#: .\apps\blog\models.py:36 .\apps\notes\models.py:31
 msgid "Status"
 msgstr "Статус"
 
@@ -131,19 +132,35 @@ msgstr "Персональный блог Адиля Хаштамова"
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\apps\blog\views.py:151
+#: .\apps\blog\views.py:171
 msgid "Invalid email"
 msgstr "Неверный эл.адрес"
 
-#: .\apps\blog\views.py:162
+#: .\apps\blog\views.py:183
 msgid "Email required"
 msgstr "Необходимо указать эл.адрес"
 
-#: .\notion\settings.py:112
+#: .\apps\notes\models.py:11
+msgid "theme"
+msgstr "тема"
+
+#: .\apps\notes\models.py:12
+msgid "Themes"
+msgstr "Темы"
+
+#: .\apps\notes\models.py:35
+msgid "note"
+msgstr "заметка"
+
+#: .\apps\notes\models.py:36 .\templates\base.html:95
+msgid "Notes"
+msgstr "Заметки"
+
+#: .\notion\settings.py:111
 msgid "Russian"
 msgstr "Русский"
 
-#: .\notion\settings.py:113
+#: .\notion\settings.py:112
 msgid "English"
 msgstr "Английский"
 
@@ -159,7 +176,7 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr "Персональный блог Адиля Хаштамова — программист-прагматик"
 
-#: .\templates\base.html:95
+#: .\templates\base.html:94
 msgid "Blog"
 msgstr "Блог"
 
@@ -179,29 +196,25 @@ msgstr "Админка"
 msgid "Powered by"
 msgstr "Работает на"
 
-#: .\templates\blog\_sidebar.html:8
+#: .\templates\blog\_sidebar.html:9
 msgid "Search"
 msgstr "Поиск"
 
-#: .\templates\blog\_sidebar.html:12
+#: .\templates\blog\_sidebar.html:13
 msgid "search term"
 msgstr "поиск"
 
-#: .\templates\blog\_sidebar.html:15
+#: .\templates\blog\_sidebar.html:16
 msgid "Find"
 msgstr "Найти"
 
 #: .\templates\blog\_sidebar.html:21
-msgid "Telegram"
-msgstr "Telegram"
-
-#: .\templates\blog\_sidebar.html:72
 msgid "Recent posts"
 msgstr "Свежие записи"
 
-#: .\templates\blog\_sidebar.html:106
-msgid "Most popular"
-msgstr "Самые популярные"
+#: .\templates\blog\_sidebar.html:33
+msgid "Ad"
+msgstr "Реклама"
 
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
 msgid "Archive of posts"
@@ -234,7 +247,7 @@ msgstr ""
 "проектирования ПО. Сейчас особенно заинтересован в современных веб "
 "приложениях, машинном обучении и анализе данных.\n"
 
-#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:35
+#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:30
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -242,39 +255,11 @@ msgstr "Редактировать"
 msgid "read more"
 msgstr "читать дальше"
 
-#: .\templates\blog\post_detail.html:33 .\templates\blog\search.html:26
+#: .\templates\blog\post_detail.html:28 .\templates\blog\search.html:26
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:47 .\templates\blog\post_detail.html:48
-msgid "Telegram channel"
-msgstr "Telegram канал"
-
-#: .\templates\blog\post_detail.html:54
-msgid ""
-"Recently I opened my own Telegram channel related to software\n"
-"                                            development called "
-"<strong>DevBrain</strong> where I share my thoughts and\n"
-"                                            external resources (articles, "
-"videos, presentations, book recommendations)\n"
-"                                            regarding software craftsmanship."
-msgstr ""
-"Не так давно я открыл канал в Telegram на тему разработки программного "
-"обеспечения, называется он <strong>DevBrain</strong>. На канале я делюсь "
-"своими мыслями , а также ресурсами (статьями, видео, презентациями, книжными "
-"рекомендациями и т.д.) о кодинге, методологиях разработки и многом другом с "
-"чем нам, разработчикам, приходится сталкиваться каждый день в работе."
-
-#: .\templates\blog\post_detail.html:61
-msgid ""
-"There are more than 2000 members already, so please join us —\n"
-"                                            <a href=\"tg://devbrain\" target="
-"\"_blank\" rel=\"nofollow noindex\">DevBrain</a>"
-msgstr ""
-"На канале уже более 3000 участников, поэтому присоединяйтесь и Вы — <a href="
-"\"tg://devbrain\" target=\"_blank\" rel=\"nofollow noindex\">DevBrain</a>"
-
-#: .\templates\blog\post_detail.html:74
+#: .\templates\blog\post_detail.html:55
 msgid "Related posts"
 msgstr "Интересные записи"
 
@@ -291,8 +276,43 @@ msgstr "Ничего не найдено"
 msgid "Articles found"
 msgstr "Найдено статей"
 
-#~ msgid "Ad"
-#~ msgstr "Реклама"
+#: .\templates\notes\notes.html:11
+msgid "Useful notes"
+msgstr "Полезные заметки"
+
+#~ msgid "Telegram"
+#~ msgstr "Telegram"
+
+#~ msgid "Most popular"
+#~ msgstr "Самые популярные"
+
+#~ msgid "Telegram channel"
+#~ msgstr "Telegram канал"
+
+#~ msgid ""
+#~ "Recently I opened my own Telegram channel related to software\n"
+#~ "                                            development called "
+#~ "<strong>DevBrain</strong> where I share my thoughts and\n"
+#~ "                                            external resources (articles, "
+#~ "videos, presentations, book recommendations)\n"
+#~ "                                            regarding software "
+#~ "craftsmanship."
+#~ msgstr ""
+#~ "Не так давно я открыл канал в Telegram на тему разработки программного "
+#~ "обеспечения, называется он <strong>DevBrain</strong>. На канале я делюсь "
+#~ "своими мыслями , а также ресурсами (статьями, видео, презентациями, "
+#~ "книжными рекомендациями и т.д.) о кодинге, методологиях разработки и "
+#~ "многом другом с чем нам, разработчикам, приходится сталкиваться каждый "
+#~ "день в работе."
+
+#~ msgid ""
+#~ "There are more than 2000 members already, so please join us —\n"
+#~ "                                            <a href=\"tg://devbrain\" "
+#~ "target=\"_blank\" rel=\"nofollow noindex\">DevBrain</a>"
+#~ msgstr ""
+#~ "На канале уже более 3000 участников, поэтому присоединяйтесь и Вы — <a "
+#~ "href=\"tg://devbrain\" target=\"_blank\" rel=\"nofollow noindex"
+#~ "\">DevBrain</a>"
 
 #~ msgid ""
 #~ "If you like my articles, please subscribe to stay up to date with new "

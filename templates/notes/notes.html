@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %}{% trans 'Useful notes' %}{% endblock %}
+
+{% block content %}
+    <div class="container container-wrap">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>{% trans 'Useful notes' %}</h1>
+
+                {% regroup object_list by theme.title as groups %}
+                {% for group in groups %}
+                    <div class="panel panel-default" style="margin-top:10px;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ group.grouper }}</h3>
+                        </div>
+                        <div class="panel-body">
+                            {% for note in group.list %}
+                                <li>
+                                    <a href="{% url 'notes:note-detail' theme_name=note.theme.slug slug=note.slug %}">{{ note.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

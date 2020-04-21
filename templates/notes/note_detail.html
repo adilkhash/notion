@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}{{ object.title }}{% endblock %}
+{% load blog_tags %}
+{% load adsense_tags %}
+{% block meta_description %}{{ object.text|striptags|truncatechars:200|erase_breaks }}{% endblock %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+    <div class="container container-wrap">
+        <div class="row">
+            <div class="col-md-8">
+                <article>
+                    <h1>{{ object.title }}</h1>
+                    <div class="article-meta">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        <span>{{ object.created|date:"j N o" }}</span>,
+                        {% if user.is_superuser %}
+                            <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
+                            {% if post.status == post.DRAFT %}
+                                    <span style="color: red;">{% trans 'Draft' %}</span>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                        {{ object.text|safe }}
+                </article>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

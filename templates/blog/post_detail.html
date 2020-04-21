@@ -19,10 +19,8 @@
     <div class="container container-wrap">
         <div class="row">
             <div class="col-md-8">
-
                 <article>
                     <h1>{{ object.title }}</h1>
-
                     <div class="article-meta">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         <span>{{ object.created|date:"j N o" }}</span>, <a
@@ -34,15 +32,8 @@
                                     <span style="color: red;">{% trans 'Draft' %}</span>
                             {% endif %}
                         {% endif %}
-
                     </div>
-
-                    {% if object.slug != 'data-engineer' %}
-                        {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
-                    {% else %}
                         {{ object.text|safe }}
-                    {% endif %}
-
                 </article>
 
                 {% if LANGUAGE_CODE == 'ru' %}

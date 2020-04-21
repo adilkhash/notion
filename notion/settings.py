@@ -14,7 +14,6 @@ SECRET_KEY = env.str('SECRET_KEY', 'my-santa-claus')
 DEBUG = env.bool('DEBUG', True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
-QIWI_KASSA_SECRET_KEY = env.str('QIWI_KASSA_SECRET_KEY')
 
 
 INSTALLED_APPS = [
@@ -30,6 +29,7 @@ INSTALLED_APPS = [
 
     # project apps
     'apps.blog',
+    'apps.notes',
 
     # 3rd party apps
     'redactor',
