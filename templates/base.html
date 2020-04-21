@@ -92,11 +92,9 @@
             <div class="collapse navbar-collapse" id="collapse-menu" style="padding:0;">
                 <ul class="menu__navigation">
                     <li><a class="blog-nav-item" href="{% url 'blog:posts' %}">{% trans 'Blog' %}</a></li>
+                    <li><a class="blog-nav-item" href="{% url 'notes:notes-list' %}">{% trans 'Notes' %}</a></li>
                     <li><a class="blog-nav-item" href="{% url 'blog:archives' %}">{% trans 'Archives' %}</a></li>
                     <li><a class="blog-nav-item" href="{% url 'blog:page' slug='contacts' %}">{% trans 'Contacts' %}</a></li>
-{#                    {% if LANGUAGE_CODE == 'ru' %}#}
-{#                        <li><a class="blog-nav-item" href="{% url 'blog:page' slug='donate' %}">{% trans 'Помощь проекту' %}</a></li>#}
-{#                    {% endif %}#}
                     <li>
                         {% if LANGUAGE_CODE == 'ru' %}
                             <a class="blog-nav-item" href="/en/"><img src="{% static 'images/us-flag.png' %}" alt="In English" title="English version"></a>

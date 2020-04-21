@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-19 08:31+0600\n"
+"POT-Creation-Date: 2020-04-21 09:46+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\apps\blog\models.py:11 .\apps\blog\models.py:31
+#: .\apps\blog\models.py:11 .\apps\blog\models.py:31 .\apps\notes\models.py:7
+#: .\apps\notes\models.py:27
 msgid "Title"
 msgstr ""
 
@@ -30,29 +31,29 @@ msgstr ""
 msgid "categories"
 msgstr ""
 
-#: .\apps\blog\models.py:27 .\templates\blog\index.html:56
-#: .\templates\blog\post_detail.html:37
+#: .\apps\blog\models.py:27 .\apps\notes\models.py:22
+#: .\templates\blog\index.html:56 .\templates\blog\post_detail.html:32
 msgid "Draft"
 msgstr ""
 
-#: .\apps\blog\models.py:28
+#: .\apps\blog\models.py:28 .\apps\notes\models.py:23
 msgid "Published"
 msgstr ""
 
-#: .\apps\blog\models.py:32
+#: .\apps\blog\models.py:32 .\apps\notes\models.py:8 .\apps\notes\models.py:26
 msgid "Slug"
 msgstr ""
 
-#: .\apps\blog\models.py:33 .\apps\blog\models.py:60
+#: .\apps\blog\models.py:33 .\apps\blog\models.py:60 .\apps\notes\models.py:28
 msgid "Text"
 msgstr ""
 
 #: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
-#: .\apps\blog\models.py:101
+#: .\apps\blog\models.py:101 .\apps\notes\models.py:30
 msgid "Language"
 msgstr ""
 
-#: .\apps\blog\models.py:36
+#: .\apps\blog\models.py:36 .\apps\notes\models.py:31
 msgid "Status"
 msgstr ""
 
@@ -128,19 +129,35 @@ msgstr ""
 msgid "pragmatic programmer"
 msgstr ""
 
-#: .\apps\blog\views.py:151
+#: .\apps\blog\views.py:171
 msgid "Invalid email"
 msgstr ""
 
-#: .\apps\blog\views.py:162
+#: .\apps\blog\views.py:183
 msgid "Email required"
 msgstr ""
 
-#: .\notion\settings.py:112
+#: .\apps\notes\models.py:11
+msgid "theme"
+msgstr ""
+
+#: .\apps\notes\models.py:12
+msgid "Themes"
+msgstr ""
+
+#: .\apps\notes\models.py:35
+msgid "note"
+msgstr ""
+
+#: .\apps\notes\models.py:36 .\templates\base.html:95
+msgid "Notes"
+msgstr ""
+
+#: .\notion\settings.py:111
 msgid "Russian"
 msgstr ""
 
-#: .\notion\settings.py:113
+#: .\notion\settings.py:112
 msgid "English"
 msgstr ""
 
@@ -154,7 +171,7 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:95
+#: .\templates\base.html:94
 msgid "Blog"
 msgstr ""
 
@@ -174,28 +191,24 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:8
+#: .\templates\blog\_sidebar.html:9
 msgid "Search"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:12
+#: .\templates\blog\_sidebar.html:13
 msgid "search term"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:15
+#: .\templates\blog\_sidebar.html:16
 msgid "Find"
 msgstr ""
 
 #: .\templates\blog\_sidebar.html:21
-msgid "Telegram"
-msgstr ""
-
-#: .\templates\blog\_sidebar.html:72
 msgid "Recent posts"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:106
-msgid "Most popular"
+#: .\templates\blog\_sidebar.html:33
+msgid "Ad"
 msgstr ""
 
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
@@ -223,7 +236,7 @@ msgid ""
 "machine learning and data analysis.\n"
 msgstr ""
 
-#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:35
+#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:30
 msgid "Edit"
 msgstr ""
 
@@ -231,32 +244,11 @@ msgstr ""
 msgid "read more"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:33 .\templates\blog\search.html:26
+#: .\templates\blog\post_detail.html:28 .\templates\blog\search.html:26
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:47 .\templates\blog\post_detail.html:48
-msgid "Telegram channel"
-msgstr ""
-
-#: .\templates\blog\post_detail.html:54
-msgid ""
-"Recently I opened my own Telegram channel related to software\n"
-"                                            development called "
-"<strong>DevBrain</strong> where I share my thoughts and\n"
-"                                            external resources (articles, "
-"videos, presentations, book recommendations)\n"
-"                                            regarding software craftsmanship."
-msgstr ""
-
-#: .\templates\blog\post_detail.html:61
-msgid ""
-"There are more than 2000 members already, so please join us —\n"
-"                                            <a href=\"tg://devbrain\" target="
-"\"_blank\" rel=\"nofollow noindex\">DevBrain</a>"
-msgstr ""
-
-#: .\templates\blog\post_detail.html:74
+#: .\templates\blog\post_detail.html:55
 msgid "Related posts"
 msgstr ""
 
@@ -271,4 +263,8 @@ msgstr ""
 
 #: .\templates\blog\search.html:18
 msgid "Articles found"
+msgstr ""
+
+#: .\templates\notes\notes.html:11
+msgid "Useful notes"
 msgstr ""

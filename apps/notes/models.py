@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
+from django.urls import reverse
 
 
 class Theme(models.Model):
@@ -18,10 +20,7 @@ class Theme(models.Model):
 class Note(models.Model):
     DRAFT, PUBLISHED = range(2)
 
-    STATUSES = (
-        (DRAFT, _('Draft')),
-        (PUBLISHED, _('Published'))
-    )
+    STATUSES = ((DRAFT, _('Draft')), (PUBLISHED, _('Published')))
 
     slug = models.SlugField(_('Slug'), max_length=100)
     title = models.CharField(_('Title'), max_length=254)
@@ -37,6 +36,13 @@ class Note(models.Model):
 
     def get_absolute_url(self):
         return '/{}/{}/'.format(self.lang, self.slug)
+
+    def get_admin_url(self):
+        content_type = ContentType.objects.get_for_model(self.__class__)
+        return reverse(
+            'admin:%s_%s_change' % (content_type.app_label, content_type.model),
+            args=(self.id,),
+        )
 
     def __str__(self):
         return self.title

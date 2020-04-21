@@ -35,6 +35,6 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
+    url(r'^notes/', include('apps.notes.urls', namespace='notes')),
     url(r'^', include('apps.blog.urls', namespace='blog')),
-    url(r'^notes/', include('apps.notes.urls', namespace='notes'))
 )
