@@ -60,7 +60,7 @@ class HomePageView(ListView):
             lang=translation.get_language(), status=Post.PUBLISHED
         ).order_by('-id')[:10]
         context['lastest_notes'] = (
-            Note.objects.filter(status=Note.PUBLISHED)
+            Note.objects.filter(status=Note.PUBLISHED, lang=translation.get_language())
             .select_related('theme')
             .order_by('-created')[:5]
         )
@@ -89,7 +89,7 @@ class PostDetailView(DetailView):
         context['object'] = self.model.objects.get(id=article.id)
 
         context['lastest_notes'] = (
-            Note.objects.filter(status=Note.PUBLISHED)
+            Note.objects.filter(status=Note.PUBLISHED, lang=translation.get_language())
             .select_related('theme')
             .order_by('-created')[:5]
         )
