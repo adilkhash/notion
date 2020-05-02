@@ -166,7 +166,7 @@ LOGGING = {
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '..', 'uploads')
 
 REDACTOR_UPLOAD = 'redactor/'
-REDACTOR_OPTIONS = {'lang': 'ru'}
+REDACTOR_OPTIONS = {'lang': 'ru', 'removeComments': False}
 
 MEDIA_URL = '/uploads/'
 
