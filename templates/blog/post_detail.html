@@ -33,7 +33,7 @@
                             {% endif %}
                         {% endif %}
                     </div>
-                        {{ object.text|safe }}
+                        {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
                 </article>
 
                 {% if LANGUAGE_CODE == 'ru' %}
