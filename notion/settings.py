@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # 3rd party apps
     'redactor',
     'bootstrap_pagination',
+    'django_assets',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -106,6 +107,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles')
 ]
+
+STATICFILES_FINDERS = (
+   "django.contrib.staticfiles.finders.FileSystemFinder",
+   "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+   "django_assets.finders.AssetsFinder"
+)
 
 LANGUAGES = (
     ('ru', _('Russian')),

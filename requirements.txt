@@ -8,3 +8,5 @@ whitenoise==3.3.0
 django-redis==4.7.0
 requests==2.22.0
 Pillow
+django-assets
+cssmin
