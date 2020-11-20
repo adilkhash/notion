@@ -155,43 +155,33 @@ class PageDetailView(DetailView):
         )
 
 
-@method_decorator(csrf_exempt, name='dispatch')
+# @method_decorator(csrf_exempt, name='dispatch')
 class SubscriptionView(View):
-    def get(self, request):
-        activation_code = request.GET.get('activation_code')
-        email = request.GET.get('email')
-        if activation_code and email:
-            try:
-                sub = EmailSubscription.objects.get(
-                    email=email, activation_code=activation_code
-                )
-            except EmailSubscription.DoesNotExist:
-                return HttpResponseForbidden()
-            else:
-                sub.activate()
-                return HttpResponseRedirect(reverse('blog:index'))
-        else:
-            return HttpResponseForbidden()
+    # def get(self, request):
+    #     activation_code = request.GET.get('activation_code')
+    #     email = request.GET.get('email')
+    #     if activation_code and email:
+    #         try:
+    #             sub = EmailSubscription.objects.get(
+    #                 email=email, activation_code=activation_code
+    #             )
+    #         except EmailSubscription.DoesNotExist:
+    #             return HttpResponseForbidden()
+    #         else:
+    #             sub.activate()
+    #             return HttpResponseRedirect(reverse('blog:index'))
+    #     else:
+    #         return HttpResponseForbidden()
 
     def post(self, request):
         email = request.POST.get('email')
-        if email:
-            try:
-                validate_email(email)
-            except ValidationError:
-                return JsonResponse({'status': 'error', 'msg': _('Invalid email')})
-            else:
-                try:
-                    sub = EmailSubscription.objects.create(
-                        email=email, lang=translation.get_language()
-                    )
-                except:  # duplicate email
-                    return JsonResponse({'status': 'ok'})
-                else:
-                    sub.send_activation_code()
-                    return JsonResponse({'status': 'ok'})
-        else:
-            return JsonResponse({'status': 'error', 'msg': _('Email required')})
+        try:
+            EmailSubscription.objects.create(
+                email=email, lang=translation.get_language()
+            )
+        except:  # duplicate email
+            pass
+        return HttpResponseRedirect(reverse('blog:posts'))
 
 
 class SearchView(View):

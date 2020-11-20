@@ -8,6 +8,7 @@ from apps.blog.views import (
     PageDetailView,
     LastestPostFeed,
     SearchView,
+    SubscriptionView,
 )
 
 app_name = 'blog'

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 12:06+0600\n"
-"PO-Revision-Date: 2020-04-21 12:06+0600\n"
+"POT-Creation-Date: 2020-11-20 15:49+0600\n"
+"PO-Revision-Date: 2020-11-20 15:50+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -35,7 +35,7 @@ msgid "categories"
 msgstr "категории"
 
 #: .\apps\blog\models.py:27 .\apps\notes\models.py:23
-#: .\templates\blog\index.html:56 .\templates\blog\post_detail.html:32
+#: .\templates\blog\index.html:26 .\templates\blog\post_detail.html:32
 #: .\templates\notes\note_detail.html:22
 msgid "Draft"
 msgstr "Черновик"
@@ -133,14 +133,6 @@ msgstr "Персональный блог Адиля Хаштамова"
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
-#: .\apps\blog\views.py:182
-msgid "Invalid email"
-msgstr "Неверный эл.адрес"
-
-#: .\apps\blog\views.py:194
-msgid "Email required"
-msgstr "Необходимо указать эл.адрес"
-
 #: .\apps\notes\models.py:13
 msgid "theme"
 msgstr "тема"
@@ -153,15 +145,15 @@ msgstr "Темы"
 msgid "note"
 msgstr "заметка"
 
-#: .\apps\notes\models.py:35 .\templates\base.html:95
+#: .\apps\notes\models.py:35 .\templates\base.html:40
 msgid "Notes"
 msgstr "Заметки"
 
-#: .\notion\settings.py:111
+#: .\notion\settings.py:118
 msgid "Russian"
 msgstr "Русский"
 
-#: .\notion\settings.py:112
+#: .\notion\settings.py:119
 msgid "English"
 msgstr "Английский"
 
@@ -177,23 +169,23 @@ msgstr ""
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr "Персональный блог Адиля Хаштамова — программист-прагматик"
 
-#: .\templates\base.html:94
+#: .\templates\base.html:39
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\base.html:96
+#: .\templates\base.html:41
 msgid "Archives"
 msgstr "Архивы"
 
-#: .\templates\base.html:97
+#: .\templates\base.html:42
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\templates\base.html:106
+#: .\templates\base.html:51
 msgid "Admin"
 msgstr "Админка"
 
-#: .\templates\base.html:122
+#: .\templates\base.html:67
 msgid "Powered by"
 msgstr "Работает на"
 
@@ -217,7 +209,19 @@ msgstr "Последние заметки"
 msgid "Recent posts"
 msgstr "Свежие записи"
 
-#: .\templates\blog\_sidebar.html:43
+#: .\templates\blog\_sidebar.html:40
+msgid "Subscription"
+msgstr "Подписка"
+
+#: .\templates\blog\_sidebar.html:45
+msgid "e-mail"
+msgstr "эл.адрес"
+
+#: .\templates\blog\_sidebar.html:47
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: .\templates\blog\_sidebar.html:55
 msgid "Ad"
 msgstr "Реклама"
 
@@ -233,31 +237,12 @@ msgstr "По категории"
 msgid "By year"
 msgstr "По годам"
 
-#: .\templates\blog\index.html:16
-msgid "Adil Khashtamov"
-msgstr "Адиль Хаштамов"
-
-#: .\templates\blog\index.html:23
-msgid ""
-"\n"
-"Hi. My name is Adil. I am passionate about building software. This blog is a "
-"notebook of my thoughts and ideas regarding software engineering and life "
-"around it. Currently I am interested in engineering of modern web apps, "
-"machine learning and data analysis.\n"
-msgstr ""
-"\n"
-"Привет! Меня зовут Адиль. Всю свою сознательную жизнь я занимаюсь "
-"разработкой программного обеспечения. Этот блог моя записная книжка, где я "
-"стараюсь почаще делать заметки на тему программирования, разработки и "
-"проектирования ПО. Сейчас особенно заинтересован в современных веб "
-"приложениях, машинном обучении и анализе данных.\n"
-
-#: .\templates\blog\index.html:54 .\templates\blog\post_detail.html:30
+#: .\templates\blog\index.html:24 .\templates\blog\post_detail.html:30
 #: .\templates\notes\note_detail.html:20
 msgid "Edit"
 msgstr "Редактировать"
 
-#: .\templates\blog\index.html:60
+#: .\templates\blog\index.html:30
 msgid "read more"
 msgstr "читать дальше"
 
@@ -289,6 +274,29 @@ msgstr "Полезные заметки"
 #: .\templates\tags\jobs.html:7
 msgid "Remote jobs"
 msgstr "Удаленная работа"
+
+#~ msgid "Invalid email"
+#~ msgstr "Неверный эл.адрес"
+
+#~ msgid "Email required"
+#~ msgstr "Необходимо указать эл.адрес"
+
+#~ msgid "Adil Khashtamov"
+#~ msgstr "Адиль Хаштамов"
+
+#~ msgid ""
+#~ "\n"
+#~ "Hi. My name is Adil. I am passionate about building software. This blog "
+#~ "is a notebook of my thoughts and ideas regarding software engineering and "
+#~ "life around it. Currently I am interested in engineering of modern web "
+#~ "apps, machine learning and data analysis.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Привет! Меня зовут Адиль. Всю свою сознательную жизнь я занимаюсь "
+#~ "разработкой программного обеспечения. Этот блог моя записная книжка, где "
+#~ "я стараюсь почаще делать заметки на тему программирования, разработки и "
+#~ "проектирования ПО. Сейчас особенно заинтересован в современных веб "
+#~ "приложениях, машинном обучении и анализе данных.\n"
 
 #~ msgid "Telegram"
 #~ msgstr "Telegram"
@@ -336,9 +344,6 @@ msgstr "Удаленная работа"
 
 #~ msgid "Thank you! You have been successfuly subscribed."
 #~ msgstr "Спасибо! Вы успешно подписались."
-
-#~ msgid "Subscribe"
-#~ msgstr "Подписаться"
 
 #~ msgid "Powered by Django 1.11 & Python 3.5"
 #~ msgstr "Работает на Django 1.11 & Python 3.5"

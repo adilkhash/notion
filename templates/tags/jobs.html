@@ -4,7 +4,7 @@
 {% cache 43200 latest_job_list %}
     {% if jobs %}
         <div class="sidebar-widget">
-            <h4 class="sidebar-title">{% trans 'Remote jobs' %}</h4>
+            <h4 class="sidebar-title">👷‍♂️ {% trans 'Remote jobs' %}</h4>
             <ul style="padding:0; list-style: none;">
                 {% for job in jobs %}
                     <li>
