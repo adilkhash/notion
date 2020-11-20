@@ -38,7 +38,7 @@
 
     <div class="sidebar-widget" style="margin-top:40px;">
         <h4 class="sidebar-title">💌 {% trans 'Subscription' %}</h4>
-        <form action="{% url 'subscription' %}" method="post" class="form-inline" {% if not DEBUG %}onsubmit="ym(32700075,'reachGoal','subscribeBtn'); return true;"{% endif %}>
+        <form action="{% url 'subscription' %}" method="post" class="form-inline" {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('subscribeBtn'); return true;"{% endif %}>
             {% csrf_token %}
             <input style="width: 100%;border-radius:1px;" class="form-control" type="email" name="email"
                     {% if query %} value="{{ query }}"
