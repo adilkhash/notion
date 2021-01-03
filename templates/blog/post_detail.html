@@ -36,16 +36,11 @@
                         {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
                 </article>
 
-                {% if LANGUAGE_CODE == 'ru' %}
-                    <div class="tlgr-info">
-                        Также я веду телеграм-канал <a href="https://t.me/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">@devbrain</a>. Подписывайтесь, чтобы не пропустить всё самое интересное 😎
-                    </div>
-                    {% else %}
-
-                    <div id="amzn-assoc-ad-73e28f44-16dc-43e2-af63-14fa8d19072b"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=73e28f44-16dc-43e2-af63-14fa8d19072b"></script>
-
-                {% endif %}
-
+{#                {% if LANGUAGE_CODE == 'ru' %}#}
+{#                    <div class="tlgr-info">#}
+{#                        Также я веду телеграм-канал <a href="https://t.me/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">@devbrain</a>. Подписывайтесь, чтобы не пропустить всё самое интересное 😎#}
+{#                    </div>#}
+{#                {% endif %}#}
 
                 <div id="disqus_thread" style="margin-top:15px;"></div>
 
@@ -78,9 +73,5 @@
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
     </div>
-
 {% endblock %}
-
-
