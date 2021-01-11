@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 15:49+0600\n"
-"PO-Revision-Date: 2020-11-20 15:50+0600\n"
+"POT-Creation-Date: 2021-01-11 18:34+0600\n"
+"PO-Revision-Date: 2021-01-11 18:36+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -35,7 +35,7 @@ msgid "categories"
 msgstr "категории"
 
 #: .\apps\blog\models.py:27 .\apps\notes\models.py:23
-#: .\templates\blog\index.html:26 .\templates\blog\post_detail.html:32
+#: .\templates\blog\index.html:26 .\templates\blog\post_detail.html:36
 #: .\templates\notes\note_detail.html:22
 msgid "Draft"
 msgstr "Черновик"
@@ -190,36 +190,36 @@ msgid "Powered by"
 msgstr "Работает на"
 
 #: .\templates\blog\_sidebar.html:9
-msgid "Search"
-msgstr "Поиск"
-
-#: .\templates\blog\_sidebar.html:13
-msgid "search term"
-msgstr "поиск"
-
-#: .\templates\blog\_sidebar.html:16
-msgid "Find"
-msgstr "Найти"
-
-#: .\templates\blog\_sidebar.html:22
-msgid "Recent notes"
-msgstr "Последние заметки"
-
-#: .\templates\blog\_sidebar.html:31
-msgid "Recent posts"
-msgstr "Свежие записи"
-
-#: .\templates\blog\_sidebar.html:40
 msgid "Subscription"
 msgstr "Подписка"
 
-#: .\templates\blog\_sidebar.html:45
+#: .\templates\blog\_sidebar.html:14 .\templates\blog\post_detail.html:53
 msgid "e-mail"
 msgstr "эл.адрес"
 
-#: .\templates\blog\_sidebar.html:47
+#: .\templates\blog\_sidebar.html:16 .\templates\blog\post_detail.html:55
 msgid "Subscribe"
 msgstr "Подписаться"
+
+#: .\templates\blog\_sidebar.html:21
+msgid "Search"
+msgstr "Поиск"
+
+#: .\templates\blog\_sidebar.html:25
+msgid "search term"
+msgstr "поиск"
+
+#: .\templates\blog\_sidebar.html:28
+msgid "Find"
+msgstr "Найти"
+
+#: .\templates\blog\_sidebar.html:34
+msgid "Recent notes"
+msgstr "Последние заметки"
+
+#: .\templates\blog\_sidebar.html:43
+msgid "Recent posts"
+msgstr "Свежие записи"
 
 #: .\templates\blog\_sidebar.html:55
 msgid "Ad"
@@ -237,7 +237,7 @@ msgstr "По категории"
 msgid "By year"
 msgstr "По годам"
 
-#: .\templates\blog\index.html:24 .\templates\blog\post_detail.html:30
+#: .\templates\blog\index.html:24 .\templates\blog\post_detail.html:34
 #: .\templates\notes\note_detail.html:20
 msgid "Edit"
 msgstr "Редактировать"
@@ -246,11 +246,20 @@ msgstr "Редактировать"
 msgid "read more"
 msgstr "читать дальше"
 
-#: .\templates\blog\post_detail.html:28 .\templates\blog\search.html:26
+#: .\templates\blog\post_detail.html:31 .\templates\blog\search.html:26
 msgid "views"
 msgstr "просмотров"
 
-#: .\templates\blog\post_detail.html:55
+#: .\templates\blog\post_detail.html:45
+msgid "Join the mailing list"
+msgstr "Присоединяйтесь к рассылке"
+
+#: .\templates\blog\post_detail.html:46
+msgid ""
+"If you like the content I produce, please join my mailing list to stay tuned."
+msgstr "Понравился контент? Пожалуйста, подпишись на рассылку."
+
+#: .\templates\blog\post_detail.html:65
 msgid "Related posts"
 msgstr "Интересные записи"
 

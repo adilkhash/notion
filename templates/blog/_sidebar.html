@@ -5,7 +5,7 @@
 
 <div class="col-md-4">
 
-    <div class="sidebar-widget" style="margin-top:40px;">
+    <div class="sidebar-widget" style="margin-top:40px;background-color: aliceblue;">
         <h4 class="sidebar-title">💌 {% trans 'Subscription' %}</h4>
         <form action="{% url 'subscription' %}" method="post" class="form-inline" {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('subscribeBtn'); return true;"{% endif %}>
             {% csrf_token %}

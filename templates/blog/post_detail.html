@@ -4,13 +4,16 @@
 {% block title %}{{ object.title }}{% endblock %}
 {% load blog_tags %}
 {% load adsense_tags %}
-{% block meta_description %}{{ object.text|striptags|truncatechars:200|erase_breaks }}{% endblock %}
+{% block meta_description %}
+    {{ object.text|striptags|truncatechars:200|erase_breaks }}{% endblock %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block _head %}
     {% if alternate_posts %}
         {% for post in alternate_posts %}
-            <link rel="alternate" href="https://khashtamov.com{{ post.alternate_post.get_absolute_url }}" hreflang="{{ post.lang }}" />
+            <link rel="alternate"
+                  href="https://khashtamov.com{{ post.alternate_post.get_absolute_url }}"
+                  hreflang="{{ post.lang }}"/>
         {% endfor %}
     {% endif %}
 {% endblock %}
@@ -27,20 +30,32 @@
                             href="{% url 'blog:category' slug=object.category.slug %}">{{ object.category.title }}</a>,
                         <span>{{ object.page_views }} {% trans 'views' %}</span>
                         {% if user.is_superuser %}
-                            <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
+                            <span><a
+                                    href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
                             {% if post.status == post.DRAFT %}
-                                    <span style="color: red;">{% trans 'Draft' %}</span>
+                                <span style="color: red;">{% trans 'Draft' %}</span>
                             {% endif %}
                         {% endif %}
                     </div>
-                        {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
-                </article>
+                    {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
 
-{#                {% if LANGUAGE_CODE == 'ru' %}#}
-{#                    <div class="tlgr-info">#}
-{#                        Также я веду телеграм-канал <a href="https://t.me/devbrain" {% if not DEBUG %}onclick="yaCounter32700075.reachGoal('tg-subscribe'); return true;"{% endif %} target="_blank" rel="nofollow noindex">@devbrain</a>. Подписывайтесь, чтобы не пропустить всё самое интересное 😎#}
-{#                    </div>#}
-{#                {% endif %}#}
+
+                    <section class="subscription"
+                             style="padding: 3rem;background-color: aliceblue;">
+                        <h3 style="font-weight: bold;">💌 {% trans 'Join the mailing list' %}</h3>
+                        <p>{% trans 'If you like the content I produce, please join my mailing list to stay tuned.' %}</p>
+                        <form action="{% url 'subscription' %}" method="post" class="form-inline"
+                              {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('postSubscribtionClick'); return true;"{% endif %}>
+                            {% csrf_token %}
+                            <input style="width: 100%;border-radius:1px;" class="form-control"
+                                   type="email" name="email"
+                                    {% if query %} value="{{ query }}"
+                                   {% else %}placeholder="{% trans 'e-mail' %}"{% endif %}>
+                            <button class="btn btn-primary btn-block"
+                                    style="margin-top:10px;border-radius:1px;">{% trans 'Subscribe' %}</button>
+                        </form>
+                    </section>
+                </article>
 
                 <div id="disqus_thread" style="margin-top:15px;"></div>
 
@@ -50,7 +65,9 @@
                             <h2>{% trans 'Related posts' %}:</h2>
                             <ul>
                                 {% for related_article in related_articles %}
-                                    <li><a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a></li>
+                                    <li>
+                                        <a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a>
+                                    </li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -60,18 +77,19 @@
             {% include 'blog/_sidebar.html' %}
         </div>
 
-    <script>
-    var disqus_config = function () {
-    this.page.url = 'https://khashtamov.com{{ object.get_absolute_url }}';
-    this.page.identifier = '{{ object.get_absolute_url }}-{{ object.id }}';
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://khashtamov.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://khashtamov.com{{ object.get_absolute_url }}';
+                this.page.identifier = '{{ object.get_absolute_url }}-{{ object.id }}';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://khashtamov.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+            powered by Disqus.</a></noscript>
     </div>
 {% endblock %}
