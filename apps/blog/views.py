@@ -14,6 +14,7 @@ from django.shortcuts import render
 
 from apps.blog.models import Post, Category, Page, EmailSubscription, AlternateURL
 from apps.notes.models import Note
+from apps.blog.forms import EmailForm
 
 
 class LastestPostFeed(Feed):
@@ -174,13 +175,15 @@ class SubscriptionView(View):
     #         return HttpResponseForbidden()
 
     def post(self, request):
-        email = request.POST.get('email')
-        try:
-            EmailSubscription.objects.create(
-                email=email, lang=translation.get_language()
-            )
-        except:  # duplicate email
-            pass
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            try:
+                EmailSubscription.objects.create(
+                    email=form.cleaned_data['email'],
+                    lang=translation.get_language()
+                )
+            except:  # duplicate email
+                pass
         return HttpResponseRedirect(reverse('blog:posts'))
 
 
