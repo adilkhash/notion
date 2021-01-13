@@ -4,7 +4,6 @@ django-environ==0.4.2
 https://github.com/adilkhash/django-redactor3/archive/master.zip
 redis==2.10.5
 https://github.com/adilkhash/django-bootstrap-pagination/archive/master.zip
-whitenoise==3.3.0
 django-redis==4.7.0
 requests==2.22.0
 Pillow
