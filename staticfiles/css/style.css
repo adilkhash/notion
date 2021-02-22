@@ -192,3 +192,7 @@ hr {
     margin-inline-end: auto;
     overflow: hidden;
 }
+
+figure img {
+    width:100%;
+}
