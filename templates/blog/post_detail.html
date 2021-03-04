@@ -33,7 +33,7 @@
                             {% if alternate_posts %}
                                 {% for post in alternate_posts %}
                                 <span>
-                                    <img style="width: 16px;height: 16px;" src="{% if post.lang == 'ru' %}{% static 'images/us-flag.png' %}{% else %}{% static 'images/ru-flag.png' %}{% endif %}">&nbsp;
+                                    <img style="width: 16px;height: 16px;" src="{% if post.lang == 'en' %}{% static 'images/us-flag.png' %}{% else %}{% static 'images/ru-flag.png' %}{% endif %}">&nbsp;
                                     <a href="{{ post.alternate_post.get_absolute_url }}" target="_blank">
                                         {{ post.alternate_post }}
                                     </a>
