@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-11 18:34+0600\n"
-"PO-Revision-Date: 2021-01-11 18:36+0600\n"
+"POT-Creation-Date: 2021-03-04 22:11+0600\n"
+"PO-Revision-Date: 2021-03-04 22:12+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -35,7 +35,7 @@ msgid "categories"
 msgstr "категории"
 
 #: .\apps\blog\models.py:27 .\apps\notes\models.py:23
-#: .\templates\blog\index.html:26 .\templates\blog\post_detail.html:36
+#: .\templates\blog\index.html:26 .\templates\blog\post_detail.html:37
 #: .\templates\notes\note_detail.html:22
 msgid "Draft"
 msgstr "Черновик"
@@ -125,11 +125,11 @@ msgstr "альтернативный URL"
 msgid "Alternate URLs"
 msgstr "Альтернативные URL"
 
-#: .\apps\blog\views.py:20
+#: .\apps\blog\views.py:21
 msgid "Adil Khashtamov's personal blog"
 msgstr "Персональный блог Адиля Хаштамова"
 
-#: .\apps\blog\views.py:21
+#: .\apps\blog\views.py:22
 msgid "pragmatic programmer"
 msgstr "программист-прагматик"
 
@@ -149,11 +149,11 @@ msgstr "заметка"
 msgid "Notes"
 msgstr "Заметки"
 
-#: .\notion\settings.py:118
+#: .\notion\settings.py:121
 msgid "Russian"
 msgstr "Русский"
 
-#: .\notion\settings.py:119
+#: .\notion\settings.py:122
 msgid "English"
 msgstr "Английский"
 
@@ -193,11 +193,11 @@ msgstr "Работает на"
 msgid "Subscription"
 msgstr "Подписка"
 
-#: .\templates\blog\_sidebar.html:14 .\templates\blog\post_detail.html:53
+#: .\templates\blog\_sidebar.html:14 .\templates\blog\post_detail.html:63
 msgid "e-mail"
 msgstr "эл.адрес"
 
-#: .\templates\blog\_sidebar.html:16 .\templates\blog\post_detail.html:55
+#: .\templates\blog\_sidebar.html:16 .\templates\blog\post_detail.html:65
 msgid "Subscribe"
 msgstr "Подписаться"
 
@@ -251,15 +251,19 @@ msgid "views"
 msgstr "просмотров"
 
 #: .\templates\blog\post_detail.html:45
+msgid "Translation in "
+msgstr "Перевод на"
+
+#: .\templates\blog\post_detail.html:55
 msgid "Join the mailing list"
 msgstr "Присоединяйтесь к рассылке"
 
-#: .\templates\blog\post_detail.html:46
+#: .\templates\blog\post_detail.html:56
 msgid ""
 "If you like the content I produce, please join my mailing list to stay tuned."
 msgstr "Понравился контент? Пожалуйста, подпишись на рассылку."
 
-#: .\templates\blog\post_detail.html:65
+#: .\templates\blog\post_detail.html:73
 msgid "Related posts"
 msgstr "Интересные записи"
 

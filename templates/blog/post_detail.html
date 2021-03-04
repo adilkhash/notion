@@ -28,17 +28,29 @@
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         <span>{{ object.created|date:"j N o" }}</span>, <a
                             href="{% url 'blog:category' slug=object.category.slug %}">{{ object.category.title }}</a>,
-                        <span>{{ object.page_views }} {% trans 'views' %}</span>
+                        <span>{{ object.page_views }} {% trans 'views' %},</span>
+
+                            {% if alternate_posts %}
+                                {% for post in alternate_posts %}
+                                <span>
+                                    <img style="width: 16px;height: 16px;" src="{% if post.lang == 'ru' %}{% static 'images/us-flag.png' %}{% else %}{% static 'images/ru-flag.png' %}{% endif %}">&nbsp;
+                                    <a href="{{ post.alternate_post.get_absolute_url }}" target="_blank">
+                                        {{ post.alternate_post }}
+                                    </a>
+                                </span>
+                                {% endfor %}
+                            {% endif %}
+
                         {% if user.is_superuser %}
-                            <span><a
-                                    href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
+                            <span>
+                                <a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a>
+                            </span>
                             {% if post.status == post.DRAFT %}
                                 <span style="color: red;">{% trans 'Draft' %}</span>
                             {% endif %}
                         {% endif %}
                     </div>
                     {{ object.text|inject_adsense_after_n_paragraph:5|safe }}
-
 
                     <section class="subscription"
                              style="padding: 3rem;background-color: aliceblue;">
