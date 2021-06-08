@@ -6,7 +6,7 @@ redis==2.10.5
 https://github.com/adilkhash/django-bootstrap-pagination/archive/master.zip
 django-redis==4.7.0
 requests==2.22.0
-Pillow==7.1.1
+Pillow==8.2.0
 django-assets==2.0
 cssmin==0.2.0
 django-htmlmin==0.11.0
