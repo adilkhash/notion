@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 
     # project apps
-    'apps.blog',
-    'apps.notes',
+    'apps.blog.apps.BlogConfig',
+    'apps.notes.apps.NotesConfig',
 
     # 3rd party apps
     'redactor',
