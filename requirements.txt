@@ -1,4 +1,4 @@
-Django==3.2.7
+Django==3.2.9
 psycopg2==2.7.1
 django-environ==0.4.2
 https://github.com/adilkhash/django-redactor3/archive/master.zip
