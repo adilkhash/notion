@@ -6,7 +6,7 @@
 <div class="col-md-4">
 
     <div class="sidebar-widget" style="margin-top:40px;background-color: aliceblue;">
-        <h4 class="sidebar-title">💌 {% trans 'Subscription' %}</h4>
+        <h4 class="sidebar-title">📧 {% trans 'Subscription' %}</h4>
         <form action="{% url 'subscription' %}" method="post" class="form-inline" {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('subscribeBtn'); return true;"{% endif %}>
             {% csrf_token %}
             <input style="width: 100%;border-radius:1px;" class="form-control" type="email" name="email"
@@ -18,7 +18,7 @@
     </div>
 
     <div class="sidebar-widget" style="">
-        <h4 class="sidebar-title">🔎 {% trans 'Search' %}</h4>
+        <h4 class="sidebar-title">🔍 {% trans 'Search' %}</h4>
         <form action="{% url 'blog:search' %}" method="get" class="form-inline" {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('searchBtnClick'); return true;"{% endif %}>
             <input style="width: 100%;border-radius:1px;" class="form-control" type="text" name="query"
                     {% if query %} value="{{ query }}"
@@ -40,7 +40,7 @@
     </div>
     {% endif %}
     <div class="sidebar-widget">
-        <h4 class="sidebar-title">📚 {% trans 'Recent posts' %}</h4>
+        <h4 class="sidebar-title">📑 {% trans 'Recent posts' %}</h4>
         <ul style="padding:0; list-style: none;">
             {% for post in recent_posts %}
                 <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
