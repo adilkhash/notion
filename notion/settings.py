@@ -180,12 +180,12 @@ REDACTOR_OPTIONS = {'lang': 'ru', 'removeComments': False}
 
 MEDIA_URL = '/uploads/'
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/0',
-        'KEY_PREFIX': 'notion'
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+#         'LOCATION': 'redis://127.0.0.1:6379/0',
+#         'KEY_PREFIX': 'notion'
+#     }
+# }
 
 SECURE_REFERRER_POLICY = 'no-referrer-when-downgrade'
