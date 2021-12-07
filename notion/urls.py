@@ -32,7 +32,7 @@ urlpatterns = [
     ),
     path('redactor/', include('redactor.urls')),
     path('cpadmin/', admin.site.urls),
-    path('^subscribe/$', SubscriptionView.as_view(), name='subscription'),
+    path('subscribe/', SubscriptionView.as_view(), name='subscription'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
