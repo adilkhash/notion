@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path
 
 from apps.blog.views import (
     HomePageView,
@@ -8,16 +8,15 @@ from apps.blog.views import (
     PageDetailView,
     LastestPostFeed,
     SearchView,
-    SubscriptionView,
 )
 
 app_name = 'blog'
 urlpatterns = [
-    url(r'^$', HomePageView.as_view(), name='posts'),
-    url(r'^p/(?P<slug>[-\w]+)/$', PageDetailView.as_view(), name='page'),
-    url(r'^category/(?P<slug>[-\w]+)/$', CategoryDetailView.as_view(), name='category'),
-    url(r'^archives/$', ArchiveListView.as_view(), name='archives'),
-    url(r'^feed/$', LastestPostFeed(), name='feed'),
-    url(r'^search/$', SearchView.as_view(), name='search'),
-    url(r'^(?P<slug>[-\w]+)/$', PostDetailView.as_view(), name='post'),
+    path('', HomePageView.as_view(), name='posts'),
+    path('p/<slug:slug>/', PageDetailView.as_view(), name='page'),
+    path('^category/<slug:slug>/', CategoryDetailView.as_view(), name='category'),
+    path('archives/', ArchiveListView.as_view(), name='archives'),
+    path('feed/', LastestPostFeed(), name='feed'),
+    path('search/', SearchView.as_view(), name='search'),
+    path('<slug:slug>/', PostDetailView.as_view(), name='post'),
 ]

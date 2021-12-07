@@ -1,5 +1,6 @@
-from django.conf.urls import url, include
+from django.conf.urls import include
 from django.contrib import admin
+from django.urls import path
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap
@@ -20,8 +21,8 @@ page_dict = {
 }
 
 urlpatterns = [
-    url(
-        r'^sitemap\.xml$',
+    path(
+        'sitemap.xml',
         sitemap, {
             'sitemaps': {
                 'blog': GenericSitemap(blog_dict, priority=1, protocol='https'),
@@ -29,12 +30,12 @@ urlpatterns = [
             }
         }, name='django.contrib.sitemaps.views.sitemap'
     ),
-    url(r'^redactor/', include('redactor.urls')),
-    url(r'^cpadmin/', admin.site.urls),
-    url(r'^subscribe/$', SubscriptionView.as_view(), name='subscription'),
+    path('redactor/', include('redactor.urls')),
+    path('cpadmin/', admin.site.urls),
+    path('^subscribe/$', SubscriptionView.as_view(), name='subscription'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
-    url(r'^notes/', include('apps.notes.urls', namespace='notes')),
-    url(r'^', include('apps.blog.urls', namespace='blog')),
+    path('notes/', include('apps.notes.urls', namespace='notes')),
+    path('', include('apps.blog.urls', namespace='blog')),
 )
