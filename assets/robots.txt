@@ -1,3 +1,5 @@
 User-agent: *
+Disallow: /ru/search/*
+Disallow: /en/search/*
 Host: https://khashtamov.com
 Sitemap: https://khashtamov.com/sitemap.xml
