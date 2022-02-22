@@ -70,6 +70,22 @@
                     </section>
                 </article>
 
+            <div id="disqus_thread" style="margin-top:15px;"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = 'https://khashtamov.com{{ object.get_absolute_url }}';
+                    this.page.identifier = '{{ object.get_absolute_url }}-{{ object.id }}';
+                };
+                (function () { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://khashtamov.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                powered by Disqus.</a></noscript>
+
                 {% if related_articles %}
                     <div class="row">
                         <div class="col-md-12">
