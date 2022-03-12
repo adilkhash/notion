@@ -5,7 +5,7 @@ https://github.com/adilkhash/django-redactor3/archive/master.zip
 redis==4.0.2
 https://github.com/adilkhash/django-bootstrap-pagination/archive/master.zip
 requests==2.26.0
-Pillow==9.0.0
+Pillow==9.0.1
 django-assets==2.0
 cssmin==0.2.0
 django-htmlmin==0.11.0
