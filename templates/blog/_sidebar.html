@@ -5,18 +5,6 @@
 
 <div class="col-md-4">
 
-    <div class="sidebar-widget" style="margin-top:40px;background-color: aliceblue;">
-        <h4 class="sidebar-title">📧 {% trans 'Subscription' %}</h4>
-        <form action="{% url 'subscription' %}" method="post" class="form-inline" {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('subscribeBtn'); return true;"{% endif %}>
-            {% csrf_token %}
-            <input style="width: 100%;border-radius:1px;" class="form-control" type="email" name="email"
-                    {% if query %} value="{{ query }}"
-                   {% else %}placeholder="{% trans 'e-mail' %}"{% endif %}>
-            <button class="btn btn-primary btn-block"
-                    style="margin-top:10px;border-radius:1px;">{% trans 'Subscribe' %}</button>
-        </form>
-    </div>
-
     <div class="sidebar-widget" style="">
         <h4 class="sidebar-title">🔍 {% trans 'Search' %}</h4>
         <form action="{% url 'blog:search' %}" method="get" class="form-inline" {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('searchBtnClick'); return true;"{% endif %}>
@@ -47,29 +35,4 @@
             {% endfor %}
         </ul>
     </div>
-
-{#    {% display_jobs 3 %}#}
-
-{#    {% if not DEBUG %}#}
-{#        <div class="sidebar-widget">#}
-{#            <h4 class="sidebar-title">💰 {% trans 'Ad' %}</h4>#}
-{##}
-{#            <a href="https://www.datacamp.com?tap_a=82039-2e720a&tap_s=1331588-6fc352" target="_BLANK" rel="nofollow noreferer">#}
-{#                <img src="https://static.tapfiliate.com/5f922766d9865327135458.png?a=82039-2e720a&s=1331588-6fc352" border="0">#}
-{#            </a>#}
-{##}
-{#            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>#}
-{#            <!-- Sidebar -->#}
-{#            <ins class="adsbygoogle"#}
-{#                 style="display:block"#}
-{#                 data-ad-client="ca-pub-3273608550190378"#}
-{#                 data-ad-slot="9772151654"#}
-{#                 data-ad-format="auto"#}
-{#                 data-full-width-responsive="true"></ins>#}
-{#            <script>#}
-{#                (adsbygoogle = window.adsbygoogle || []).push({});#}
-{#            </script>#}
-{#        </div>#}
-{#    {% endif %}#}
-
 </div>

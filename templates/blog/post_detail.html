@@ -50,24 +50,7 @@
                             {% endif %}
                         {% endif %}
                     </div>
-{#                    {{ object.text|inject_adsense_after_n_paragraph:5|safe }}#}
                     {{ object.text|safe }}
-
-                    <section class="subscription"
-                             style="padding: 3rem;background-color: aliceblue;">
-                        <h3 style="font-weight: bold;">💌 {% trans 'Join the mailing list' %}</h3>
-                        <p>{% trans 'If you like the content I produce, please join my mailing list to stay tuned.' %}</p>
-                        <form action="{% url 'subscription' %}" method="post" class="form-inline"
-                              {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('postSubscribtionClick'); return true;"{% endif %}>
-                            {% csrf_token %}
-                            <input style="width: 100%;border-radius:1px;" class="form-control"
-                                   type="email" name="email"
-                                    {% if query %} value="{{ query }}"
-                                   {% else %}placeholder="{% trans 'e-mail' %}"{% endif %}>
-                            <button class="btn btn-primary btn-block"
-                                    style="margin-top:10px;border-radius:1px;">{% trans 'Subscribe' %}</button>
-                        </form>
-                    </section>
                 </article>
 
             <div id="disqus_thread" style="margin-top:15px;"></div>
