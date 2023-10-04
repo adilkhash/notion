@@ -5,7 +5,7 @@
 
 <div class="col-md-4">
 
-    <div class="sidebar-widget" style="">
+    <div class="sidebar-widget" style="margin-top:40px;">
         <h4 class="sidebar-title">🔍 {% trans 'Search' %}</h4>
         <form action="{% url 'blog:search' %}" method="get" class="form-inline" {% if not DEBUG %}onsubmit="yaCounter32700075.reachGoal('searchBtnClick'); return true;"{% endif %}>
             <input style="width: 100%;border-radius:1px;" class="form-control" type="text" name="query"
