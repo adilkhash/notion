@@ -36,7 +36,6 @@ class LastestPostFeed(Feed):
 class HomePageView(ListView):
     template_name = 'blog/index.html'
     model = Post
-    paginate_by = 10
 
     def get_queryset(self):
         if self.request.user.is_superuser:
