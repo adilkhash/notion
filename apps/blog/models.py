@@ -49,7 +49,7 @@ class Post(models.Model):
         return '/{}/{}/'.format(self.lang, self.slug)
 
     def month_year(self) -> str:
-        return self.created.strftime('%B, %Y')
+        return _(self.created.strftime('%B')) + ', ' + self.created.strftime('%Y')
 
     def get_admin_url(self):
         content_type = ContentType.objects.get_for_model(self.__class__)
