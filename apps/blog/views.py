@@ -3,11 +3,7 @@ from django.utils import translation
 from django.utils.translation import gettext as _
 from django.urls import reverse, reverse_lazy
 from django.contrib.syndication.views import Feed
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponseForbidden
-from django.core.validators import validate_email
-from django.core.exceptions import ValidationError
 from django.db.models import F
 from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.shortcuts import render
@@ -60,11 +56,6 @@ class HomePageView(ListView):
         context['recent_posts'] = self.model.objects.filter(
             lang=translation.get_language(), status=Post.PUBLISHED
         ).order_by('-id')[:10]
-        context['lastest_notes'] = (
-            Note.objects.filter(status=Note.PUBLISHED, lang=translation.get_language())
-            .select_related('theme')
-            .order_by('-created')[:5]
-        )
         return context
 
 
@@ -156,24 +147,7 @@ class PageDetailView(DetailView):
         )
 
 
-# @method_decorator(csrf_exempt, name='dispatch')
 class SubscriptionView(View):
-    # def get(self, request):
-    #     activation_code = request.GET.get('activation_code')
-    #     email = request.GET.get('email')
-    #     if activation_code and email:
-    #         try:
-    #             sub = EmailSubscription.objects.get(
-    #                 email=email, activation_code=activation_code
-    #             )
-    #         except EmailSubscription.DoesNotExist:
-    #             return HttpResponseForbidden()
-    #         else:
-    #             sub.activate()
-    #             return HttpResponseRedirect(reverse('blog:index'))
-    #     else:
-    #         return HttpResponseForbidden()
-
     def post(self, request):
         form = EmailForm(request.POST)
         if form.is_valid():

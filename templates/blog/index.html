@@ -5,8 +5,8 @@
 {% load blog_tags %}
 
 {% block _head %}
-{#    <link rel="alternate" href="https://khashtamov.com/ru/" hreflang="ru" />#}
-{#    <link rel="alternate" href="https://khashtamov.com/en/" hreflang="en" />#}
+    {#    <link rel="alternate" href="https://khashtamov.com/ru/" hreflang="ru" />#}
+    {#    <link rel="alternate" href="https://khashtamov.com/en/" hreflang="en" />#}
 {% endblock %}
 
 {% block content %}
@@ -14,33 +14,24 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="articles">
-                    {% for post in object_list %}
-                    <article class="post-list">
-                        <h1><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></h1>
-                        <div class="article-meta">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            <span>{{ post.created|date:"j N o" }}</span>, <a href="{% url 'blog:category' slug=post.category.slug %}">{{ post.category.title }}</a>
-                            {% if user.is_superuser %}
-                                <span><a href="{{ post.get_admin_url }}">{% trans 'Edit' %}</a></span>
-                                {% if post.status == post.DRAFT %}
-                                    <span style="color: red;">{% trans 'Draft' %}</span>
-                                {% endif %}
-                            {% endif %}
-                        </div>
-                        {{ post.text|text_preview|safe }}<a href="{% url 'blog:post' slug=post.slug %}">{% trans 'read more' %}</a>
-                    </article>
+                    {% regroup object_list by month_year as articles %}
+                    {% for article in articles %}
+                        <h2>
+                            {{ article.grouper }}
+                        </h2>
+                        <ul>
+                            {% for post in article.list %}
+                                <li>
+                                    <a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
+                                    {% if post.status == post.DRAFT %}
+                                        <span style="color: red;">&nbsp;({% trans 'Draft' %})</span>{% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
                     {% endfor %}
                 </div>
             </div>
-
             {% include 'blog/_sidebar.html' %}
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                {% bootstrap_paginate page_obj %}
-            </div>
-        </div>
     </div>
-
 {% endblock %}
