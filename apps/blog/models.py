@@ -48,6 +48,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return '/{}/{}/'.format(self.lang, self.slug)
 
+    def month_year(self) -> str:
+        return self.created.strftime('%B, %Y')
+
     def get_admin_url(self):
         content_type = ContentType.objects.get_for_model(self.__class__)
         return reverse('admin:%s_%s_change' % (content_type.app_label, content_type.model),
