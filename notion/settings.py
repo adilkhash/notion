@@ -54,6 +54,7 @@ MIDDLEWARE = [
 HTML_MINIFY = True
 
 ROOT_URLCONF = 'notion.urls'
+SITE_ID = 1
 
 TEMPLATES = [
     {

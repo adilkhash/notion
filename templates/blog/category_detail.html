@@ -1,25 +1,43 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{{ object.title }} {% trans 'category' %}{% endblock %}
+{% load static %}
+{% block title %}{{ object.title }} {% trans "category" %}{% endblock %}
 
 {% block content %}
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{ object.title }} {% trans 'category' %}</h1>
-
-                {% regroup posts by created.year as groups %}
-
-                {% for group in groups %}
-                    <h3>{{ group.grouper }}</h3>
-                    <ul>
-                        {% for post in group.list %}
-                            <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% endfor %}
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">{{ object.title }} {% trans "category" %}</h1>
+        
+        <!-- Posts by Year -->
+        {% regroup posts by created.year as year_groups %}
+        {% for year in year_groups %}
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gray-700">{{ year.grouper }}</h2>
+                <div class="space-y-4">
+                    {% for post in year.list %}
+                        <article class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2">
+                                <a href="{% url 'blog:post' slug=post.slug %}" class="text-blue-600 hover:underline">{{ post.title }}</a>
+                            </h3>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    {{ post.created|date:"j N o" }}
+                                </span>
+                                <span class="mx-2">•</span>
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                    {{ post.page_views }} {% trans "views" %}
+                                </span>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
-
 {% endblock %}

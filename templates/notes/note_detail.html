@@ -8,27 +8,33 @@
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-8">
-                <article>
-                    <h1>{{ object.title }}</h1>
-                    <div class="article-meta">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <span>{{ object.created|date:"j N o" }}</span>,
-                        {% if user.is_superuser %}
-                            <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
-                            {% if object.status == object.DRAFT %}
-                                    <span style="color: red;">{% trans 'Draft' %}</span>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                        {{ object.text|safe }}
-                </article>
+    <article class="bg-white p-6 rounded-lg shadow-sm">
+        <!-- Article Header -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-3">{{ object.title }}</h1>
+            <div class="flex flex-wrap items-center text-sm text-gray-500 mb-4">
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {{ object.created|date:"j N o" }}
+                </span>
+                {% if user.is_superuser %}
+                    <span class="mx-2">•</span>
+                    <a href="{{ object.get_admin_url }}" class="text-blue-600 hover:text-blue-800">{% trans "Edit" %}</a>
+                    {% if object.status == object.DRAFT %}
+                        <span class="mx-2">•</span>
+                        <span class="text-red-600">{% trans "Draft" %}</span>
+                    {% endif %}
+                {% endif %}
             </div>
-        </div>
-    </div>
+        </header>
 
+        <!-- Article Content -->
+        <div class="prose max-w-none text-gray-700">
+            {{ object.text|safe }}
+        </div>
+    </article>
 {% endblock %}
 
 

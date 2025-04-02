@@ -8,7 +8,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from apps.blog.models import Post, Page
-from apps.blog.views import SubscriptionView
 
 blog_dict = {
     'queryset': Post.objects.filter(status=Post.PUBLISHED),
@@ -32,7 +31,6 @@ urlpatterns = [
     ),
     path('redactor/', include('redactor.urls')),
     path('cpadmin/', admin.site.urls),
-    path('subscribe/', SubscriptionView.as_view(), name='subscription'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(

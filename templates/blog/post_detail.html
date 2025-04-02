@@ -19,72 +19,82 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-8">
-                <article>
-                    <h1>{{ object.title }}</h1>
-                    <div class="article-meta">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <span>{{ object.created|date:"j N o" }}</span>, <a
-                            href="{% url 'blog:category' slug=object.category.slug %}">{{ object.category.title }}</a>,
-                        <span>{{ object.page_views }} {% trans 'views' %},</span>
-
-                            {% if alternate_posts %}
-                                {% for post in alternate_posts %}
-                                <span>
-                                    <img style="width: 16px;height: 16px;" src="{% if post.lang == 'en' %}{% static 'images/us-flag.png' %}{% else %}{% static 'images/ru-flag.png' %}{% endif %}">&nbsp;
-                                    <a href="{{ post.alternate_post.get_absolute_url }}" target="_blank">
-                                        {{ post.alternate_post }}
-                                    </a>
-                                </span>
-                                {% endfor %}
-                            {% endif %}
-
-                        {% if user.is_superuser %}
-                            <span>
-                                <a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a>
-                            </span>
-                            {% if post.status == post.DRAFT %}
-                                <span style="color: red;">{% trans 'Draft' %}</span>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                    {{ object.text|safe }}
-                </article>
-
-            <div id="disqus_thread" style="margin-top:15px;"></div>
-            <script>
-                var disqus_config = function () {
-                    this.page.url = 'https://khashtamov.com{{ object.get_absolute_url }}';
-                    this.page.identifier = '{{ object.get_absolute_url }}-{{ object.id }}';
-                };
-                (function () { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://khashtamov.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
-                powered by Disqus.</a></noscript>
-
-                {% if related_articles %}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2>{% trans 'Related posts' %}:</h2>
-                            <ul>
-                                {% for related_article in related_articles %}
-                                    <li>
-                                        <a href="{% url 'blog:post' slug=related_article.slug %}">{{ related_article.title }}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
+    <article class="bg-white p-6 rounded-lg shadow-sm">
+        <!-- Article Header -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-3">{{ object.title }}</h1>
+            <div class="flex flex-wrap items-center text-sm text-gray-500 mb-4">
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {{ object.created|date:"j N o" }}
+                </span>
+                <span class="mx-2">•</span>
+                <a href="{% url 'blog:category' slug=object.category.slug %}" class="text-blue-600 hover:text-blue-800">{{ object.category.title }}</a>
+                <span class="mx-2">•</span>
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    {{ object.page_views }} {% trans "views" %}
+                </span>
+                {% if alternate_posts %}
+                    {% for post in alternate_posts %}
+                        <span class="mx-2">•</span>
+                        <span class="flex items-center">
+                            <img style="width: 16px;height: 16px;" src="{% if post.lang == 'en' %}{% static 'images/us-flag.png' %}{% else %}{% static 'images/ru-flag.png' %}{% endif %}" class="mr-1">
+                            <a href="{{ post.alternate_post.get_absolute_url }}" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                {{ post.alternate_post }}
+                            </a>
+                        </span>
+                    {% endfor %}
                 {% endif %}
             </div>
-            {% include 'blog/_sidebar.html' %}
+        </header>
+
+        <!-- Article Content -->
+        <div class="prose max-w-none text-gray-700">
+            {{ object.text|safe|inject_adsense_after_n_paragraph:2 }}
         </div>
-    </div>
+
+        <!-- Related Articles -->
+        {% if related_articles %}
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">{% trans "Related Articles" %}</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {% for article in related_articles %}
+                        <article class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2">
+                                <a href="{% url 'blog:post' slug=article.slug %}" class="text-blue-600 hover:underline">{{ article.title }}</a>
+                            </h3>
+                            <div class="text-sm text-gray-500">
+                                {{ article.created|date:"j N o" }}
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Latest Notes -->
+        {% if lastest_notes %}
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">{% trans "Latest Notes" %}</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {% for note in lastest_notes %}
+                        <article class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2">
+                                <a href="{% url 'notes:note-detail' theme_name=note.theme.slug slug=note.slug %}" class="text-blue-600 hover:underline">{{ note.title }}</a>
+                            </h3>
+                            <div class="text-sm text-gray-500">
+                                {{ note.created|date:"j N o" }}
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </article>
 {% endblock %}

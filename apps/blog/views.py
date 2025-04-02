@@ -123,20 +123,6 @@ class PageDetailView(DetailView):
         )
 
 
-class SubscriptionView(View):
-    def post(self, request):
-        form = EmailForm(request.POST)
-        if form.is_valid():
-            try:
-                EmailSubscription.objects.create(
-                    email=form.cleaned_data['email'],
-                    lang=translation.get_language()
-                )
-            except:  # duplicate email
-                pass
-        return HttpResponseRedirect(reverse('blog:posts'))
-
-
 class SearchView(View):
     def get(self, request):
         lang_mapping = {'en': 'english', 'ru': 'russian'}
@@ -150,5 +136,4 @@ class SearchView(View):
             .filter(lang=lang, search=search_query)
             .order_by('-created')
         )
-
         return render(request, 'blog/search.html', {'results': results, 'query': query})
