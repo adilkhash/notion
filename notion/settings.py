@@ -29,7 +29,6 @@ INSTALLED_APPS = [
 
     # project apps
     'apps.blog.apps.BlogConfig',
-    'apps.notes.apps.NotesConfig',
 
     # 3rd party apps
     'redactor',

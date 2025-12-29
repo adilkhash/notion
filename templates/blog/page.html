@@ -5,19 +5,74 @@
 
 {% block meta_description %}{{ object.text|striptags|truncatechars:200 }}{% endblock %}
 
+{% block _head %}
+<style>
+    .page-container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .page-header {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(26, 26, 46, 0.08);
+    }
+
+    .page-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--color-ink-muted);
+        margin-bottom: 1rem;
+    }
+
+    .page-title {
+        font-family: var(--font-serif);
+        font-size: 2.75rem;
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--color-ink);
+        letter-spacing: -0.02em;
+        margin: 0;
+    }
+
+    .page-content {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .page-content .prose {
+        font-size: 1.1rem;
+        line-height: 1.9;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2rem;
+        }
+
+        .page-content .prose {
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <article>
-                    <h1>{{ object.title }}</h1>
-                    <div class="article-meta">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span>{{ object.created|date:"j N o" }}</span>
-                    </div>
-                    {{ object.text|safe }}
-                </article>
+    <article class="page-container">
+        <header class="page-header">
+            <div class="page-meta">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                {{ object.created|date:"j N o" }}
+            </div>
+            <h1 class="page-title">{{ object.title }}</h1>
+        </header>
+        <div class="page-content">
+            <div class="prose">
+                {{ object.text|safe }}
             </div>
         </div>
-    </div>
-
+    </article>
 {% endblock %}

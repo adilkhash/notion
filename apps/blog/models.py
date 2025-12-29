@@ -35,6 +35,13 @@ class Post(models.Model):
     category = models.ForeignKey('Category', null=True, on_delete=models.CASCADE)
     status = models.SmallIntegerField(_('Status'), choices=STATUSES)
     page_views = models.PositiveIntegerField(_('Page views'), default=0)
+    featured_image = models.ImageField(
+        _('Featured image'),
+        upload_to='posts/',
+        blank=True,
+        null=True,
+        help_text=_('Used for social sharing previews (recommended: 1200x630px)')
+    )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

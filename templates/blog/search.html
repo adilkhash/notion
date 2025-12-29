@@ -8,47 +8,188 @@
     {% blocktrans %}Results for «{{ query }}»{% endblocktrans %}
 {% endblock %}
 
-{% block content %}
-    <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h1 class="text-3xl font-bold mb-6 text-gray-800">
-            {% blocktrans %}Results for «{{ query }}»{% endblocktrans %}
-        </h1>
+{% block _head %}
+<style>
+    .search-header {
+        margin-bottom: 3rem;
+    }
 
-        {% if not results %}
-            <p class="text-gray-600">{% trans "No articles found" %}</p>
-        {% else %}
-            <p class="text-gray-500 mb-6">{% trans "Articles found" %}: {{ results|length }}</p>
-            
-            <div class="space-y-6">
-                {% for post in results %}
-                    <article class="bg-gray-50 p-4 rounded-lg">
-                        <h2 class="text-xl font-semibold mb-2">
-                            <a href="{% url 'blog:post' slug=post.slug %}" class="text-blue-600 hover:underline">{{ post.title }}</a>
-                        </h2>
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <span class="flex items-center">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                {{ post.created|date:"j N o" }}
-                            </span>
-                            <span class="mx-2">•</span>
-                            <a href="{% url 'blog:category' slug=post.category.slug %}" class="text-blue-600 hover:text-blue-800">{{ post.category.title }}</a>
-                            <span class="mx-2">•</span>
-                            <span class="flex items-center">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                                {{ post.page_views }} {% trans "views" %}
-                            </span>
-                        </div>
-                        <p class="text-gray-700">
-                            {{ post.text|text_preview|striptags|truncatewords:50 }}
-                        </p>
-                    </article>
-                {% endfor %}
-            </div>
+    .search-title {
+        font-family: var(--font-serif);
+        font-size: 2.25rem;
+        font-weight: 400;
+        color: var(--color-ink);
+        margin-bottom: 0.5rem;
+    }
+
+    .search-title em {
+        color: var(--color-terracotta);
+        font-style: normal;
+    }
+
+    .search-count {
+        color: var(--color-ink-muted);
+        font-size: 1rem;
+    }
+
+    .search-empty {
+        text-align: center;
+        padding: 4rem 2rem;
+    }
+
+    .search-empty-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.5rem;
+        color: var(--color-ink-muted);
+        opacity: 0.5;
+    }
+
+    .search-empty-text {
+        font-size: 1.1rem;
+        color: var(--color-ink-muted);
+    }
+
+    .search-results {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .result-card {
+        padding: 1.75rem;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid rgba(26, 26, 46, 0.06);
+        transition: all 0.2s ease;
+    }
+
+    .result-card:hover {
+        box-shadow: 0 8px 30px rgba(26, 26, 46, 0.06);
+        transform: translateY(-2px);
+    }
+
+    .result-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.85rem;
+        color: var(--color-ink-muted);
+        margin-bottom: 0.75rem;
+    }
+
+    .result-date {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .result-category {
+        padding: 0.25rem 0.75rem;
+        background: var(--color-cream-dark);
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--color-ink-light);
+        transition: all 0.2s ease;
+    }
+
+    .result-category:hover {
+        background: var(--color-terracotta);
+        color: white;
+    }
+
+    .result-views {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .result-title {
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        font-weight: 400;
+        line-height: 1.35;
+        margin: 0 0 0.75rem 0;
+    }
+
+    .result-title a {
+        color: var(--color-ink);
+        transition: color 0.2s ease;
+    }
+
+    .result-title a:hover {
+        color: var(--color-terracotta);
+    }
+
+    .result-excerpt {
+        color: var(--color-ink-light);
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+        .search-title {
+            font-size: 1.75rem;
+        }
+
+        .result-card {
+            padding: 1.25rem;
+        }
+
+        .result-title {
+            font-size: 1.15rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <header class="search-header">
+        <h1 class="search-title">{% trans "Results for" %} <em>«{{ query }}»</em></h1>
+        {% if results %}
+            <p class="search-count">{{ results|length }} {% trans "articles found" %}</p>
         {% endif %}
-    </div>
+    </header>
+
+    {% if not results %}
+        <div class="search-empty">
+            <svg class="search-empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <p class="search-empty-text">{% trans "No articles found for your search query" %}</p>
+        </div>
+    {% else %}
+        <div class="search-results">
+            {% for post in results %}
+                <article class="result-card">
+                    <div class="result-meta">
+                        <span class="result-date">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            {{ post.month_year }}
+                        </span>
+                        {% if post.category %}
+                        <a href="{% url 'blog:category' slug=post.category.slug %}" class="result-category">{{ post.category.title }}</a>
+                        {% endif %}
+                        <span class="result-views">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                            {{ post.page_views }}
+                        </span>
+                    </div>
+                    <h2 class="result-title">
+                        <a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
+                    </h2>
+                    <p class="result-excerpt">
+                        {{ post.text|text_preview|striptags|truncatewords:40 }}
+                    </p>
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}
