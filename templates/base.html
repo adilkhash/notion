@@ -83,11 +83,19 @@
                     </a>
                 </div>
 
-                <!-- Navigation -->
+                <!-- Language Switcher -->
                 <nav class="flex items-center gap-1">
-                    <a href="{% url 'blog:posts' %}" class="px-4 py-2 rounded-full text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-50 transition-all duration-200 {% if request.resolver_match.url_name == 'posts' %}bg-ink-900 text-white hover:bg-ink-800 hover:text-white{% endif %}">
-                        {% trans "Articles" %}
+                    {% if LANGUAGE_CODE == 'ru' %}
+                    <a href="/en/" class="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-50 transition-all duration-200" title="Switch to English">
+                        <img src="{% static 'images/us-flag.png' %}" alt="English" class="w-5 h-5 rounded-sm shadow-sm object-cover">
+                        <span>EN</span>
                     </a>
+                    {% else %}
+                    <a href="/ru/" class="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-50 transition-all duration-200" title="Переключить на русский">
+                        <img src="{% static 'images/ru-flag.png' %}" alt="Русский" class="w-5 h-5 rounded-sm shadow-sm object-cover">
+                        <span>RU</span>
+                    </a>
+                    {% endif %}
                 </nav>
             </div>
 
