@@ -6,9 +6,9 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic import TemplateView
 
 from apps.blog.models import Post, Page
-from apps.blog.views import SubscriptionView
 
 blog_dict = {
     'queryset': Post.objects.filter(status=Post.PUBLISHED),
@@ -22,6 +22,11 @@ page_dict = {
 
 urlpatterns = [
     path(
+        'robots.txt',
+        TemplateView.as_view(template_name='robots.txt', content_type='text/plain'),
+        name='robots_txt'
+    ),
+    path(
         'sitemap.xml',
         sitemap, {
             'sitemaps': {
@@ -32,10 +37,8 @@ urlpatterns = [
     ),
     path('redactor/', include('redactor.urls')),
     path('cpadmin/', admin.site.urls),
-    path('subscribe/', SubscriptionView.as_view(), name='subscription'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
-    path('notes/', include('apps.notes.urls', namespace='notes')),
     path('', include('apps.blog.urls', namespace='blog')),
 )

@@ -29,7 +29,6 @@ INSTALLED_APPS = [
 
     # project apps
     'apps.blog.apps.BlogConfig',
-    'apps.notes.apps.NotesConfig',
 
     # 3rd party apps
     'redactor',
@@ -54,6 +53,7 @@ MIDDLEWARE = [
 HTML_MINIFY = True
 
 ROOT_URLCONF = 'notion.urls'
+SITE_ID = 1
 
 TEMPLATES = [
     {

@@ -3,7 +3,7 @@
 {% load assets %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     {% if not DEBUG %}
     <!-- Google tag (gtag.js) -->
@@ -21,62 +21,545 @@
     <meta name="description" content="{% spaceless %}{% block meta_description %}{% trans 'Software engineer personal blog. Usually write about building web apps, machine learning and data analysis' %}{% endblock %}{% endspaceless %}" />
     <meta name="google-site-verification" content="2oW122oyzuORLWrpVhZ29-2w0dTvpjiEL922qCuSa5M" />
     <title>{% block title %}{% trans "Adil Khashtamov's personal blog — pragmatic programmer" %}{% endblock %}</title>
-    {% assets "css_all" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}">
-    {% endassets %}
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{% trans "Adil Khashtamov's personal blog — pragmatic programmer" %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% trans 'Software engineer personal blog. Usually write about building web apps, machine learning and data analysis' %}{% endblock %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.png' %}{% endblock %}">
+    <meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+    <meta property="og:site_name" content="Adil Khashtamov">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@adaborik">
+    <meta name="twitter:title" content="{% block twitter_title %}{% trans "Adil Khashtamov's personal blog — pragmatic programmer" %}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{% trans 'Software engineer personal blog. Usually write about building web apps, machine learning and data analysis' %}{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.png' %}{% endblock %}">
+
+    <!-- JSON-LD Website Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Adil Khashtamov",
+        "url": "{{ request.scheme }}://{{ request.get_host }}/",
+        "description": "{% trans 'Software engineer personal blog. Usually write about building web apps, machine learning and data analysis' %}",
+        "author": {
+            "@type": "Person",
+            "name": "Adil Khashtamov",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/{{ LANGUAGE_CODE }}/p/about/"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{{ request.scheme }}://{{ request.get_host }}/{{ LANGUAGE_CODE }}/search/?query={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    {% block json_ld %}{% endblock %}
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link href="{% static 'images/icon.png' %}" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-cream: #FEFCF8;
+            --color-cream-dark: #F5F0E8;
+            --color-ink: #1a1a2e;
+            --color-ink-light: #3d3d5c;
+            --color-ink-muted: #6b6b8a;
+            --color-terracotta: #c9705d;
+            --color-terracotta-light: #e8a090;
+            --color-terracotta-dark: #a85a4a;
+            --color-sage: #7d9a8c;
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-sans: 'Outfit', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-cream);
+            color: var(--color-ink);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Subtle grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 1000;
+        }
+
+        a {
+            color: var(--color-terracotta);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--color-terracotta-dark);
+        }
+
+        /* Header */
+        .site-header {
+            padding: 2.5rem 1.5rem;
+            border-bottom: 1px solid rgba(26, 26, 46, 0.08);
+            background: var(--color-cream);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .site-branding h1 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .site-branding h1 a {
+            color: var(--color-ink);
+            transition: opacity 0.2s ease;
+        }
+
+        .site-branding h1 a:hover {
+            opacity: 0.7;
+            color: var(--color-ink);
+        }
+
+        .site-tagline {
+            font-size: 0.85rem;
+            color: var(--color-ink-muted);
+            margin-top: 0.25rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .site-nav a {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--color-ink-light);
+            border-radius: 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a.active {
+            background: var(--color-ink);
+            color: var(--color-cream);
+        }
+
+        /* Search */
+        .search-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .search-form {
+            display: flex;
+            max-width: 400px;
+            border: 1px solid rgba(26, 26, 46, 0.15);
+            border-radius: 3rem;
+            overflow: hidden;
+            background: white;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-form:focus-within {
+            border-color: var(--color-terracotta);
+            box-shadow: 0 0 0 3px rgba(201, 112, 93, 0.1);
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 0.75rem 1.25rem;
+            border: none;
+            background: transparent;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--color-ink);
+        }
+
+        .search-form input::placeholder {
+            color: var(--color-ink-muted);
+        }
+
+        .search-form input:focus {
+            outline: none;
+        }
+
+        .search-form button {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--color-ink-muted);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .search-form button:hover {
+            color: var(--color-terracotta);
+        }
+
+        /* Main content */
+        .site-main {
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--color-ink);
+            color: var(--color-cream);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--color-cream);
+        }
+
+        .footer-section p {
+            color: rgba(254, 252, 248, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(254, 252, 248, 0.2);
+            border-radius: 50%;
+            color: var(--color-cream);
+            transition: all 0.2s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--color-terracotta);
+            border-color: var(--color-terracotta);
+            transform: translateY(-2px);
+        }
+
+        .social-links svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(254, 252, 248, 0.1);
+            text-align: center;
+            color: rgba(254, 252, 248, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: rgba(254, 252, 248, 0.7);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--color-terracotta-light);
+        }
+
+        /* Typography for content */
+        .prose {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--color-ink-light);
+        }
+
+        .prose h1, .prose h2, .prose h3, .prose h4 {
+            font-family: var(--font-serif);
+            color: var(--color-ink);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .prose h1 { font-size: 2.25rem; }
+        .prose h2 { font-size: 1.75rem; }
+        .prose h3 { font-size: 1.4rem; }
+        .prose h4 { font-size: 1.15rem; }
+
+        .prose p {
+            margin-bottom: 1.5rem;
+        }
+
+        .prose a {
+            color: var(--color-terracotta);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        .prose a:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .prose ul, .prose ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        .prose blockquote {
+            border-left: 3px solid var(--color-terracotta);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--color-ink-muted);
+        }
+
+        .prose code {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            background: var(--color-cream-dark);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+
+        .prose pre {
+            background: var(--color-ink);
+            color: var(--color-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .prose pre code {
+            background: transparent;
+            padding: 0;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .prose img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .prose th, .prose td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(26, 26, 46, 0.1);
+        }
+
+        .prose th {
+            font-weight: 500;
+            color: var(--color-ink);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+
+            .site-header {
+                padding: 1.5rem 1rem;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .site-branding h1 {
+                font-size: 1.5rem;
+            }
+
+            .search-form {
+                max-width: 100%;
+            }
+
+            .site-main {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 {% block _head %}
 {% endblock %}
 </head>
 
 <body>
-    <div class="blog-masthead">
-        <div class="container container-wrap">
-            <div role="navigation">
-
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-menu" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="site-branding">
+                <h1><a href="/">{% trans "Adil Khashtamov" %}</a></h1>
+                <p class="site-tagline">{% trans "Software engineer & writer" %}</p>
             </div>
-
-            <div class="collapse navbar-collapse" id="collapse-menu" style="padding:0;">
-                <ul class="menu__navigation">
-                    <li><a class="blog-nav-item" href="{% url 'blog:posts' %}">{% trans 'Blog' %}</a></li>
-                    <li><a class="blog-nav-item" href="{% url 'blog:page' slug='contacts' %}">{% trans 'Contacts' %}</a></li>
-                    <li>
-                        {% if LANGUAGE_CODE == 'ru' %}
-                            <a class="blog-nav-item" href="/en/"><img src="{% static 'images/us-flag.png' %}" alt="In English" title="English version"></a>
-                        {% else %}
-                            <a class="blog-nav-item" href="/ru/"><img src="{% static 'images/ru-flag.png' %}" alt="На русском" title="Версия на русском"></a>
-                        {% endif %}
-                    </li>
-                    {% if user.is_superuser %}
-                        <li><a class="blog-nav-item" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+            <nav class="site-nav">
+                <a href="{% url 'blog:posts' %}" {% if request.resolver_match.url_name == 'posts' %}class="active"{% endif %}>{% trans "Articles" %}</a>
+                <a href="{% url 'blog:page' slug='about' %}" {% if request.resolver_match.url_name == 'page' and request.resolver_match.kwargs.slug == 'about' %}class="active"{% endif %}>{% trans "About" %}</a>
+            </nav>
         </div>
-    </div>
-    </div>
+        <div class="search-container">
+            <form action="{% url 'blog:search' %}" method="get" class="search-form">
+                <input type="text" name="query" placeholder="{% trans 'Search articles...' %}">
+                <button type="submit">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
 
-    {% block content %}
-    {% endblock %}
+    <!-- Main Content -->
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
 
-    <!--footer-->
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="footer" style="padding-bottom: 20px;padding-top:20px;">
-                    <p><span style="font-size: .8em;color:#9b9b9b;">{% trans 'Powered by' %} Django {{ DJANGO_VERSION }} & Python {{ PYTHON_VERSION }} @ <a href="https://goo.gl/Yp6mKz" rel="nofollow noindex" target="_blank">DigitalOcean</a> © 2015 — {% now 'Y' %}</span></p>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>{% trans "About" %}</h3>
+                    <p>{% trans "A personal blog sharing intermediate-level software engineering tutorials and experiences, focusing on Python, system design, and distributed systems." %}</p>
+                </div>
+                <div class="footer-section">
+                    <h3>{% trans "Connect" %}</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/adilkhash" aria-label="GitHub">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/adaborik" aria-label="Twitter">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adilkhash" aria-label="LinkedIn">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="{% url 'blog:feed' %}" aria-label="RSS Feed">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <div class="footer-bottom">
+                <p>{% trans "Powered by" %} Django {{ DJANGO_VERSION }} & Python {{ PYTHON_VERSION }} @ <a href="https://goo.gl/Yp6mKz" rel="nofollow noindex" target="_blank">DigitalOcean</a> &middot; 2015 — {% now 'Y' %}</p>
+            </div>
         </div>
-    </div>
+    </footer>
 
 {% block _bottom %}{% endblock %}
     {% if not DEBUG %}
@@ -109,9 +592,8 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/32700075" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 {% endif %}
-    {% assets "js_all" %}
-        <script src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

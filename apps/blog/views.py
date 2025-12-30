@@ -9,7 +9,6 @@ from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.shortcuts import render
 
 from apps.blog.models import Post, Category, Page, EmailSubscription, AlternateURL
-from apps.notes.models import Note
 from apps.blog.forms import EmailForm
 
 
@@ -79,11 +78,6 @@ class PostDetailView(DetailView):
         article.save()
         context['object'] = self.model.objects.get(id=article.id)
 
-        context['lastest_notes'] = (
-            Note.objects.filter(status=Note.PUBLISHED, lang=translation.get_language())
-            .select_related('theme')
-            .order_by('-created')[:5]
-        )
         context['related_articles'] = Post.objects.filter(
             status=Post.PUBLISHED,
             lang=translation.get_language(),
@@ -123,20 +117,6 @@ class PageDetailView(DetailView):
         )
 
 
-class SubscriptionView(View):
-    def post(self, request):
-        form = EmailForm(request.POST)
-        if form.is_valid():
-            try:
-                EmailSubscription.objects.create(
-                    email=form.cleaned_data['email'],
-                    lang=translation.get_language()
-                )
-            except:  # duplicate email
-                pass
-        return HttpResponseRedirect(reverse('blog:posts'))
-
-
 class SearchView(View):
     def get(self, request):
         lang_mapping = {'en': 'english', 'ru': 'russian'}
@@ -150,5 +130,4 @@ class SearchView(View):
             .filter(lang=lang, search=search_query)
             .order_by('-created')
         )
-
         return render(request, 'blog/search.html', {'results': results, 'query': query})

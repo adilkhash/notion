@@ -1,25 +1,169 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{{ object.title }} {% trans 'category' %}{% endblock %}
+{% load static %}
+{% block title %}{{ object.title }} — {% trans "category" %}{% endblock %}
+
+{% block _head %}
+<style>
+    .category-header {
+        margin-bottom: 3rem;
+    }
+
+    .category-label {
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-terracotta);
+        margin-bottom: 0.5rem;
+    }
+
+    .category-title {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        font-weight: 400;
+        color: var(--color-ink);
+    }
+
+    .year-section {
+        margin-bottom: 3rem;
+    }
+
+    .year-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .year-title {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--color-ink);
+    }
+
+    .year-line {
+        flex: 1;
+        height: 1px;
+        background: rgba(26, 26, 46, 0.1);
+    }
+
+    .year-posts {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .year-post {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.25rem;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid rgba(26, 26, 46, 0.06);
+        transition: all 0.2s ease;
+    }
+
+    .year-post:hover {
+        box-shadow: 0 4px 20px rgba(26, 26, 46, 0.06);
+        transform: translateX(4px);
+    }
+
+    .post-date {
+        font-size: 0.85rem;
+        color: var(--color-ink-muted);
+        white-space: nowrap;
+        min-width: 100px;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .post-content {
+        flex: 1;
+    }
+
+    .post-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .post-title a {
+        color: var(--color-ink);
+        transition: color 0.2s ease;
+    }
+
+    .post-title a:hover {
+        color: var(--color-terracotta);
+    }
+
+    .post-views {
+        font-size: 0.8rem;
+        color: var(--color-ink-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    @media (max-width: 768px) {
+        .category-title {
+            font-size: 2rem;
+        }
+
+        .year-post {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .post-date {
+            min-width: auto;
+        }
+    }
+</style>
+{% endblock %}
 
 {% block content %}
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{ object.title }} {% trans 'category' %}</h1>
+    <header class="category-header">
+        <div class="category-label">{% trans "Category" %}</div>
+        <h1 class="category-title">{{ object.title }}</h1>
+    </header>
 
-                {% regroup posts by created.year as groups %}
-
-                {% for group in groups %}
-                    <h3>{{ group.grouper }}</h3>
-                    <ul>
-                        {% for post in group.list %}
-                            <li><a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a></li>
-                        {% endfor %}
-                    </ul>
+    {% regroup posts by created.year as year_groups %}
+    {% for year in year_groups %}
+        <section class="year-section">
+            <header class="year-header">
+                <h2 class="year-title">{{ year.grouper }}</h2>
+                <div class="year-line"></div>
+            </header>
+            <div class="year-posts">
+                {% for post in year.list %}
+                    <article class="year-post">
+                        <span class="post-date">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            {{ post.created|date:"j M" }}
+                        </span>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
+                            </h3>
+                            <span class="post-views">
+                                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                {{ post.page_views }} {% trans "views" %}
+                            </span>
+                        </div>
+                    </article>
                 {% endfor %}
             </div>
-        </div>
-    </div>
-
+        </section>
+    {% endfor %}
 {% endblock %}

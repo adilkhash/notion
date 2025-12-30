@@ -7,28 +7,163 @@
 {% block meta_description %}{{ object.text|striptags|truncatechars:200|erase_breaks }}{% endblock %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block content %}
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-8">
-                <article>
-                    <h1>{{ object.title }}</h1>
-                    <div class="article-meta">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <span>{{ object.created|date:"j N o" }}</span>,
-                        {% if user.is_superuser %}
-                            <span><a href="{{ object.get_admin_url }}">{% trans 'Edit' %}</a></span>
-                            {% if object.status == object.DRAFT %}
-                                    <span style="color: red;">{% trans 'Draft' %}</span>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                        {{ object.text|safe }}
-                </article>
-            </div>
-        </div>
-    </div>
+{% block _head %}
+<style>
+    .note-container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
 
+    .note-header {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(26, 26, 46, 0.08);
+    }
+
+    .note-breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--color-ink-muted);
+        margin-bottom: 1.5rem;
+    }
+
+    .note-breadcrumb a {
+        color: var(--color-ink-muted);
+        transition: color 0.2s ease;
+    }
+
+    .note-breadcrumb a:hover {
+        color: var(--color-terracotta);
+    }
+
+    .note-breadcrumb svg {
+        width: 16px;
+        height: 16px;
+        opacity: 0.5;
+    }
+
+    .theme-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 1rem;
+        background: var(--color-terracotta);
+        color: white;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .note-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: var(--color-ink-muted);
+        margin-bottom: 1.5rem;
+    }
+
+    .note-date {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .note-edit {
+        padding: 0.3rem 0.75rem;
+        background: rgba(26, 26, 46, 0.05);
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        color: var(--color-ink-light);
+        transition: all 0.2s ease;
+    }
+
+    .note-edit:hover {
+        background: var(--color-ink);
+        color: var(--color-cream);
+    }
+
+    .note-draft-badge {
+        padding: 0.3rem 0.75rem;
+        background: #fee2e2;
+        color: #dc2626;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .note-title {
+        font-family: var(--font-serif);
+        font-size: 2.75rem;
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--color-ink);
+        letter-spacing: -0.02em;
+        margin: 0;
+    }
+
+    .note-content {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .note-content .prose {
+        font-size: 1.1rem;
+        line-height: 1.9;
+    }
+
+    @media (max-width: 768px) {
+        .note-title {
+            font-size: 2rem;
+        }
+
+        .note-content .prose {
+            font-size: 1rem;
+        }
+    }
+</style>
 {% endblock %}
 
+{% block content %}
+    <article class="note-container">
+        <header class="note-header">
+            <nav class="note-breadcrumb">
+                <a href="{% url 'notes:notes-list' %}">{% trans "Notes" %}</a>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <span>{{ theme.title }}</span>
+            </nav>
+            <div class="theme-badge">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/>
+                </svg>
+                {{ theme.title }}
+            </div>
+            <div class="note-meta">
+                <span class="note-date">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    {{ object.created|date:"j N o" }}
+                </span>
+                {% if user.is_superuser %}
+                    <a href="{{ object.get_admin_url }}" class="note-edit">{% trans "Edit" %}</a>
+                    {% if object.status == object.DRAFT %}
+                        <span class="note-draft-badge">{% trans "Draft" %}</span>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <h1 class="note-title">{{ object.title }}</h1>
+        </header>
 
+        <div class="note-content">
+            <div class="prose">
+                {{ object.text|safe }}
+            </div>
+        </div>
+    </article>
+{% endblock %}

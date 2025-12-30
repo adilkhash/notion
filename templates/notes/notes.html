@@ -2,32 +2,168 @@
 {% load i18n %}
 {% load static %}
 {% get_current_language as LANGUAGE_CODE %}
-{% block title %}{% trans 'Useful notes' %}{% endblock %}
+{% block title %}{% trans "Notes" %}{% endblock %}
+
+{% block _head %}
+<style>
+    .notes-header {
+        margin-bottom: 3rem;
+    }
+
+    .notes-title {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        font-weight: 400;
+        color: var(--color-ink);
+        margin-bottom: 0.5rem;
+    }
+
+    .notes-subtitle {
+        color: var(--color-ink-muted);
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+
+    .theme-section {
+        margin-bottom: 3.5rem;
+    }
+
+    .theme-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .theme-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-terracotta);
+        color: white;
+        border-radius: 10px;
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+    }
+
+    .theme-title {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--color-ink);
+    }
+
+    .theme-line {
+        flex: 1;
+        height: 1px;
+        background: rgba(26, 26, 46, 0.1);
+    }
+
+    .notes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .note-card {
+        padding: 1.5rem;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid rgba(26, 26, 46, 0.06);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .note-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--color-terracotta);
+        transform: scaleX(0);
+        transition: transform 0.25s ease;
+    }
+
+    .note-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(26, 26, 46, 0.08);
+    }
+
+    .note-card:hover::after {
+        transform: scaleX(1);
+    }
+
+    .note-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 0 0 0.75rem 0;
+    }
+
+    .note-title a {
+        color: var(--color-ink);
+        transition: color 0.2s ease;
+    }
+
+    .note-title a:hover {
+        color: var(--color-terracotta);
+    }
+
+    .note-meta {
+        font-size: 0.85rem;
+        color: var(--color-ink-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    @media (max-width: 768px) {
+        .notes-title {
+            font-size: 2rem;
+        }
+
+        .notes-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
 
 {% block content %}
-    <div class="container container-wrap">
-        <div class="row">
-            <div class="col-md-8">
-                <h1>{% trans 'Useful notes' %}</h1>
+    <header class="notes-header">
+        <h1 class="notes-title">{% trans "Notes" %}</h1>
+        <p class="notes-subtitle">{% trans "Quick references and useful snippets" %}</p>
+    </header>
 
-                {% regroup object_list by theme.title as groups %}
-                {% for group in groups %}
-                    <div class="panel panel-default" style="margin-top:10px;">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">{{ group.grouper }}</h3>
+    {% regroup object_list by theme.title as groups %}
+    {% for group in groups %}
+        <section class="theme-section">
+            <header class="theme-header">
+                <div class="theme-icon">{{ group.grouper|first }}</div>
+                <h2 class="theme-title">{{ group.grouper }}</h2>
+                <div class="theme-line"></div>
+            </header>
+            <div class="notes-grid">
+                {% for note in group.list %}
+                    <article class="note-card">
+                        <h3 class="note-title">
+                            <a href="{% url 'notes:note-detail' theme_name=note.theme.slug slug=note.slug %}">{{ note.title }}</a>
+                        </h3>
+                        <div class="note-meta">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            {{ note.created|date:"j N o" }}
                         </div>
-                        <div class="panel-body">
-                            {% for note in group.list %}
-                                <li>
-                                    <a href="{% url 'notes:note-detail' theme_name=note.theme.slug slug=note.slug %}">{{ note.title }}</a>
-                                </li>
-                            {% endfor %}
-                        </div>
-                    </div>
+                    </article>
                 {% endfor %}
             </div>
-
-        </div>
-    </div>
-
+        </section>
+    {% endfor %}
 {% endblock %}
