@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-11 18:34+0600\n"
+"POT-Creation-Date: 2025-12-30 18:25+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\apps\blog\models.py:11 .\apps\blog\models.py:31 .\apps\notes\models.py:9
-#: .\apps\notes\models.py:26
+#: .\apps\blog\models.py:11 .\apps\blog\models.py:31
 msgid "Title"
 msgstr ""
 
-#: .\apps\blog\models.py:16 .\templates\blog\category_detail.html:3
-#: .\templates\blog\category_detail.html:9
+#: .\apps\blog\models.py:16 .\templates\blog\category_detail.html:4
 msgid "category"
 msgstr ""
 
@@ -31,30 +29,29 @@ msgstr ""
 msgid "categories"
 msgstr ""
 
-#: .\apps\blog\models.py:27 .\apps\notes\models.py:23
-#: .\templates\blog\index.html:26 .\templates\blog\post_detail.html:36
-#: .\templates\notes\note_detail.html:22
+#: .\apps\blog\models.py:27 .\templates\blog\index.html:26
+#: .\templates\blog\post_detail.html:69
 msgid "Draft"
 msgstr ""
 
-#: .\apps\blog\models.py:28 .\apps\notes\models.py:23
+#: .\apps\blog\models.py:28
 msgid "Published"
 msgstr ""
 
-#: .\apps\blog\models.py:32 .\apps\notes\models.py:10 .\apps\notes\models.py:25
+#: .\apps\blog\models.py:32
 msgid "Slug"
 msgstr ""
 
-#: .\apps\blog\models.py:33 .\apps\blog\models.py:60 .\apps\notes\models.py:27
+#: .\apps\blog\models.py:33 .\apps\blog\models.py:74
 msgid "Text"
 msgstr ""
 
-#: .\apps\blog\models.py:34 .\apps\blog\models.py:61 .\apps\blog\models.py:78
-#: .\apps\blog\models.py:101 .\apps\notes\models.py:29
+#: .\apps\blog\models.py:34 .\apps\blog\models.py:75 .\apps\blog\models.py:92
+#: .\apps\blog\models.py:115
 msgid "Language"
 msgstr ""
 
-#: .\apps\blog\models.py:36 .\apps\notes\models.py:30
+#: .\apps\blog\models.py:36
 msgid "Status"
 msgstr ""
 
@@ -62,162 +59,145 @@ msgstr ""
 msgid "Page views"
 msgstr ""
 
-#: .\apps\blog\models.py:42
-msgid "post"
+#: .\apps\blog\models.py:39
+msgid "Featured image"
 msgstr ""
 
 #: .\apps\blog\models.py:43
+msgid "Used for social sharing previews (recommended: 1200x630px)"
+msgstr ""
+
+#: .\apps\blog\models.py:49
+msgid "post"
+msgstr ""
+
+#: .\apps\blog\models.py:50
 msgid "Posts"
 msgstr ""
 
-#: .\apps\blog\models.py:66
+#: .\apps\blog\models.py:80
 msgid "page"
 msgstr ""
 
-#: .\apps\blog\models.py:67
+#: .\apps\blog\models.py:81
 msgid "Pages"
 msgstr ""
 
-#: .\apps\blog\models.py:77
+#: .\apps\blog\models.py:91
 msgid "Email"
 msgstr ""
 
-#: .\apps\blog\models.py:79
+#: .\apps\blog\models.py:93
 msgid "Activated"
 msgstr ""
 
-#: .\apps\blog\models.py:80
+#: .\apps\blog\models.py:94
 msgid "Activation code"
 msgstr ""
 
-#: .\apps\blog\models.py:81 .\apps\blog\models.py:104
+#: .\apps\blog\models.py:95 .\apps\blog\models.py:118
 msgid "Created"
 msgstr ""
 
-#: .\apps\blog\models.py:82
+#: .\apps\blog\models.py:96
 msgid "Updated"
 msgstr ""
 
-#: .\apps\blog\models.py:85
+#: .\apps\blog\models.py:99
 msgid "subscription"
 msgstr ""
 
-#: .\apps\blog\models.py:86
+#: .\apps\blog\models.py:100
 msgid "Subscriptions"
 msgstr ""
 
-#: .\apps\blog\models.py:100
+#: .\apps\blog\models.py:114
 msgid "Original post"
 msgstr ""
 
-#: .\apps\blog\models.py:103
+#: .\apps\blog\models.py:117
 msgid "Alternate post"
 msgstr ""
 
-#: .\apps\blog\models.py:107
+#: .\apps\blog\models.py:121
 msgid "alternate URL"
 msgstr ""
 
-#: .\apps\blog\models.py:108
+#: .\apps\blog\models.py:122
 msgid "Alternate URLs"
 msgstr ""
 
-#: .\apps\blog\views.py:20
+#: .\apps\blog\views.py:16
 msgid "Adil Khashtamov's personal blog"
 msgstr ""
 
-#: .\apps\blog\views.py:21
+#: .\apps\blog\views.py:17
 msgid "pragmatic programmer"
 msgstr ""
 
-#: .\apps\notes\models.py:13
-msgid "theme"
-msgstr ""
-
-#: .\apps\notes\models.py:14
-msgid "Themes"
-msgstr ""
-
-#: .\apps\notes\models.py:34
-msgid "note"
-msgstr ""
-
-#: .\apps\notes\models.py:35 .\templates\base.html:40
-msgid "Notes"
-msgstr ""
-
-#: .\notion\settings.py:118
+#: .\notion\settings.py:121
 msgid "Russian"
 msgstr ""
 
-#: .\notion\settings.py:119
+#: .\notion\settings.py:122
 msgid "English"
 msgstr ""
 
-#: .\templates\base.html:11
+#: .\templates\base.html:11 .\templates\base.html:21 .\templates\base.html:31
+#: .\templates\base.html:41
 msgid ""
 "Software engineer personal blog. Usually write about building web apps, "
 "machine learning and data analysis"
 msgstr ""
 
-#: .\templates\base.html:13
+#: .\templates\base.html:13 .\templates\base.html:20 .\templates\base.html:30
 msgid "Adil Khashtamov's personal blog — pragmatic programmer"
 msgstr ""
 
-#: .\templates\base.html:39
-msgid "Blog"
+#: .\templates\base.html:80
+msgid "Adil Khashtamov"
 msgstr ""
 
-#: .\templates\base.html:41
-msgid "Archives"
+#: .\templates\base.html:81
+msgid "Software Engineer"
 msgstr ""
 
-#: .\templates\base.html:42
-msgid "Contacts"
+#: .\templates\base.html:108
+msgid "Search articles..."
 msgstr ""
 
-#: .\templates\base.html:51
-msgid "Admin"
+#: .\templates\base.html:130
+msgid "About"
 msgstr ""
 
-#: .\templates\base.html:67
+#: .\templates\base.html:132
+msgid ""
+"A personal blog sharing intermediate-level software engineering tutorials "
+"and experiences, focusing on Python, system design, and distributed systems."
+msgstr ""
+
+#: .\templates\base.html:138
+msgid "Connect"
+msgstr ""
+
+#: .\templates\base.html:166
 msgid "Powered by"
 msgstr ""
 
 #: .\templates\blog\_sidebar.html:9
-msgid "Subscription"
-msgstr ""
-
-#: .\templates\blog\_sidebar.html:14 .\templates\blog\post_detail.html:53
-msgid "e-mail"
-msgstr ""
-
-#: .\templates\blog\_sidebar.html:16 .\templates\blog\post_detail.html:55
-msgid "Subscribe"
-msgstr ""
-
-#: .\templates\blog\_sidebar.html:21
 msgid "Search"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:25
+#: .\templates\blog\_sidebar.html:13
 msgid "search term"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:28
+#: .\templates\blog\_sidebar.html:16
 msgid "Find"
 msgstr ""
 
-#: .\templates\blog\_sidebar.html:34
-msgid "Recent notes"
-msgstr ""
-
-#: .\templates\blog\_sidebar.html:43
+#: .\templates\blog\_sidebar.html:21
 msgid "Recent posts"
-msgstr ""
-
-#: .\templates\blog\_sidebar.html:55
-msgid "Ad"
 msgstr ""
 
 #: .\templates\blog\archives.html:3 .\templates\blog\archives.html:9
@@ -232,30 +212,49 @@ msgstr ""
 msgid "By year"
 msgstr ""
 
-#: .\templates\blog\index.html:24 .\templates\blog\post_detail.html:34
-#: .\templates\notes\note_detail.html:20
-msgid "Edit"
+#: .\templates\blog\category_detail.html:10
+msgid "Category"
 msgstr ""
 
-#: .\templates\blog\index.html:30
-msgid "read more"
-msgstr ""
-
-#: .\templates\blog\post_detail.html:31 .\templates\blog\search.html:26
+#: .\templates\blog\category_detail.html:46 .\templates\blog\index.html:119
+#: .\templates\blog\post_detail.html:88 .\templates\blog\post_detail.html:153
 msgid "views"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:45
-msgid "Join the mailing list"
+#: .\templates\blog\index.html:10
+msgid "Latest Articles"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:46
-msgid ""
-"If you like the content I produce, please join my mailing list to stay tuned."
+#: .\templates\blog\index.html:13
+msgid "Thoughts on software engineering, Python, and building systems"
 msgstr ""
 
-#: .\templates\blog\post_detail.html:65
-msgid "Related posts"
+#: .\templates\blog\index.html:61
+msgid "Read article"
+msgstr ""
+
+#: .\templates\blog\index.html:76
+msgid "Previous"
+msgstr ""
+
+#: .\templates\blog\index.html:96
+msgid "Next"
+msgstr ""
+
+#: .\templates\blog\index.html:107
+msgid "Most Read"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:116
+msgid "Related Articles"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:143
+msgid "Popular"
+msgstr ""
+
+#: .\templates\blog\post_detail.html:165
+msgid "Recent"
 msgstr ""
 
 #: .\templates\blog\search.html:8
@@ -263,16 +262,16 @@ msgstr ""
 msgid "Results for «%(query)s»"
 msgstr ""
 
-#: .\templates\blog\search.html:16
-msgid "No articles found"
+#: .\templates\blog\search.html:15
+msgid "Results for"
 msgstr ""
 
-#: .\templates\blog\search.html:18
-msgid "Articles found"
+#: .\templates\blog\search.html:19
+msgid "articles found"
 msgstr ""
 
-#: .\templates\notes\notes.html:5 .\templates\notes\notes.html:11
-msgid "Useful notes"
+#: .\templates\blog\search.html:31
+msgid "No articles found for your search query"
 msgstr ""
 
 #: .\templates\tags\jobs.html:7
