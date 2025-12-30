@@ -181,3 +181,8 @@ REDACTOR_OPTIONS = {'lang': 'ru', 'removeComments': False}
 MEDIA_URL = '/uploads/'
 
 SECURE_REFERRER_POLICY = 'no-referrer-when-downgrade'
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://khashtamov.com",
+    "http://khashtamov.com"
+]
