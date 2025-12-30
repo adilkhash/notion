@@ -4,16 +4,6 @@
 {% load blog_tags %}
 
 {% block content %}
-    <!-- Page Header -->
-    <header class="mb-12 animate-fade-in">
-        <h1 class="text-4xl md:text-5xl font-semibold text-ink-900 tracking-tight mb-3">
-            {% trans "Latest Articles" %}
-        </h1>
-        <p class="text-lg text-ink-500 font-light">
-            {% trans "Thoughts on software engineering, programming languages and distributed systems" %}
-        </p>
-    </header>
-
     <!-- Articles List -->
     <div class="space-y-6">
         {% for post in object_list %}
