@@ -54,339 +54,128 @@
                   hreflang="{{ post.lang }}"/>
         {% endfor %}
     {% endif %}
-<style>
-    .article-container {
-        max-width: 720px;
-        margin: 0 auto;
-    }
-
-    .article-header {
-        margin-bottom: 3rem;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid rgba(26, 26, 46, 0.08);
-    }
-
-    .article-meta {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        font-size: 0.9rem;
-        color: var(--color-ink-muted);
-    }
-
-    .article-date {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-
-    .article-category {
-        padding: 0.3rem 0.85rem;
-        background: var(--color-cream-dark);
-        border-radius: 2rem;
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: var(--color-ink-light);
-        transition: all 0.2s ease;
-    }
-
-    .article-category:hover {
-        background: var(--color-terracotta);
-        color: white;
-    }
-
-    .article-views {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-
-    .alternate-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.3rem 0.85rem;
-        background: rgba(26, 26, 46, 0.05);
-        border-radius: 2rem;
-        font-size: 0.8rem;
-        color: var(--color-ink-light);
-        transition: all 0.2s ease;
-    }
-
-    .alternate-link:hover {
-        background: var(--color-ink);
-        color: var(--color-cream);
-    }
-
-    .alternate-link img {
-        width: 16px;
-        height: 16px;
-        border-radius: 2px;
-    }
-
-    .article-title {
-        font-family: var(--font-serif);
-        font-size: 2.75rem;
-        font-weight: 400;
-        line-height: 1.2;
-        color: var(--color-ink);
-        letter-spacing: -0.02em;
-        margin: 0;
-    }
-
-    .article-content {
-        animation: fadeInUp 0.6s ease forwards;
-        max-width: 900px;
-    }
-
-    .article-content .prose {
-        font-size: 1.1rem;
-        line-height: 1.9;
-    }
-
-    /* Related sections */
-    .related-section {
-        margin-top: 5rem;
-        padding-top: 3rem;
-        border-top: 1px solid rgba(26, 26, 46, 0.08);
-    }
-
-    .section-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .section-title {
-        font-family: var(--font-serif);
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: var(--color-ink);
-        white-space: nowrap;
-    }
-
-    .section-line {
-        flex: 1;
-        height: 1px;
-        background: rgba(26, 26, 46, 0.1);
-    }
-
-    .related-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.25rem;
-    }
-
-    .related-card {
-        padding: 1.25rem;
-        background: var(--color-cream-dark);
-        border-radius: 10px;
-        transition: all 0.2s ease;
-    }
-
-    .related-card:hover {
-        background: white;
-        box-shadow: 0 4px 20px rgba(26, 26, 46, 0.06);
-        transform: translateY(-2px);
-    }
-
-    .related-card-title {
-        font-family: var(--font-serif);
-        font-size: 1.05rem;
-        font-weight: 400;
-        line-height: 1.4;
-        margin-bottom: 0.5rem;
-    }
-
-    .related-card-title a {
-        color: var(--color-ink);
-    }
-
-    .related-card-title a:hover {
-        color: var(--color-terracotta);
-    }
-
-    .related-card-meta {
-        font-size: 0.8rem;
-        color: var(--color-ink-muted);
-    }
-
-    /* Sidebar for larger screens */
-    @media (min-width: 1200px) {
-        .article-layout {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 4rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .article-container {
-            max-width: none;
-        }
-
-        .article-sidebar {
-            position: sticky;
-            top: 140px;
-            align-self: start;
-        }
-
-        .sidebar-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .sidebar-title {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--color-ink);
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(26, 26, 46, 0.08);
-        }
-
-        .sidebar-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar-list li {
-            margin-bottom: 0.75rem;
-        }
-
-        .sidebar-list a {
-            font-size: 0.9rem;
-            color: var(--color-ink-light);
-            line-height: 1.5;
-            display: block;
-            transition: color 0.2s ease;
-        }
-
-        .sidebar-list a:hover {
-            color: var(--color-terracotta);
-        }
-
-        .sidebar-meta {
-            font-size: 0.75rem;
-            color: var(--color-ink-muted);
-            margin-top: 0.25rem;
-        }
-    }
-
-    @media (max-width: 1199px) {
-        .article-sidebar {
-            display: none;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .article-title {
-            font-size: 2rem;
-        }
-
-        .article-content .prose {
-            font-size: 1rem;
-        }
-
-        .related-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
 {% endblock %}
 
 {% block content %}
-    <div class="article-layout">
-        <article class="article-container">
-            <header class="article-header">
-                <div class="article-meta">
-                    <span class="article-date">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                        {{ object.month_year }}
-                    </span>
-                    {% if object.category %}
-                    <a href="{% url 'blog:category' slug=object.category.slug %}" class="article-category">{{ object.category.title }}</a>
-                    {% endif %}
-                    <span class="article-views">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                        </svg>
-                        {{ object.page_views }} {% trans "views" %}
-                    </span>
-                    {% if alternate_posts %}
-                        {% for post in alternate_posts %}
-                            <a href="{{ post.alternate_post.get_absolute_url }}" class="alternate-link">
-                                <img src="{% if post.lang == 'en' %}{% static 'images/us-flag.png' %}{% else %}{% static 'images/ru-flag.png' %}{% endif %}" alt="{{ post.lang }}">
-                                {% if post.lang == 'en' %}English{% else %}Русский{% endif %}
-                            </a>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-                <h1 class="article-title">{{ object.title }}</h1>
-            </header>
-
-            <div class="article-content">
-                <div class="prose">
-                    {{ object.text|safe }}
-                </div>
+<div class="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
+    <!-- Main Article -->
+    <article class="animate-fade-in">
+        <!-- Article Header -->
+        <header class="mb-10 pb-8 border-b border-ink-100">
+            <!-- Meta info -->
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+                <time class="flex items-center gap-1.5 text-sm text-ink-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    {{ object.month_year }}
+                </time>
+                {% if object.category %}
+                <a href="{% url 'blog:category' slug=object.category.slug %}" class="px-3 py-1 text-xs font-medium bg-ink-100 text-ink-600 rounded-full hover:bg-accent-500 hover:text-white transition-colors duration-200">
+                    {{ object.category.title }}
+                </a>
+                {% endif %}
+                <span class="flex items-center gap-1.5 text-sm text-ink-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                    {{ object.page_views }} {% trans "views" %}
+                </span>
+                {% if alternate_posts %}
+                    {% for post in alternate_posts %}
+                    <a href="{{ post.alternate_post.get_absolute_url }}" class="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium bg-ink-50 text-ink-600 rounded-full hover:bg-ink-900 hover:text-white transition-colors duration-200">
+                        <img src="{% if post.lang == 'en' %}{% static 'images/us-flag.png' %}{% else %}{% static 'images/ru-flag.png' %}{% endif %}" alt="{{ post.lang }}" class="w-4 h-4 rounded-sm">
+                        {% if post.lang == 'en' %}English{% else %}Русский{% endif %}
+                    </a>
+                    {% endfor %}
+                {% endif %}
             </div>
 
-            {% if related_articles %}
-                <section class="related-section">
-                    <header class="section-header">
-                        <h2 class="section-title">{% trans "Related Articles" %}</h2>
-                        <div class="section-line"></div>
-                    </header>
-                    <div class="related-grid">
-                        {% for article in related_articles %}
-                            <article class="related-card">
-                                <h3 class="related-card-title">
-                                    <a href="{% url 'blog:post' slug=article.slug %}">{{ article.title }}</a>
-                                </h3>
-                                <div class="related-card-meta">{{ article.month_year }}</div>
-                            </article>
-                        {% endfor %}
+            <!-- Title -->
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-ink-900 tracking-tight leading-tight">
+                {{ object.title }}
+            </h1>
+        </header>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+            {{ object.text|safe }}
+        </div>
+
+        <!-- Related Articles -->
+        {% if related_articles %}
+        <section class="mt-16 pt-10 border-t border-ink-100">
+            <header class="flex items-center gap-4 mb-6">
+                <h2 class="text-xl font-semibold text-ink-900 tracking-tight whitespace-nowrap">
+                    {% trans "Related Articles" %}
+                </h2>
+                <div class="flex-1 h-px bg-ink-100"></div>
+            </header>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                {% for article in related_articles %}
+                <a href="{% url 'blog:post' slug=article.slug %}" class="group p-5 bg-ink-50 hover:bg-white hover:shadow-lg hover:shadow-ink-900/5 rounded-xl transition-all duration-300">
+                    <h3 class="font-medium text-ink-800 group-hover:text-accent-500 transition-colors duration-200 mb-2 line-clamp-2">
+                        {{ article.title }}
+                    </h3>
+                    <div class="text-sm text-ink-400">
+                        {{ article.month_year }}
                     </div>
-                </section>
-            {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+    </article>
 
-        </article>
-
-        <aside class="article-sidebar">
+    <!-- Sidebar (Desktop Only) -->
+    <aside class="hidden lg:block">
+        <div class="sticky top-32 space-y-8">
             {% if popular_posts %}
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">{% trans "Popular" %}</h3>
-                <ul class="sidebar-list">
+            <div>
+                <h3 class="text-sm font-semibold text-ink-900 uppercase tracking-wider mb-4 pb-3 border-b border-ink-100">
+                    {% trans "Popular" %}
+                </h3>
+                <ul class="space-y-4">
                     {% for post in popular_posts|slice:":5" %}
-                        <li>
-                            <a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
-                            <div class="sidebar-meta">{{ post.page_views }} {% trans "views" %}</div>
-                        </li>
+                    <li>
+                        <a href="{% url 'blog:post' slug=post.slug %}" class="group block">
+                            <span class="text-sm text-ink-700 group-hover:text-accent-500 transition-colors duration-200 line-clamp-2">
+                                {{ post.title }}
+                            </span>
+                            <span class="text-xs text-ink-400 mt-1 block">
+                                {{ post.page_views }} {% trans "views" %}
+                            </span>
+                        </a>
+                    </li>
                     {% endfor %}
                 </ul>
             </div>
             {% endif %}
 
             {% if recent_posts %}
-            <div class="sidebar-section">
-                <h3 class="sidebar-title">{% trans "Recent" %}</h3>
-                <ul class="sidebar-list">
+            <div>
+                <h3 class="text-sm font-semibold text-ink-900 uppercase tracking-wider mb-4 pb-3 border-b border-ink-100">
+                    {% trans "Recent" %}
+                </h3>
+                <ul class="space-y-4">
                     {% for post in recent_posts|slice:":5" %}
-                        <li>
-                            <a href="{% url 'blog:post' slug=post.slug %}">{{ post.title }}</a>
-                            <div class="sidebar-meta">{{ post.month_year }}</div>
-                        </li>
+                    <li>
+                        <a href="{% url 'blog:post' slug=post.slug %}" class="group block">
+                            <span class="text-sm text-ink-700 group-hover:text-accent-500 transition-colors duration-200 line-clamp-2">
+                                {{ post.title }}
+                            </span>
+                            <span class="text-xs text-ink-400 mt-1 block">
+                                {{ post.month_year }}
+                            </span>
+                        </a>
+                    </li>
                     {% endfor %}
                 </ul>
             </div>
             {% endif %}
-        </aside>
-    </div>
+        </div>
+    </aside>
+</div>
 {% endblock %}
