@@ -63,6 +63,10 @@ class Post(models.Model):
         return reverse('admin:%s_%s_change' % (content_type.app_label, content_type.model),
                        args=(self.id,))
 
+    @property
+    def is_draft(self):
+        return self.status == self.DRAFT
+
 
 class Page(models.Model):
     title = models.CharField(max_length=30)
