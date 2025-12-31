@@ -43,7 +43,7 @@
 
                 <!-- Excerpt -->
                 <p class="text-ink-500 leading-relaxed mb-4">
-                    {{ post.text|text_preview|striptags|truncatewords:35 }}
+                    {{ post.text|text_preview|striptags|truncatewords:35|safe }}
                 </p>
 
                 <!-- Read more -->
