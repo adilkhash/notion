@@ -1,4 +1,4 @@
-Django
+Django==6.0.1
 psycopg2
 django-environ
 https://github.com/adilkhash/django-redactor3/archive/master.zip
